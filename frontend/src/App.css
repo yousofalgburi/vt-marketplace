@@ -40,3 +40,31 @@
 .read-the-docs {
   color: #888;
 }
+
+.App-header h1 {
+  color: #276ef1; 
+  font-size: 4.5rem; 
+  text-align: center; 
+  margin-top: 2rem; 
+  margin-bottom: 1rem; 
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+  transition: transform 0.3s ease; 
+}
+
+.App-header h1:hover {
+  transform: scale(1.05); 
+  color: #4f93e0; 
+}
+.App-header h2 {
+  transform: scale(1.05); 
+  color: #4f93e0; 
+  font-size: 2.5rem;
+}
+.App-header h2:hover {
+  transform: scale(1.05); 
+  color: #4fe588; 
+}
+.App-header p {
+  font-size: 1.5rem;
+}
