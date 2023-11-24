@@ -4,8 +4,10 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* color: rgba(255, 255, 255, 0.87); */
+  color: green;
+  /*background-color: #242424; */
+  background-color: beige;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,15 +27,30 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  /*display: flex; */
+  /*place-items: center;*/
   min-width: 320px;
   min-height: 100vh;
 }
 
 h1 {
-  font-size: 3.2em;
+  color: blue;
+  font-size: 3.9em;
   line-height: 1.1;
+}
+
+.people-icon {
+  width: 1000px; /* Set a fixed width for icons */
+  height: 500px; /* Keep aspect ratio */
+  margin-bottom: 10px; /* Add space between icon and text */
+}
+
+h2 {
+  color: brown;
+}
+
+h3 {
+  color: lightseagreen;
 }
 
 button {
@@ -47,12 +64,283 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
+
+button:focus, button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4267B2; /* Assuming you want to keep the blue color */
+  padding: 10px 20px; /* Increase padding for larger space inside the navbar */
+  width: 100%; /* Stretch to full width */
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.topnav a {
+  color: white;
+  padding: 10px 16px; /* Adjust padding to match the image */
+  text-decoration: none;
+  font-size: 17px;
+  margin: 0 10px; /* Add some margin between links */
+}
+
+.topnav a:hover,
+.topnav a:focus {
+  background-color: #365899; /* Darker blue on hover/focus to match Facebook's style */
+  color: white;
+}
+
+.vt-logo {
+  height: 50px; /* Set the height of your logo */
+  margin-right: 0px; /* Adjust spacing between logo and text */
+  vertical-align: middle; /* Align it vertically with the text if necessary */
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+}
+
+.marketplace-button {
+  background-color: #e7f3ff; /* Light blue background for the button */
+  color: #4267B2; /* Text color */
+  padding: 10px 24px; /* Increase padding for a larger button */
+  border: none;
+  border-radius: 6px; /* More rounded corners */
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: none; /* If there's any shadow, remove it */
+}
+
+.marketplace-button:hover {
+  background-color: #d8e7ff; /* Slightly darker on hover */
+}
+
+.benefits-section {
+  display: flex; /* Use flexbox to align children side by side */
+  justify-content: center; /* Center the items horizontally */
+  align-items: center; /* Align items vertically */
+  gap: 150px; /* Add some space between the items */
+  padding: 20px; /* Add padding around the whole section */
+  flex-wrap: wrap; /* Wrap items to next line on small screens */
+}
+
+.benefit {
+  flex: 1; /* Each child will take up equal space */
+  min-width: 200px; /* Minimum width of each benefit item */
+  max-width: 300px; /* Maximum width to ensure they wrap on smaller screens */
+  text-align: center; /* Center the text within each benefit */
+  padding: 10px; /* Add some padding inside each benefit */
+}
+
+.benefit img.icon {
+  width: 150px; /* Set a fixed width for icons */
+  height: auto; /* Keep aspect ratio */
+  margin-bottom: 10px; /* Add space between icon and text */
+}
+
+.buying-section {
+  background-color: #4267B2; /* Facebook's blue color for the background */
+  color: white; /* White text color */
+  padding: 40px 20px; /* Padding around the section */
+  text-align: center; /* Center the text */
+}
+
+.buying-section h2 {
+  color: gold;
+  font-size: 2.5em; /* Large font size for the heading */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+.buying-section p {
+  max-width: 600px; /* Max width for the paragraph */
+  margin: 0 auto 40px; /* Center the paragraph and add space below */
+  line-height: 1.6; /* Line height for paragraph */
+  font-size: 1.1em; /* Slightly larger font size for the paragraph */
+}
+
+.buying-buttons {
+  display: flex; /* Align buttons in a row */
+  justify-content: center; /* Center the buttons */
+  gap: 20px; /* Space between the buttons */
+}
+
+.buying-buttons button {
+  background-color: white; /* White background color for buttons */
+  color: #4267B2; /* Text color that matches the section background */
+  border: 2px solid white; /* White border for buttons */
+  padding: 10px 20px; /* Padding inside the buttons */
+  border-radius: 20px; /* Rounded corners for buttons */
+  font-size: 1em; /* Font size for text inside buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, color 0.3s; /* Transition for button hover effects */
+}
+
+.buying-buttons button:hover {
+  background-color: transparent; /* Transparent background on hover */
+  color: white; /* White text on hover */
+}
+
+.buying-items {
+  display: flex; /* Use flexbox to display children inline */
+  justify-content: center; /* Center the items in the container */
+  gap: 30px; /* Set a gap between the images */
+  margin: 40px 0; /* Add some vertical space above and below the image container */
+}
+
+.buying-items img {
+  max-width: 50%; /* Each image can take up to half the width of the container */
+  height: auto; /* Maintain the aspect ratio of the images */
+}
+
+.selling-section {
+  background-color: #00A7E1; /* Choose a color that fits the selling section, this is just an example */
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.selling-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.selling-section p {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  font-size: 1.1em;
+}
+
+.selling-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.selling-buttons button {
+  background-color: white;
+  color: #00A7E1;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.selling-buttons button:hover {
+  background-color: transparent;
+  color: white;
+}
+
+.selling-items {
+  display: flex; /* Use flexbox to align children */
+  justify-content: center; /* Center the items horizontally */
+  align-items: center; /* Center the items vertically */
+  margin: 40px 0; /* Add vertical space above and below the image container */
+}
+
+.selling-items img {
+  width: 100%; /* Image will fill the container */
+  max-width: 1200px; /* Maximum width of the image */
+  height: 600px; /* Maintain aspect ratio */
+}
+
+.resources {
+  font-size: 2.5em; /* Set the font size larger as per your design requirement */
+}
+
+h2.resources {
+  font-size: 3.5em; /* Set the font size larger as per your design requirement */
+  color: purple;
+}
+
+.resources-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0;
+}
+
+.resource {
+  flex: 1; /* Divide space equally between the two columns */
+  margin: 0 20px; /* Add some horizontal space between the columns */
+}
+
+.resource-image {
+  width: 100%; /* Full width of the column */
+  max-width: 500px; /* Maximum width of the images */
+  height: 300px; /* Maintain aspect ratio */
+  margin-bottom: 20px; /* Space between image and heading */
+}
+
+.resource-link {
+  color: blue; /* Light blue color */
+  text-decoration: none; /* No underline by default */
+  transition: color 0.3s ease; /* Smooth color transition for hover */
+}
+
+.resource-link:hover,
+.resource-link:focus {
+  color: #00008B; /* Dark blue color on hover/focus */
+  text-decoration: underline; /* No underline by default */
+
+}
+
+/* Since the link color is now light blue, you may want to ensure the text inside the link is also light blue */
+.resource-link h3 {
+  color: black;
+}
+.resource-link p {
+  color: inherit; /* This ensures the text inherits the color from the .resource-link */
+}
+
+/* Optional: Adjust the h3 and p tag margins if needed */
+.resource-link h3 {
+  margin-top: 0;
+}
+
+.resource-link p {
+  margin-bottom: 0;
+}
+
+/* Footer styles */
+.footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #4267B2; /* Facebook's blue color */
+  color: white;
+  font-size: 0.9em;
+  border-top: 1px solid #365899; /* Optional: adds a slight border at the top for visual separation */
+}
+
+.footer-links {
+  display: flex;
+  gap: 10px; /* Adjust the space between links as needed */
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #d8e7ff; /* Lighter blue on hover */
+}
+
+.footer-rights {
+  white-space: nowrap; /* Ensure this text stays on one line */
 }
 
 @media (prefers-color-scheme: light) {
@@ -65,5 +353,59 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 771px) {
+  .benefits-section {
+    flex-direction: column; /* Stack the benefits vertically on small screens */
+  }
+
+  .buying-buttons {
+    flex-direction: column; /* Stack buttons vertically on small screens */
+  }
+
+  .buying-buttons button {
+    width: 100%; /* Full width buttons on small screens */
+    margin-bottom: 10px; /* Space between stacked buttons */
+  }
+
+  .buying-items {
+    flex-direction: column; /* Stack the images vertically */
+  }
+
+  .buying-items img {
+    max-width: 90%; /* Allow the images to take more width on small screens */
+    margin: 0 auto; /* Center images with automatic horizontal margins */
+  }
+
+  .selling-buttons {
+    flex-direction: column;
+  }
+
+  .selling-buttons button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .selling-items img {
+    max-width: 95%; /* Allow the image to be a bit smaller on small screens */
+    margin: 0 auto; /* Center the image with automatic horizontal margins */
+  }
+
+  .resources-section {
+    flex-direction: column; /* Stack the columns on top of each other */
+  }
+
+  .resource {
+    margin: 20px 0; /* Add vertical space between stacked resources */
+  }
+
+  .footer-nav {
+    flex-direction: column;
+  }
+  
+  .footer-rights {
+    margin-top: 10px; /* Add space between links and copyright text on smaller screens */
   }
 }

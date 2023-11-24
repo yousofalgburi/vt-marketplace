@@ -1,19 +1,30 @@
 // App.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Homepage from './Homepage'; // import the Homepage component
-import Items from './Items'; // assuming you have an Items component
+import './App.css';
+import Homepage from './Pages/Homepage.jsx'; // import the Homepage component
+import Login from './Components/Login.jsx';
+//import Topbar from './Components/Topbar.jsx';
+import Items from './Components/Items.jsx';
 
 function App() {
+  const [openLogin, setOpenLogin] = useState(false)
+  const [signedIn, signIn] = useState(false)
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="items" element={<Items />} />
-        {/* ... other routes */}
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+        { /* <Topbar signedIn={signedIn} openLoginPage={setOpenLogin} signIn={signIn} />   */ }
+        <Routes>
+          <Route path="/" element={<Homepage signedIn={signedIn} />} />
+          <Route path="/home" element={<Homepage signedIn={signedIn} />} />
+          <Route path="items" element={<Items signedIn={signedIn} />} />
+          {/* ... other routes */}
+        </Routes>
+      </BrowserRouter>
+      {openLogin && <Login signIn={signIn} closeLogin={setOpenLogin} />}
+    </div>
   );
-}
+};
 
 export default App;
