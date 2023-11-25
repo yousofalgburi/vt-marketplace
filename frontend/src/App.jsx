@@ -6,6 +6,10 @@ import Homepage from './Pages/Homepage.jsx'; // import the Homepage component
 import Login from './Components/Login.jsx';
 //import Topbar from './Components/Topbar.jsx';
 import Items from './Components/Items.jsx';
+import Commerce from './Components/Commerce.jsx';
+import About from './Components/footer/about.jsx';
+import Responsibility from './Components/footer/responsibility.jsx';
+import Accessibility from './Components/footer/accessibility.jsx';
 
 function App() {
   const [openLogin, setOpenLogin] = useState(false)
@@ -19,6 +23,10 @@ function App() {
           <Route path="/" element={<Homepage signedIn={signedIn} />} />
           <Route path="/home" element={<Homepage signedIn={signedIn} />} />
           <Route path="items" element={<Items signedIn={signedIn} />} />
+          <Route path="/commerce" element={<Commerce />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/responsibility" element={<Responsibility />} />
+          <Route path="/accessibility" element={<Accessibility />} />
           {/* ... other routes */}
         </Routes>
       </BrowserRouter>

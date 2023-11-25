@@ -29,7 +29,7 @@ function Homepage() {
       <nav className="topnav">
         <div className="nav-content">
           <img src={vtLogo} alt="VT Logo" className="vt-logo" />
-          <NavLink to="/Homepage" activeClassName="active">VT Marketplace</NavLink>
+          <NavLink to="/home" activeClassName="active">VT Marketplace</NavLink>
           <NavLink to="/blog" activeClassName="active">Blog</NavLink>
           <NavLink to="/buying" activeClassName="active">Buying</NavLink>
           <NavLink to="/selling" activeClassName="active">Selling</NavLink>
@@ -101,7 +101,7 @@ function Homepage() {
       <h2 className="resources">Resources</h2>
       <div className="resources-section">
         <div className="resource">
-          <a href="/commerce-policies" className="resource-link">
+          <a href="/commerce" className="resource-link">
             <img src={commercePoliciesImg} alt="Commerce Policies" className="resource-image" />
             <h3>Commerce Policies</h3>
             <p>Products sold through VT Marketplace must comply with our Commerce Policies. Buyers and sellers are also responsible for complying with all applicable laws and regulations.</p>
@@ -120,11 +120,11 @@ function Homepage() {
 
       <footer className="footer-nav">
         <div className="footer-links">
-          <a href="/about">About</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-          <a href="/cookies">Cookies</a>
-          <a href="/help">Help</a>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/privacy">Privacy</NavLink>
+          <NavLink to="/terms">Terms</NavLink>
+          <NavLink to="/cookies">Cookies</NavLink>
+          <NavLink to="/help">Help</NavLink>
         </div>
         <div className="footer-rights">
           © Virginia Tech Marketplace. All Rights Reserved.
