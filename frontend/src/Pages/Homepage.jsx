@@ -7,7 +7,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import vtLogo from '../assets/vt.svg';
 import people_icon from '../assets/people.svg';
 import freeToUseIcon from '../assets/free-to-use.svg';
-import hokiesIcon from '../assets/hokie-bird.svg';
+import hokiesIcon from '../assets/hokie-bird.png';
 import connectWithOthersIcon from '../assets/connect-with-others.svg';
 import buying_items1 from '../assets/buying_items1.svg';
 import buying_items2 from '../assets/buying_items2.svg';
