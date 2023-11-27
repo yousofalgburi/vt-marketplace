@@ -1,19 +1,17 @@
 // Homepage.jsx
 import React, { useState } from 'react';
-import reactLogo from '../assets/react.svg';
-import viteLogo from '/vite.svg';
 import '../App.css';
 import { NavLink, useNavigate } from 'react-router-dom';
-import vtLogo from '../assets/vt.svg';
-import people_icon from '../assets/people.svg';
-import freeToUseIcon from '../assets/free-to-use.svg';
+import vtLogo from '../assets/vt.png';
+import people_icon from '../assets/people.png';
+import freeToUseIcon from '../assets/free-to-use.png';
 import hokiesIcon from '../assets/hokie-bird.png';
-import connectWithOthersIcon from '../assets/connect-with-others.svg';
-import buying_items1 from '../assets/buying_items1.svg';
-import buying_items2 from '../assets/buying_items2.svg';
-import selling_items from '../assets/selling_items.svg';
-import commercePoliciesImg from '../assets/commerce_policy.svg';
-import boostedListingsImg from '../assets/boosted_listing.svg';
+import connectWithOthersIcon from '../assets/connect-with-others.png';
+import buying_items1 from '../assets/buying_items1.png';
+import buying_items2 from '../assets/buying_items2.png';
+import selling_items from '../assets/selling_items.png';
+import commercePoliciesImg from '../assets/commerce_policy.png';
+import boostedListingsImg from '../assets/boosted_listing.png';
 // You can import NavLink if you need navigation links on your homepage.
 
 function Homepage() {
@@ -21,7 +19,7 @@ function Homepage() {
   const [count, setCount] = useState(0);
     
   const goToItemsPage = () => {
-    navigate('/items'); // This path should match the route path defined in App.jsx
+    navigate('/items');
   };
   
   return (

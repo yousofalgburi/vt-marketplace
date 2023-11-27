@@ -10,6 +10,11 @@ import Commerce from './Components/Commerce.jsx';
 import About from './Components/footer/about.jsx';
 import Responsibility from './Components/footer/responsibility.jsx';
 import Accessibility from './Components/footer/accessibility.jsx';
+import Usability from './Components/footer/usability.jsx';
+import Help from './Components/footer/marketplace_help.jsx';
+import Report from './Components/footer/report.jsx';
+import Scams from './Components/footer/scams.jsx';
+import Policies from './Components/footer/purchase_policies.jsx';
 
 function App() {
   const [openLogin, setOpenLogin] = useState(false)
@@ -27,7 +32,11 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/responsibility" element={<Responsibility />} />
           <Route path="/accessibility" element={<Accessibility />} />
-          {/* ... other routes */}
+          <Route path="/usability" element={<Usability />} />
+          <Route path="/marketplace_help" element={<Help />} />
+          <Route path="/purchase_policies" element={<Policies />} />
+          <Route path="/report" element={<Report />} />
+          <Route path="/scams" element={<Scams />} />
         </Routes>
       </BrowserRouter>
       {openLogin && <Login signIn={signIn} closeLogin={setOpenLogin} />}

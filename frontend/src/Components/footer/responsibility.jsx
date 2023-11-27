@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import vtLogo from '../../assets/vt.png';
 
 function Responsibility() {
+    const navigate = useNavigate();
+
+    const goToItemsPage = () => {
+        navigate('/items');
+    };
+    
     // State to manage dropdown visibility
     const [showSection, setShowSection] = useState({
         meetingInPerson: false,
@@ -29,12 +36,23 @@ function Responsibility() {
 
     return (
         <div className="responsibility-page">
+            <nav className="topnav">
+                <div className="nav-content">
+                    <img src={vtLogo} alt="VT Logo" className="vt-logo" />
+                    <NavLink to="/home" activeClassName="active">VT Marketplace</NavLink>
+                    <NavLink to="/blog" activeClassName="active">Blog</NavLink>
+                    <NavLink to="/buying" activeClassName="active">Buying</NavLink>
+                    <NavLink to="/selling" activeClassName="active">Selling</NavLink>
+                    <NavLink to="/trust-and-safety" activeClassName="active">Trust & Safety</NavLink>
+                </div>
+                <button className="marketplace-button" onClick={goToItemsPage}>GO TO MARKETPLACE</button>
+            </nav>
+
             <h1>Buy and sell responsibly on VT Marketplace</h1>
 
             {/* Section 1 */}
             <div className="responsibility-section">
                 <h2 onClick={() => toggleSection('meetingInPerson')} className={showSection.meetingInPerson ? 'open' : ''}>Meeting in-person</h2>
-                { /* <h2 onClick={() => toggleSection('meetingInPerson')}>Meeting in-person</h2> */ }
                 {showSection.meetingInPerson && (
                     <div>
                         <ul>
