@@ -4,6 +4,6 @@ const router = express.Router()
 
 router.get('/', getPosts)
 router.get('/:id', getPost)
-router.get('/search', getPostsBySearch)
+router.get('/search/:title', getPostsBySearch)
 
 export default router
