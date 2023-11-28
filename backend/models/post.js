@@ -17,6 +17,15 @@ const postSchema = mongoose.Schema({
 		type: Date,
 		default: new Date(),
 	},
+	bid: {
+		type: Number,
+		default: null,
+	},
+	bidderID: {
+		type: String,
+		default: '',
+	},
+
 })
 
 let Post = mongoose.model('Post', postSchema)
