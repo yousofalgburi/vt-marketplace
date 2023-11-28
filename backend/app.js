@@ -25,6 +25,6 @@ app.use('/create', createRoutes)
 app.use('/posts', postRoutes)
 
 mongoose
-	.connect('mongodb+srv://yousof:gmhod333@development.bbfev3h.mongodb.net/?retryWrites=true&w=majority')
+	.connect('mongodb+srv://gansh:PWJQGzrvAb9PMuXm@cluster0.nzkhjw4.mongodb.net/?retryWrites=true&w=majority')
 	.then(() => app.listen(port, () => console.log(`Server Running on Port: ${port}`)))
 	.catch((error) => console.log(`${error} could not connect`))
