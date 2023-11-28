@@ -1,10 +1,23 @@
 import mongoose from 'mongoose'
 
 const postSchema = mongoose.Schema({
-	title: String,
-	description: String,
-	creator: String,
-	image: String,
+	title: {
+		type: String,
+		required: true,
+	},
+	description: {
+		type: String,
+		required: true,
+	},
+	creator: {
+		type: String,
+		required: true,
+	},
+	image: {
+		type: String,
+		required: true,
+	},
+	location: String,
 	tags: {
 		type: [String],
 		default: [],
@@ -21,11 +34,11 @@ const postSchema = mongoose.Schema({
 		type: Number,
 		default: null,
 	},
-	bidderID: {
-		type: String,
-		default: '',
+	bidderID: String,
+	bidCount: {
+		type: Number,
+		default: 0,
 	},
-
 })
 
 let Post = mongoose.model('Post', postSchema)

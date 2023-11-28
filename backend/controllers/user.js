@@ -50,7 +50,6 @@ export const signup = async (req, res) => {
 }
 
 export const getCurrentUser = async (req, res) => {
-	// console.log(req.userId)
     try {
         const user = await UserModel.findById(req.userId);
         if (!user) {
