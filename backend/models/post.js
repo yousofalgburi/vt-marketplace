@@ -24,7 +24,7 @@ const postSchema = mongoose.Schema({
 	},
 	price: {
 		type: Number,
-		default: 0,
+		default: null,
 	},
 	createdAt: {
 		type: Date,
