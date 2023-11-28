@@ -5,6 +5,14 @@ const postSchema = mongoose.Schema({
 	description: String,
 	creator: String,
 	image: String,
+	tags: {
+		type: [String],
+		default: [],
+	},
+	price: {
+		type: Number,
+		default: 0,
+	},
 	createdAt: {
 		type: Date,
 		default: new Date(),
