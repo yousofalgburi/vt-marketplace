@@ -32,15 +32,15 @@ export const getPost = async (req, res) => {
 }
 
 export const getPostsBySearch = async (req, res) => {
-    const { searchQuery } = req.params.title
+	const { searchQuery } = req.query
 
-    try {
+	try {
 		const title = new RegExp(searchQuery, 'i')
 		const posts = await Post.find({ title })
-        res.json({ data: posts })
-    } catch (error) {
-        res.status(404).json({ message: error.message })
-    }
+		res.json({ data: posts })
+	} catch (error) {
+		res.status(404).json({ message: error.message })
+	}
 }
 
 export default router
