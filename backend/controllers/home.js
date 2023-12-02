@@ -43,4 +43,17 @@ export const getPostsBySearch = async (req, res) => {
 	}
 }
 
+export const getPostsByUser = async (req, res) => {
+	const { userID } = req.params
+
+	if(!userID) return res.status(400).json({ message: 'No user ID provided' })
+
+	try {
+		const posts = await Post.find({ creator: userID })
+		res.status(200).json(posts)
+	} catch (error) {
+		res.status(404).json({ message: error.message })
+	}
+}
+
 export default router
