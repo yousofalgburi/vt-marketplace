@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import vtLogo from '../assets/vt.png';
 import TopNav from '../Components/TopNav';
 import Footer from '../Components/Footer';
+import PriceModal from '../Components/PriceModal';
+
 
 function Items() {
   const navigate = useNavigate();
@@ -27,38 +29,27 @@ function Items() {
       setShowDialog(false); // Close dialog if no item is selected and dropdown is closing
     }
   };
-  const [items, setItems] = useState([
-    { name: 'iPhone 14 Pro', price: 599, location: 'University Terrace' },
-    { name: 'Samsung S23+', price: 549, location: 'Hoge Hall' },
-    // Add more items here
-  ]);
+  const [lowerPrice, setLowerPrice] = useState(10);
+  const [higherPrice, setHigherPrice] = useState(250);
 
-  // New states for filtering and sorting
-  const [filter, setFilter] = useState({ minPrice: 250, maxPrice: 750 });
-  const [sortBy, setSortBy] = useState('name');
+  const increasePrice = (priceType) => {
+    if (priceType === 'lower') {
+      setLowerPrice(prevPrice => prevPrice + 10);
+    } else if (priceType === 'higher') {
+      setHigherPrice(prevPrice => prevPrice + 10);
+    }
+  };
+  
+  const decreasePrice = (priceType) => {
+    if (priceType === 'lower') {
+      setLowerPrice(prevPrice => (prevPrice - 10 > 0 ? prevPrice - 10 : 0));
+    } else if (priceType === 'higher') {
+      setHigherPrice(prevPrice => (prevPrice - 10 > 0 ? prevPrice - 10 : 0));
+    }
+  };
+  
 
-  // Function to render each item
-  const renderItem = (item) => (
-    <div className="item" key={item.name}>
-      <div className="item-image" />
-      <div className="item-info">
-        <h5>{item.name}</h5>
-        <p>Price: ${item.price}</p>
-        <p>{item.location}</p>
-      </div>
-    </div>
-  );
-
-  // Filter and sort items based on current state
-  const filteredSortedItems = items
-    .filter(item => item.price >= filter.minPrice && item.price <= filter.maxPrice)
-    .sort((a, b) => {
-      if (sortBy === 'name') {
-        return a.name.localeCompare(b.name);
-      }
-      return a.price - b.price;
-    });
-
+  
 
   return (
     <div>
@@ -88,34 +79,32 @@ function Items() {
         </ul>
       </div>
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rangeModal">
-  Launch dialog
-</button>
+      {/* Update button text to show the current lower price */}
+      <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rangeModalLowerPrice">
+        Lower Price: ${lowerPrice}
+      </button>
 
-<div class="modal fade" id="rangeModal" tabindex="-1" aria-labelledby="rangeModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="rangeModalLabel">Set Range</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="input-group mb-3">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
-          <input type="text" class="form-control" placeholder="Lower Range" aria-label="Example text with button addon" aria-describedby="button-addon1" value="$ 250"/>
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2">-</button>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div className="items-container">
-        {filteredSortedItems.map(renderItem)}
-      </div>
+      <PriceModal
+        price={lowerPrice}
+        setPrice={setLowerPrice}
+        increasePrice={() => increasePrice('lower')}
+        decreasePrice={() => decreasePrice('lower')}
+        modalId="rangeModalLowerPrice"
+        title="Set Lower Price"
+      />
+
+<button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rangeModalHigherPrice">
+        Higher Price: ${higherPrice}
+      </button>
+
+      <PriceModal
+        price={higherPrice}
+        setPrice={setHigherPrice}
+        increasePrice={() => increasePrice('higher')}
+        decreasePrice={() => decreasePrice('higher')}
+        modalId="rangeModalHigherPrice"
+        title="Set Higher Price"
+      />
 
 
       <Footer />
