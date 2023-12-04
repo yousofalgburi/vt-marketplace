@@ -15,6 +15,7 @@ import Help from './Components/footer/marketplace_help.jsx';
 import Report from './Components/footer/report.jsx';
 import Scams from './Components/footer/scams.jsx';
 import Policies from './Components/footer/purchase_policies.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [openLogin, setOpenLogin] = useState(false)
