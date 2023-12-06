@@ -47,8 +47,24 @@ function Items() {
       setHigherPrice(prevPrice => (prevPrice - 10 > 0 ? prevPrice - 10 : 0));
     }
   };
-  
+  const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
+  const [selectedSortItem, setSelectedSortItem] = useState('');
+  const [showSortDialog, setShowSortDialog] = useState(false);
 
+  const toggleSortDropdown = () => {
+    setSortDropdownOpen(!sortDropdownOpen);
+    if (sortDropdownOpen && !selectedSortItem) {
+      setShowSortDialog(false); // Close dialog if no item is selected and dropdown is closing
+    }
+  };
+
+  const handleSortChange = (sortType) => {
+// making API calls, etc.
+setSelectedSortItem(sortType);
+setShowSortDialog(true); // Show dialog when item is clicked
+sortDropdownOpen(false); // Close dropdown
+  };
+  
   
 
   return (
@@ -78,6 +94,24 @@ function Items() {
 
         </ul>
       </div>
+
+      <div className="btn-group">
+        <button type="button" className="btn btn-secondary dropdown-toggle"
+                aria-expanded={sortDropdownOpen}
+                onClick={toggleSortDropdown}>
+          {selectedItem || "Sort options"}
+        </button>
+        <ul className={`dropdown-menu${sortDropdownOpen ? ' show' : ''}`}>
+        <li><a className="dropdown-item" href="#" onClick={() => handleSortChange('Select Sorting')}>Select Sorting</a></li>
+          <li><hr className="dropdown-divider"/></li>
+          <li><a className="dropdown-item" href="#" onClick={() => handleSortChange('priceLowHigh')}>Price: Low to High</a></li>
+          <li><a className="dropdown-item" href="#" onClick={() => handleSortChange('priceHighLow')}>Price: High to Low</a></li>
+          <li><a className="dropdown-item" href="#" onClick={() => handleSortChange('alphabeticalAToZ')}>Alphabetical: A to Z</a></li>
+          <li><a className="dropdown-item" href="#" onClick={() => handleSortChange('alphabeticalZToA')}>Alphabetical: Z to A</a></li>
+        </ul>
+      </div>
+
+
 
       {/* Update button text to show the current lower price */}
       <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rangeModalLowerPrice">
