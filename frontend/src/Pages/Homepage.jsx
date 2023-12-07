@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import '../App.css';
 import { NavLink, useNavigate } from 'react-router-dom';
-import vtLogo from '../assets/vt.png';
+// import vtLogo from '../assets/vt.png';
+import vtLogo from '../assets/vtNew.png';
 import people_icon from '../assets/people.png';
 import freeToUseIcon from '../assets/free-to-use.png';
 import hokiesIcon from '../assets/hokie-bird.png';
