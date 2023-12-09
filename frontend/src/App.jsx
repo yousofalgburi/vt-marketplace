@@ -5,7 +5,7 @@ import './App.css';
 import Homepage from './Pages/Homepage.jsx'; // import the Homepage component
 import Login from './Components/Login.jsx';
 //import Topbar from './Components/Topbar.jsx';
-import Items from './Components/Items.jsx';
+import Items from './Pages/Items.jsx';
 import Commerce from './Components/Commerce.jsx';
 import About from './Components/footer/about.jsx';
 import Responsibility from './Components/footer/responsibility.jsx';
@@ -15,6 +15,7 @@ import Help from './Components/footer/marketplace_help.jsx';
 import Report from './Components/footer/report.jsx';
 import Scams from './Components/footer/scams.jsx';
 import Policies from './Components/footer/purchase_policies.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [openLogin, setOpenLogin] = useState(false)

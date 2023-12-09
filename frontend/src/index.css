@@ -1074,3 +1074,84 @@ a:hover {
     margin-top: 10px; /* Add space between links and copyright text on smaller screens */
   }
 }
+/* Items.jsx */
+.item-image-container {
+  width: 300px; /* or any other size */
+  height: 200px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+.custom-card {
+  height: 400px; /* Adjust the height as needed */
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-card .card-img-top {
+  height: 50%; /* Adjust the image height as needed */
+  object-fit: cover; /* This makes the image cover the allotted space without stretching */
+}
+
+.custom-card .card-body {
+  overflow: hidden; /* Prevents content from overflowing */
+}
+.custom-card {
+  height: 400px; /* Fixed height for consistency */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow */
+  border-radius: 0.25rem; /* Rounded corners */
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.custom-card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+.custom-card .card-img-top {
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Cover the full area without stretching */
+  border-top-left-radius: calc(0.25rem - 1px); /* Rounded corners on top-left */
+  border-top-right-radius: calc(0.25rem - 1px); /* Rounded corners on top-right */
+}
+
+.custom-card .card-body {
+  overflow: hidden; /* Hide overflow content */
+  padding: 1rem; /* Padding inside the card */
+}
+
+/* Styles for the buttons */
+.marketplace-button, .buying-buttons button, .selling-buttons button {
+  background-color: #C6011F; /* VT maroon color */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+}
+
+.marketplace-button:hover, .buying-buttons button:hover, .selling-buttons button:hover {
+  background-color: #9B0014; /* A darker shade for hover */
+}
+
+/* Additional global styles, if needed */
+body {
+  font-family: 'Open Sans', sans-serif; /* Example font */
+}
+.header-selected-item {
+  font-size: 2em; /* Example size, adjust as needed */
+  font-family: 'Arial', sans-serif; /* This is an example, choose what fits your design */
+  color: #333; /* A dark grey, but choose any color that fits your design */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* A subtle shadow for depth */
+  letter-spacing: 0.05em; /* Adjust spacing to your liking */
+  text-align: center; /* Center the text, or use left/right */
+  margin: 20px 0; /* Add space above and below the header */
+  padding: 10px; /* Add space inside the header boundaries */
+}
+
+/* Items.jsx */
