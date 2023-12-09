@@ -56,4 +56,21 @@ export const getPostsByUser = async (req, res) => {
 	}
 }
 
+//request recieved to get posts by multiple tags
+export const getPostsByCategory = async (req, res) => {
+	const { tags } = req.params
+	const tagsArray = tags.split(',')
+
+	if(!tagsArray) return res.status(400).json({ message: 'No tags provided' })
+	else if(tagsArray.length === 0) return res.status(400).json({ message: 'No tags provided' })
+
+
+	try {
+		const posts = await Post.find({ tags: { $in: tagsArray } })
+		res.status(200).json(posts)
+	} catch (error) {
+		res.status(404).json({ message: error.message })
+	}
+}
+
 export default router
