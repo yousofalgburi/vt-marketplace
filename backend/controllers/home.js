@@ -2,14 +2,46 @@ import express from 'express'
 import Post from '../models/post.js'
 const router = express.Router()
 
-export const getPosts = async (req, res) => {
-	const { page } = req.query
+// if(!sortBy) {
+// 	const post = await Post.findById(id).sort({ createdAt: -1 })
+// 	res.status(200).json(post)
+// }
+// else if(sortBy === 'createdAt:desc') {
+// 	const post = await Post.findById(id).sort({ createdAt: -1 })
+// 	res.status(200).json(post)
+// }
+// else if(sortBy === 'createdAt:asc') {
+// 	const post = await Post.findById(id).sort({ createdAt: 1 })
+// 	res.status(200).json(post)
+// }
+// else if(sortBy === 'price:desc') {
+// 	const post = await Post.findById(id).sort({ price: -1 })
+// 	res.status(200).json(post)
+// }
+// else if(sortBy === 'price:asc') {
+// 	const post = await Post.findById(id).sort({ price: 1 })
+// 	res.status(200).json(post)
+// }
 
+
+export const getPosts = async (req, res) => {
+	//sorting variables are passed in query string as ?sortBy=createdAt:desc
+	//if no query string is passed, default is createdAt:desc
+	// filter by type (Auction, Price) and by tags (Art, Collectibles, etc) example: ?filterBy=type:Auction,tags:Art
+	const { page, sortBy, filterBy } = req.query
+	
 	try {
 		const LIMIT = 9
 		const startIndex = (Number(page) - 1) * LIMIT
 		const total = await Post.countDocuments({})
-		const posts = await Post.find().sort({ _id: -1 }).limit(LIMIT).skip(startIndex)
+
+		//parseing sortBy query string
+        const sortParams = sortBy ? { [sortBy.split(':')[0]]: sortBy.split(':')[1] === 'desc' ? -1 : 1 } : { createdAt: -1 };
+		//parsing filterBy query string
+		const filterParams = filterBy ? Object.fromEntries(filterBy.split(',').map(item => item.split(':'))) : {};
+
+
+		const posts = await Post.find(filterParams).sort(sortParams).limit(LIMIT).skip(startIndex)
 		res.status(200).json({
 			data: posts,
 			currentPage: Number(page),
@@ -22,8 +54,9 @@ export const getPosts = async (req, res) => {
 
 export const getPost = async (req, res) => {
 	const { id } = req.params
+	
 
-	try {
+	try {		
 		const post = await Post.findById(id)
 		res.status(200).json(post)
 	} catch (error) {
