@@ -5,7 +5,6 @@ const router = express.Router()
 export const createPost = async (req, res) => {
 
 	const post = req.body
-	console.log(post)
 	if(!post.description){
 		return res.status(400).json({ message: 'Description is required' })
 	} else if(!post.title){
@@ -14,6 +13,8 @@ export const createPost = async (req, res) => {
 		return res.status(400).json({ message: 'Image URL is required' })
 	} else if (!post.type){
 		return res.status(400).json({ message: 'Type is required (Auction, Price)' })
+	} else if (post.type !== 'Auction' && post.type !== 'Price'){
+		return res.status(400).json({ message: 'Type must be Auction or Price' })
 	} else if (post.type === 'Auction' && !post.bid){
 		return res.status(400).json({ message: 'Bid is required' })
 	} else if (post.type === 'Price' && !post.price){

@@ -19,13 +19,11 @@ const postSchema = mongoose.Schema({
 	},
 	type: {
 		type: String,
+		default: 'Price',
 		required: true,
 	},
 	location: String,
-	tags: {
-		type: [String],
-		default: [],
-	},
+	tag: String,
 	price: {
 		type: Number,
 		default: null,

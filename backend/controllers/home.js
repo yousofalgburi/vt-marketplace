@@ -38,7 +38,12 @@ export const getPosts = async (req, res) => {
 		//parseing sortBy query string
         const sortParams = sortBy ? { [sortBy.split(':')[0]]: sortBy.split(':')[1] === 'desc' ? -1 : 1 } : { createdAt: -1 };
 		//parsing filterBy query string
-		const filterParams = filterBy ? Object.fromEntries(filterBy.split(',').map(item => item.split(':'))) : {};
+		const filterPairs = filterBy ? filterBy.split(',').map(item => item.split(':')) : [];
+        const tags = filterPairs.filter(pair => pair[0] === 'tag').map(pair => pair[1]);
+        const otherFilters = Object.fromEntries(filterPairs.filter(pair => pair[0] !== 'tag'));
+
+        const filterParams = tags.length > 0 ? { ...otherFilters, tag: { $in: tags } } : otherFilters;
+		console.log(filterParams)
 
 
 		const posts = await Post.find(filterParams).sort(sortParams).limit(LIMIT).skip(startIndex)
@@ -99,7 +104,7 @@ export const getPostsByCategory = async (req, res) => {
 
 
 	try {
-		const posts = await Post.find({ tags: { $in: tagsArray } })
+		const posts = await Post.find({ tag: { $in: tagsArray } })
 		res.status(200).json(posts)
 	} catch (error) {
 		res.status(404).json({ message: error.message })
