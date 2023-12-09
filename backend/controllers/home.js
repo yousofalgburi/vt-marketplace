@@ -2,28 +2,6 @@ import express from 'express'
 import Post from '../models/post.js'
 const router = express.Router()
 
-// if(!sortBy) {
-// 	const post = await Post.findById(id).sort({ createdAt: -1 })
-// 	res.status(200).json(post)
-// }
-// else if(sortBy === 'createdAt:desc') {
-// 	const post = await Post.findById(id).sort({ createdAt: -1 })
-// 	res.status(200).json(post)
-// }
-// else if(sortBy === 'createdAt:asc') {
-// 	const post = await Post.findById(id).sort({ createdAt: 1 })
-// 	res.status(200).json(post)
-// }
-// else if(sortBy === 'price:desc') {
-// 	const post = await Post.findById(id).sort({ price: -1 })
-// 	res.status(200).json(post)
-// }
-// else if(sortBy === 'price:asc') {
-// 	const post = await Post.findById(id).sort({ price: 1 })
-// 	res.status(200).json(post)
-// }
-
-
 export const getPosts = async (req, res) => {
 	//sorting variables are passed in query string as ?sortBy=createdAt:desc
 	//if no query string is passed, default is createdAt:desc
@@ -43,7 +21,6 @@ export const getPosts = async (req, res) => {
         const otherFilters = Object.fromEntries(filterPairs.filter(pair => pair[0] !== 'tag'));
 
         const filterParams = tags.length > 0 ? { ...otherFilters, tag: { $in: tags } } : otherFilters;
-		console.log(filterParams)
 
 
 		const posts = await Post.find(filterParams).sort(sortParams).limit(LIMIT).skip(startIndex)
@@ -63,6 +40,7 @@ export const getPost = async (req, res) => {
 
 	try {		
 		const post = await Post.findById(id)
+		if(!post) return res.status(404).json({ message: 'Post not found' })
 		res.status(200).json(post)
 	} catch (error) {
 		res.status(404).json({ message: error.message })
