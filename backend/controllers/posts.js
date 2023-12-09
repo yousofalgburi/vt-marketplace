@@ -36,4 +36,27 @@ export const deletePost = async (req, res) => {
 	res.json({ message: 'Post deleted successfully.' })
 }
 
+export const placeBid = async (req, res) => {
+	const { id } = req.params
+	const { bid } = req.body
+
+	if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`)
+
+	//check if post was created by current user: req.userId
+	const post = await Post.findById(id)
+	if(!post) return res.status(404).json({ message: 'Post not found' })
+	//check if post is an auction, if not return error
+	if(post.type !== 'Auction') return res.status(401).json({ message: 'Post is not an auction' })
+
+	//check if bid is higher than current bid
+	if(bid <= post.bid) return res.status(401).json({ message: 'Bid must be higher than current bid' })
+
+	const updatedPost = { bid: bid, bidderID: req.userId, bidCount: (post.bidCount+1) , _id: id }
+
+	await Post.findByIdAndUpdate(id, updatedPost, { new: true })
+
+	res.json(updatedPost)
+}
+
+
 export default router
