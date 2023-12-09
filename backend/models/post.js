@@ -17,11 +17,13 @@ const postSchema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	location: String,
-	tags: {
-		type: [String],
-		default: [],
+	type: {
+		type: String,
+		default: 'Price',
+		required: true,
 	},
+	location: String,
+	tag: String,
 	price: {
 		type: Number,
 		default: null,
