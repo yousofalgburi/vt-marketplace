@@ -39,11 +39,12 @@ function Homepage() {
         </button>
       </nav>
 
-      <h1> Discover, buy, and sell goods with the new VT Marketplace App.</h1>
+      <h1> Discover, buy, and sell goods with the new VT Marketplace App.</h1> <br></br> <br></br>
 
-      <img src={people_icon} alt="People using VT Marketplace App" className='people-icon' />
+      <img src={people_icon} alt="People using VT Marketplace App" className='people-icon' /> <br></br> <br></br> <br></br>
 
       <h3>VT Marketplace is an e-commerce platform dedicated towards the Virginia Tech community that connects sellers and buyers through meaningful interactions and unique goods.</h3>
+      <br></br> <br></br>
 
       <h2>Why people love VT Marketplace</h2>
       <div className="benefits-section">

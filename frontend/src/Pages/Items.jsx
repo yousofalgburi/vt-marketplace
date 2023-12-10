@@ -8,9 +8,6 @@ import PriceModal from '../Components/PriceModal';
 import placeholderImage from '../assets/placeholderImage.png';
 import Card from '../Components/Card';
 
-
-
-
 function Items() {
   const navigate = useNavigate();
   const [selectedItem, setSelectedItem] = useState('');
@@ -86,12 +83,12 @@ const fetchItemData = async () => {
 };
 
 
-  const handleSortChange = (sortType) => {
-// making API calls, etc.
-setSelectedSortItem(sortType);
-setShowSortDialog(true); // Show dialog when item is clicked
-setSortDropdownOpen(false); // Close dropdown
-  };
+const handleSortChange = (sortType) => {
+  // making API calls, etc.
+  setSelectedSortItem(sortType);
+  setShowSortDialog(true); // Show dialog when item is clicked
+  setSortDropdownOpen(false); // Close dropdown
+};
   
   const [itemImage, setItemImage] = useState(placeholderImage);
   const items = [
@@ -130,10 +127,7 @@ setSortDropdownOpen(false); // Close dropdown
     { title: "Lululemon Yoga Mat", price: "$78", location: "Fitness World", imageUrl: itemImage },
     { title: "Breville Espresso Machine", price: "$699", location: "Home Goods", imageUrl: itemImage },
     { title: "Samsung QLED TV", price: "$1299", location: "Electronics Superstore", imageUrl: itemImage }
-  ];
-  
-
-  
+  ]; 
 
   return (
     <div>
@@ -179,8 +173,6 @@ setSortDropdownOpen(false); // Close dropdown
         </ul>
       </div>
 
-
-
       {/* Update button text to show the current lower price */}
       <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rangeModalLowerPrice">
         Lower Price: ${lowerPrice}
@@ -211,6 +203,7 @@ setSortDropdownOpen(false); // Close dropdown
     <h1 className="header-selected-item">{selectedItem}</h1>
 
       <br></br>
+      
       {/* <div className="item-image-container">
         <img src={itemImage} alt="Item" className="item-image" />
       </div> */}
