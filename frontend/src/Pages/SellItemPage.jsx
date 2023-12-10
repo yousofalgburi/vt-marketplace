@@ -36,18 +36,17 @@ const SellItemPage = () => {
 //   };
 const handleImageUpload = async (e) => {
     const data = new FormData();
-data.append('file', e.target.files[0]);
-data.append('timestamp', '173719931');
-data.append('api_key', 'dKTb7XBEW6ThWHsyjSoPcp99oP0');
-data.append('signature', 'a781d61f86a6f818af');
-
-axios.post('https://api.cloudinary.com/v1_1/demo/image/upload', data)
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.error(error);
-  });
+    data.append('file', e.target.files[0]);
+    data.append('upload_preset', 'ml_default');
+  
+    axios.post('https://api.cloudinary.com/v1_1/dwigsfksu/upload', data)
+      .then(response => {
+        console.log(response.data);
+        console.log(response.data.url);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
   
 // async function handleSubmit(e) {
