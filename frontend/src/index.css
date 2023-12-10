@@ -27,11 +27,11 @@ a:hover {
 
 body {
   margin: 0;
-  /*display: flex; */
-  /*place-items: center;*/
   min-width: 320px;
   min-height: 100vh;
   padding-top: 70px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -78,8 +78,7 @@ button:focus, button:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /*background-color: #4267B2;*/
-  background-color: brown;
+  background-color: maroon;
   padding: 10px 20px;
   width: 100%;
   box-sizing: border-box;
@@ -88,16 +87,6 @@ button:focus, button:focus-visible {
   left: 0; /* Stick to the left */
   z-index: 1000; /* Ensure it stacks above other content */
 }
-
-/*.topnav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #4267B2;
-  padding: 10px 20px;
-  width: 100%;
-  box-sizing: border-box;
-}*/
 
 .topnav a {
   color: white;
@@ -117,6 +106,7 @@ button:focus, button:focus-visible {
   height: 50px; /* Set the height of your logo */
   margin-right: 0px; /* Adjust spacing between logo and text */
   vertical-align: middle; /* Align it vertically with the text if necessary */
+  background-color: #00008B;
 }
 
 .nav-content {
@@ -318,7 +308,6 @@ h2.resources {
   color: inherit; /* This ensures the text inherits the color from the .resource-link */
 }
 
-/* Optional: Adjust the h3 and p tag margins if needed */
 .resource-link h3 {
   margin-top: 0;
 }
@@ -333,11 +322,47 @@ h2.resources {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
   background-color: #4267B2;
   color: white;
   font-size: 0.9em;
-  border-top: 1px solid #365899; /* Optional: adds a slight border at the top for visual separation */
+  border-top: 1px solid #365899;
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
 }
+
+.footer-nav a {
+  color: white;
+  padding: 10px 16px; /* Adjust padding to match the image */
+  text-decoration: none;
+  font-size: 14px;
+  margin: 0 10px; /* Add some margin between links */
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+/*
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: maroon;
+  padding: 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+*/
 
 .footer-links {
   display: flex;
@@ -998,6 +1023,45 @@ h1.about-header {
   color: #4267B2;
 }
 
+.terms-container {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+.terms-header {
+  padding: 20px;
+  text-align: center;
+}
+
+.terms-content {
+  padding: 20px;
+  text-align: left;
+}
+
+#top-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #0044cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#top-button {
+  background-color: #003399;
+}
+
+nav a {
+  display: inline-block;
+  margin-right: 15px;
+  text-decoration: none;
+  color: #0044cc;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
 /* Global styles for anchor tags */
 /*a {
   color: #0645AD;
@@ -1074,3 +1138,84 @@ a:hover {
     margin-top: 10px; /* Add space between links and copyright text on smaller screens */
   }
 }
+/* Items.jsx */
+.item-image-container {
+  width: 300px; /* or any other size */
+  height: 200px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+.custom-card {
+  height: 400px; /* Adjust the height as needed */
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-card .card-img-top {
+  height: 50%; /* Adjust the image height as needed */
+  object-fit: cover; /* This makes the image cover the allotted space without stretching */
+}
+
+.custom-card .card-body {
+  overflow: hidden; /* Prevents content from overflowing */
+}
+.custom-card {
+  height: 400px; /* Fixed height for consistency */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow */
+  border-radius: 0.25rem; /* Rounded corners */
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.custom-card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+.custom-card .card-img-top {
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Cover the full area without stretching */
+  border-top-left-radius: calc(0.25rem - 1px); /* Rounded corners on top-left */
+  border-top-right-radius: calc(0.25rem - 1px); /* Rounded corners on top-right */
+}
+
+.custom-card .card-body {
+  overflow: hidden; /* Hide overflow content */
+  padding: 1rem; /* Padding inside the card */
+}
+
+/* Styles for the buttons */
+.marketplace-button, .buying-buttons button, .selling-buttons button {
+  background-color: #C6011F; /* VT maroon color */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+}
+
+.marketplace-button:hover, .buying-buttons button:hover, .selling-buttons button:hover {
+  background-color: #9B0014; /* A darker shade for hover */
+}
+
+/* Additional global styles, if needed */
+body {
+  font-family: 'Open Sans', sans-serif; /* Example font */
+}
+.header-selected-item {
+  font-size: 2em; /* Example size, adjust as needed */
+  font-family: 'Arial', sans-serif; /* This is an example, choose what fits your design */
+  color: #333; /* A dark grey, but choose any color that fits your design */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* A subtle shadow for depth */
+  letter-spacing: 0.05em; /* Adjust spacing to your liking */
+  text-align: center; /* Center the text, or use left/right */
+  margin: 20px 0; /* Add space above and below the header */
+  padding: 10px; /* Add space inside the header boundaries */
+}
+
+/* Items.jsx */
