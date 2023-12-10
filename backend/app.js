@@ -39,3 +39,8 @@ mongoose
 	.connect('mongodb+srv://gansh:PWJQGzrvAb9PMuXm@cluster0.nzkhjw4.mongodb.net/?retryWrites=true&w=majority')
 	.then(() => server.listen(port, () => console.log(`Server Running on Port: ${port}`)))
 	.catch((error) => console.log(`${error} could not connect`))
+
+// mongoose
+// .connect('mongodb+srv://gansh:PWJQGzrvAb9PMuXm@cluster0.nzkhjw4.mongodb.net/?retryWrites=true&w=majority')
+// .then(() => app.listen(port, () => console.log(`Server Running on Port: ${port}`)))
+// .catch((error) => console.log(`${error} could not connect`))
