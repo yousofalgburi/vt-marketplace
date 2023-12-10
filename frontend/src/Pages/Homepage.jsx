@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import '../App.css';
 import { NavLink, useNavigate } from 'react-router-dom';
-import vtLogo from '../assets/vt.png';
+// import vtLogo from '../assets/vt.png';
+import vtLogo from '../assets/vtNew.png';
 import people_icon from '../assets/people.png';
 import freeToUseIcon from '../assets/free-to-use.png';
 import hokiesIcon from '../assets/hokie-bird.png';
@@ -38,11 +39,12 @@ function Homepage() {
         </button>
       </nav>
 
-      <h1> Discover, buy, and sell goods with the new VT Marketplace App.</h1>
+      <h1> Discover, buy, and sell goods with the new VT Marketplace App.</h1> <br></br> <br></br>
 
-      <img src={people_icon} alt="People using VT Marketplace App" className='people-icon' />
+      <img src={people_icon} alt="People using VT Marketplace App" className='people-icon' /> <br></br> <br></br> <br></br>
 
       <h3>VT Marketplace is an e-commerce platform dedicated towards the Virginia Tech community that connects sellers and buyers through meaningful interactions and unique goods.</h3>
+      <br></br> <br></br>
 
       <h2>Why people love VT Marketplace</h2>
       <div className="benefits-section">

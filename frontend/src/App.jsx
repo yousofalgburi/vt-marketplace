@@ -5,9 +5,10 @@ import './App.css';
 import Homepage from './Pages/Homepage.jsx'; // import the Homepage component
 import Login from './Components/Login.jsx';
 //import Topbar from './Components/Topbar.jsx';
-import Items from './Components/Items.jsx';
+import Items from './Pages/Items.jsx';
 import Commerce from './Components/Commerce.jsx';
 import About from './Components/footer/about.jsx';
+import Terms from './Components/footer/terms.jsx';
 import Responsibility from './Components/footer/responsibility.jsx';
 import Accessibility from './Components/footer/accessibility.jsx';
 import Usability from './Components/footer/usability.jsx';
@@ -15,6 +16,7 @@ import Help from './Components/footer/marketplace_help.jsx';
 import Report from './Components/footer/report.jsx';
 import Scams from './Components/footer/scams.jsx';
 import Policies from './Components/footer/purchase_policies.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [openLogin, setOpenLogin] = useState(false)
@@ -30,6 +32,7 @@ function App() {
           <Route path="items" element={<Items signedIn={signedIn} />} />
           <Route path="/commerce" element={<Commerce />} />
           <Route path="/about" element={<About />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="/responsibility" element={<Responsibility />} />
           <Route path="/accessibility" element={<Accessibility />} />
           <Route path="/usability" element={<Usability />} />

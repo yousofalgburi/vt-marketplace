@@ -41,7 +41,7 @@
   color: #888;
 }
 
-/*
+
 .App-header h1 {
   color: #276ef1; 
   font-size: 4.5rem; 
@@ -69,4 +69,56 @@
 .App-header p {
   font-size: 1.5rem;
 }
-*/
+
+.btn-secondary {
+  background-color: #6c757d; /* Bootstrap's default secondary color */
+  color: white; /* White text for better readability */
+  border: none; /* Remove border for a cleaner look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  margin-right: 20px; /* Increase the distance to the next button */
+}
+
+/* Change background color on hover for better user interaction feedback */
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-primary {
+  background-color: #007bff; /* Bootstrap's default primary color */
+  color: white; /* White text for better readability */
+  border: none; /* Remove border for a cleaner look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  margin-right: 20px; /* Maintain uniform distance between buttons */
+}
+
+/* Change background color on hover for better user interaction feedback */
+.btn-primary:hover {
+  background-color: #0069d9;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: start; /* Align buttons to the start of the container */
+  gap: 20px; /* Creates a gap between each button */
+  padding: 10px; /* Padding inside the button group */
+}
+
+.dropdown-menu {
+  border-radius: 0.25rem; /* Slightly rounded corners for the dropdown */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.dropdown-item {
+  color: #343a40; /* Dark grey for the dropdown items for readability */
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa; /* Light background on hover for feedback */
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #007bff; /* Highlight color for the active item */
+  color: white;
+}
+
