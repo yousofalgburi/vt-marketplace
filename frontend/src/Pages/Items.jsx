@@ -18,6 +18,8 @@ function Items() {
   const [selectedItem, setSelectedItem] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
+  const [items, setItems] = useState([]);
+
 
   const goToItemsPage = () => {
     navigate('/items');
@@ -90,15 +92,32 @@ function Items() {
 //   }, []);
   
 // };
+// THE BELOW WORKS
+// async function getItems() {
+//   await axios.get('/home')
+//   .then(function (response) {
+//     console.log(response);
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+// }
 async function getItems() {
-  await axios.get('/home')
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+  try {
+    const response = await axios.get('/home');
+    const itemsFromResponse = response.data.data.map(item => ({
+      title: item.title,
+      price: item.price,
+      location: 'Location',
+      imageUrl: item.image || placeholderImage,
+    }));
+    setItems(itemsFromResponse);
+  } catch (error) {
+    console.error('Error fetching items:', error);
+    // Handle error appropriately
+  }
 }
+
 
 
 const handleSortChange = (sortType) => {
@@ -109,43 +128,43 @@ const handleSortChange = (sortType) => {
 };
   
   const [itemImage, setItemImage] = useState(placeholderImage);
-  const items = [
-    { title: "iPhone 14 Pro", price: "$599", location: "University Terrace", imageUrl: itemImage },
-    { title: "MacBook Air", price: "$999", location: "Campus Store", imageUrl: itemImage },
-    { title: "Samsung Galaxy S22", price: "$799", location: "Tech Center", imageUrl: itemImage },
-    { title: "Dell XPS 13", price: "$1199", location: "Electronics Store", imageUrl: itemImage },
-    { title: "Sony WH-1000XM4", price: "$349", location: "Audio Shop", imageUrl: itemImage },
-    { title: "iPad Pro", price: "$799", location: "Gadget Store", imageUrl: itemImage },
-    { title: "Google Pixel 6", price: "$599", location: "Mobile Outlet", imageUrl: itemImage },
-    { title: "AirPods Pro", price: "$249", location: "Apple Store", imageUrl: itemImage },
-    { title: "Canon EOS R5", price: "$3899", location: "Camera Shop", imageUrl: itemImage },
-    { title: "GoPro HERO10", price: "$499", location: "Outdoor Store", imageUrl: itemImage },
-    { title: "Nintendo Switch", price: "$299", location: "Gaming Hub", imageUrl: itemImage },
-    { title: "Xbox Series X", price: "$499", location: "Entertainment Outlet", imageUrl: itemImage },
-    { title: "PlayStation 5", price: "$499", location: "Video Game Store", imageUrl: itemImage },
-    { title: "Alienware m15", price: "$1599", location: "Computer Mart", imageUrl: itemImage },
-    { title: "Bose QuietComfort 45", price: "$329", location: "Electronics Market", imageUrl: itemImage },
-    { title: "Fitbit Charge 5", price: "$179", location: "Fitness Store", imageUrl: itemImage },
-    { title: "Kindle Paperwhite", price: "$139", location: "Bookstore", imageUrl: itemImage },
-    { title: "Nest Thermostat", price: "$249", location: "Home Improvement Center", imageUrl: itemImage },
-    { title: "Ring Video Doorbell", price: "$199", location: "Electronics Depot", imageUrl: itemImage },
-    { title: "Dyson V11 Vacuum", price: "$599", location: "Home Store", imageUrl: itemImage },
-    { title: "Logitech MX Master 3", price: "$99", location: "Tech Warehouse", imageUrl: itemImage },
-    { title: "Bose SoundLink Revolve", price: "$199", location: "Audio Center", imageUrl: itemImage },
-    { title: "Asus ROG Phone 5", price: "$699", location: "Gaming Emporium", imageUrl: itemImage },
-    { title: "JBL Flip 5", price: "$119", location: "Electronics Plaza", imageUrl: itemImage },
-    { title: "Oculus Quest 2", price: "$299", location: "VR Store", imageUrl: itemImage },
-    { title: "Garmin Forerunner 945", price: "$599", location: "Sports Outlet", imageUrl: itemImage },
-    { title: "Leica Q2", price: "$4999", location: "Camera Corner", imageUrl: itemImage },
-    { title: "Microsoft Surface Pro 7", price: "$899", location: "Computer Space", imageUrl: itemImage },
-    { title: "OnePlus 9", price: "$729", location: "Mobile Mart", imageUrl: itemImage },
-    { title: "Trek Marlin 5", price: "$539", location: "Bike Shop", imageUrl: itemImage },
-    { title: "KitchenAid Mixer", price: "$379", location: "Appliance Store", imageUrl: itemImage },
-    { title: "Sony A7 III", price: "$1999", location: "Photography Studio", imageUrl: itemImage },
-    { title: "Lululemon Yoga Mat", price: "$78", location: "Fitness World", imageUrl: itemImage },
-    { title: "Breville Espresso Machine", price: "$699", location: "Home Goods", imageUrl: itemImage },
-    { title: "Samsung QLED TV", price: "$1299", location: "Electronics Superstore", imageUrl: itemImage }
-  ]; 
+  // const items = [
+  //   { title: "iPhone 14 Pro", price: "$599", location: "University Terrace", imageUrl: itemImage },
+  //   { title: "MacBook Air", price: "$999", location: "Campus Store", imageUrl: itemImage },
+  //   { title: "Samsung Galaxy S22", price: "$799", location: "Tech Center", imageUrl: itemImage },
+  //   { title: "Dell XPS 13", price: "$1199", location: "Electronics Store", imageUrl: itemImage },
+  //   { title: "Sony WH-1000XM4", price: "$349", location: "Audio Shop", imageUrl: itemImage },
+  //   { title: "iPad Pro", price: "$799", location: "Gadget Store", imageUrl: itemImage },
+  //   { title: "Google Pixel 6", price: "$599", location: "Mobile Outlet", imageUrl: itemImage },
+  //   { title: "AirPods Pro", price: "$249", location: "Apple Store", imageUrl: itemImage },
+  //   { title: "Canon EOS R5", price: "$3899", location: "Camera Shop", imageUrl: itemImage },
+  //   { title: "GoPro HERO10", price: "$499", location: "Outdoor Store", imageUrl: itemImage },
+  //   { title: "Nintendo Switch", price: "$299", location: "Gaming Hub", imageUrl: itemImage },
+  //   { title: "Xbox Series X", price: "$499", location: "Entertainment Outlet", imageUrl: itemImage },
+  //   { title: "PlayStation 5", price: "$499", location: "Video Game Store", imageUrl: itemImage },
+  //   { title: "Alienware m15", price: "$1599", location: "Computer Mart", imageUrl: itemImage },
+  //   { title: "Bose QuietComfort 45", price: "$329", location: "Electronics Market", imageUrl: itemImage },
+  //   { title: "Fitbit Charge 5", price: "$179", location: "Fitness Store", imageUrl: itemImage },
+  //   { title: "Kindle Paperwhite", price: "$139", location: "Bookstore", imageUrl: itemImage },
+  //   { title: "Nest Thermostat", price: "$249", location: "Home Improvement Center", imageUrl: itemImage },
+  //   { title: "Ring Video Doorbell", price: "$199", location: "Electronics Depot", imageUrl: itemImage },
+  //   { title: "Dyson V11 Vacuum", price: "$599", location: "Home Store", imageUrl: itemImage },
+  //   { title: "Logitech MX Master 3", price: "$99", location: "Tech Warehouse", imageUrl: itemImage },
+  //   { title: "Bose SoundLink Revolve", price: "$199", location: "Audio Center", imageUrl: itemImage },
+  //   { title: "Asus ROG Phone 5", price: "$699", location: "Gaming Emporium", imageUrl: itemImage },
+  //   { title: "JBL Flip 5", price: "$119", location: "Electronics Plaza", imageUrl: itemImage },
+  //   { title: "Oculus Quest 2", price: "$299", location: "VR Store", imageUrl: itemImage },
+  //   { title: "Garmin Forerunner 945", price: "$599", location: "Sports Outlet", imageUrl: itemImage },
+  //   { title: "Leica Q2", price: "$4999", location: "Camera Corner", imageUrl: itemImage },
+  //   { title: "Microsoft Surface Pro 7", price: "$899", location: "Computer Space", imageUrl: itemImage },
+  //   { title: "OnePlus 9", price: "$729", location: "Mobile Mart", imageUrl: itemImage },
+  //   { title: "Trek Marlin 5", price: "$539", location: "Bike Shop", imageUrl: itemImage },
+  //   { title: "KitchenAid Mixer", price: "$379", location: "Appliance Store", imageUrl: itemImage },
+  //   { title: "Sony A7 III", price: "$1999", location: "Photography Studio", imageUrl: itemImage },
+  //   { title: "Lululemon Yoga Mat", price: "$78", location: "Fitness World", imageUrl: itemImage },
+  //   { title: "Breville Espresso Machine", price: "$699", location: "Home Goods", imageUrl: itemImage },
+  //   { title: "Samsung QLED TV", price: "$1299", location: "Electronics Superstore", imageUrl: itemImage }
+  // ]; 
 
   return (
     <div>
@@ -227,20 +246,21 @@ const handleSortChange = (sortType) => {
         <img src={itemImage} alt="Item" className="item-image" />
       </div> */}
 <div className="container my-4">
-        <div className="row g-4"> {/* 'g-4' adds a gap between cards */}
-          {items.map((item, index) => (
-            <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={index}>
-              <Card 
-                title={item.title} 
-                price={item.price} 
-                location={item.location}
-                imageUrl={item.imageUrl}
-                onClick={() => handleCardClick(item)}
-              />
-            </div>
-          ))}
-        </div>
+  <div className="row g-4"> {/* 'g-4' adds a gap between cards */}
+    {items.map((item, index) => (
+      <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={index}>
+        <Card 
+          title={item.title} 
+          price={`$${item.price}`} 
+          location={item.location}
+          imageUrl={item.imageUrl}
+          onClick={() => handleCardClick(item)}
+        />
       </div>
+    ))}
+  </div>
+</div>
+
       <Footer />
     </div>
   );
