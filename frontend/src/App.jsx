@@ -18,6 +18,8 @@ import Help from './Components/footer/marketplace_help.jsx';
 import Report from './Components/footer/report.jsx';
 import Scams from './Components/footer/scams.jsx';
 import Policies from './Components/footer/purchase_policies.jsx';
+import BuyItemPage from './Pages/BuyItemPage.jsx';
+import SellItemPage from './Pages/SellItemPage.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -67,6 +69,8 @@ function App() {
           <Route path="/purchase_policies" element={<Policies />} />
           <Route path="/report" element={<Report />} />
           <Route path="/scams" element={<Scams />} />
+          <Route path="item_page" element={<BuyItemPage signedIn={signedIn} />} />
+          <Route path="sell_page" element={<SellItemPage signedIn={signedIn} />} />
         </Routes>
         {openLogin && <Login handleSignIn={handleSignIn} setOpenLogin={setOpenLogin} />}
       </BrowserRouter>
