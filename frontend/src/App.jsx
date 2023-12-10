@@ -19,10 +19,14 @@ import Policies from './Components/footer/purchase_policies.jsx';
 import BuyItemPage from './Pages/BuyItemPage.jsx';
 import SellItemPage from './Pages/SellItemPage.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 
 function App() {
   const [openLogin, setOpenLogin] = useState(false)
   const [signedIn, signIn] = useState(false)
+
+  axios.defaults.headers.common['Authorization'] =localStorage.getItem('jwtToken')?localStorage.getItem('jwtToken'):'';
+
 
   return (
     <div>
