@@ -13,8 +13,8 @@ const SellItemPage = () => {
   const [item, setItem] = useState({
     title: '',
     description: '',
-    image: '', // This could be a URL or base64 encoded string
-    type: 'Price', // Default type set to 'Price'
+    image: '',
+    type: 'Price',
     price: '',
     tag: ''
   });
