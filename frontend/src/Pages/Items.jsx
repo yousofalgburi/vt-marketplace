@@ -7,6 +7,7 @@ import Footer from '../Components/Footer';
 import PriceModal from '../Components/PriceModal';
 import placeholderImage from '../assets/placeholderImage.png';
 import Card from '../Components/Card';
+import DropdownMenu from '../Components/CategoryDropdownMenu';
 
 function Items() {
   const navigate = useNavigate();
@@ -16,6 +17,10 @@ function Items() {
 
   const goToItemsPage = () => {
     navigate('/items');
+  };
+
+  const handleCardClick = (item) => {
+    navigate('/item_page', { state: { item } });
   };
 
   const handleItemClick = (item) => {
@@ -138,7 +143,7 @@ const handleSortChange = (sortType) => {
                 onClick={toggleDropdown}>
           {selectedItem || "Select an option"}
         </button>
-        <ul className={`dropdown-menu${isDropdownOpen ? ' show' : ''}`}>
+        {/* <ul className={`dropdown-menu${isDropdownOpen ? ' show' : ''}`}>
           <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Select Category')}>Select Category</a></li>
           <li><hr className="dropdown-divider"/></li>
           <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Textbooks and Study Materials')}>Textbooks and Study Materials</a></li>
@@ -154,7 +159,8 @@ const handleSortChange = (sortType) => {
           <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Health and Beauty Products')}>Health and Beauty Products</a></li>
           <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Miscellaneous')}>Miscellaneous</a></li>
 
-        </ul>
+        </ul> */}
+        <DropdownMenu isDropdownOpen={isDropdownOpen} handleItemClick={handleItemClick} />
       </div>
 
       <div className="btn-group">
@@ -216,6 +222,7 @@ const handleSortChange = (sortType) => {
                 price={item.price} 
                 location={item.location}
                 imageUrl={item.imageUrl}
+                onClick={() => handleCardClick(item)}
               />
             </div>
           ))}

@@ -1,9 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Card({ title, price, location, imageUrl }) {
+function Card({ title, price, location, imageUrl, onClick }) {
     return (
-      <div className="card custom-card" style={{ width: '18rem' }}>
+      <div className="card custom-card" style={{ width: '18rem' }} onClick={onClick}>
         <img src={imageUrl} className="card-img-top" alt={title} />
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
@@ -12,7 +12,6 @@ function Card({ title, price, location, imageUrl }) {
         </div>
       </div>
     );
-  }
-  
+}
 
 export default Card;
