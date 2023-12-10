@@ -15,10 +15,14 @@ import Help from './Components/footer/marketplace_help.jsx';
 import Report from './Components/footer/report.jsx';
 import Scams from './Components/footer/scams.jsx';
 import Policies from './Components/footer/purchase_policies.jsx';
+import axios from 'axios';
 
 function App() {
   const [openLogin, setOpenLogin] = useState(false)
   const [signedIn, signIn] = useState(false)
+
+  axios.defaults.headers.common['Authorization'] =localStorage.getItem('jwtToken')?localStorage.getItem('jwtToken'):'';
+
 
   return (
     <div>
