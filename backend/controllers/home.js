@@ -2,11 +2,20 @@ import express from 'express'
 import Post from '../models/post.js'
 const router = express.Router()
 
+/**
+ * 
+ * @param {*} req
+ * 		- req.query.page
+ * 		- req.query.sortBy
+ * 		- req.query.filterBy
+ * 		- req.query.priceRange 
+ * @param {*} res 
+ */
 export const getPosts = async (req, res) => {
 	//sorting variables are passed in query string as ?sortBy=createdAt:desc
 	//if no query string is passed, default is createdAt:desc
 	// filter by type (Auction, Price) and by tags (Art, Collectibles, etc) example: ?filterBy=type:Auction,tags:Art
-	const { page, sortBy, filterBy } = req.query
+	const { page, sortBy, filterBy, priceRange } = req.query
 	
 	try {
 		const LIMIT = 9
@@ -21,6 +30,10 @@ export const getPosts = async (req, res) => {
         const otherFilters = Object.fromEntries(filterPairs.filter(pair => pair[0] !== 'tag'));
 
         const filterParams = tags.length > 0 ? { ...otherFilters, tag: { $in: tags } } : otherFilters;
+		if (priceRange) {
+			const [minPrice, maxPrice] = priceRange.split('-').map(Number);
+            filterParams.price = { $gte: minPrice, $lte: maxPrice };
+		}
 
 
 		const posts = await Post.find(filterParams).sort(sortParams).limit(LIMIT).skip(startIndex)
