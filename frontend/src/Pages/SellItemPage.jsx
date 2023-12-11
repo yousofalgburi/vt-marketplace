@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../App.css';
 import TopNav from '../Components/TopNav';
@@ -6,7 +6,13 @@ import Footer from '../Components/Footer';
 import CategoryDropdownMenu from '../Components/CategoryDropdownMenu';
 import { useNavigate } from 'react-router-dom';
 
-const SellItemPage = () => {
+const SellItemPage = ({user}) => {
+    useEffect(() => {
+        if(!user){
+          alert("LogIn/SingUP First")
+          navigate("/")
+        }
+      });
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('Select Category');
@@ -85,7 +91,7 @@ const handleSubmit = async (e) => {
 
   return (
     <div>
-      <TopNav />
+      {/* <TopNav /> */}
       <div className="sell-item-form-container">
         <form onSubmit={handleSubmit}>
           <h1>List an Item for Sale</h1>
@@ -125,7 +131,7 @@ const handleSubmit = async (e) => {
           <button type="submit">List Item</button>
         </form>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 

@@ -11,14 +11,22 @@ import DropdownMenu from '../Components/CategoryDropdownMenu';
 import axios from 'axios';
 
 function Items() {
-    useEffect(() => {
-    getItems();
-  }, []);
+
   const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [numberOfPages, setNumberOfPages] = useState(0);
   const [selectedItem, setSelectedItem] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [items, setItems] = useState([]);
+  const [currentCategory, setCurrentCategory] = useState(null);
+  useEffect(() => {
+    if (currentCategory) {
+      getItemsByFilter(currentCategory, currentPage);
+    } else {
+      getItems(currentPage);
+    }
+  }, [currentPage, currentCategory]);
 
 
   const goToItemsPage = () => {
@@ -27,13 +35,16 @@ function Items() {
 
   const handleCardClick = (item) => {
     console.log('Item clicked:', item);
-    navigate(`/item_page/${item._id}`);
+    navigate(`/item_page/${item}`);
   };
 
-  const handleItemClick = (item) => {
-    setSelectedItem(item);
-    setShowDialog(true); // Show dialog when item is clicked
-    setIsDropdownOpen(false); // Close dropdown
+  const handleItemClick = (category) => {
+    setSelectedItem(category);
+    setShowDialog(true);
+    setIsDropdownOpen(false);
+    setCurrentPage(1); // Reset to page 1 when a category is selected
+    setCurrentCategory(category); // Set the current category
+    getItemsByFilter(category, 1); // Fetch items from the first page of this category
   };
 
   const toggleDropdown = () => {
@@ -81,17 +92,64 @@ function Items() {
   };
 
 
-async function getItems() {
-  try {
-    const response = await axios.get('/home');
-    console.log(response.data);
-    const itemsFromResponse = response.data.data; // Access the 'data' property of the response data
-    setItems(itemsFromResponse); // Update state with fetched items
-  } catch (error) {
-    console.error('Error fetching items:', error);
-    // Handle error appropriately
+  const getItems = async (page) => {
+    try {
+      const response = await axios.get(`/home?page=${page}`);
+      console.log(response.data);
+      setItems(response.data.data); // Update items state
+      setCurrentPage(response.data.currentPage); // Update current page state
+      setNumberOfPages(response.data.numberOfPages); // Update total pages state
+    } catch (error) {
+      console.error('Error fetching items:', error);
+    }
+  };
+  const getItemsByFilter = async (category, page) => {
+    try {
+      if (category === "Select Category") {
+        getItems(page)
+        return;
+      }
+      const response = await axios.get(`/home/tags/${category}?page=${page}`);
+      setItems(response.data);
+      setCurrentPage(1);
+      setNumberOfPages(0);
+    } catch (error) {
+      console.error('Error fetching items:', error);
+    }
+  };
+ // Function to go to the next page
+ const goToPage = (page) => {
+  setCurrentPage(page);
+  if (currentCategory) {
+    getItemsByFilter(currentCategory, page);
+  } else {
+    getItems(page);
   }
-}
+};
+
+const goToNextPage = () => {
+  setCurrentPage((prevCurrentPage) => {
+    const nextPage = prevCurrentPage < numberOfPages ? prevCurrentPage + 1 : prevCurrentPage;
+    if (currentCategory) {
+      getItemsByFilter(currentCategory, nextPage);
+    } else {
+      getItems(nextPage);
+    }
+    return nextPage;
+  });
+};
+
+const goToPrevPage = () => {
+  setCurrentPage((prevCurrentPage) => {
+    const prevPage = prevCurrentPage > 1 ? prevCurrentPage - 1 : prevCurrentPage;
+    if (currentCategory) {
+      getItemsByFilter(currentCategory, prevPage);
+    } else {
+      getItems(prevPage);
+    }
+    return prevPage;
+  });
+};
 
 
 const handleSortChange = (sortType) => {
@@ -110,23 +168,6 @@ const handleSortChange = (sortType) => {
                 onClick={toggleDropdown}>
           {selectedItem || "Select an option"}
         </button>
-        {/* <ul className={`dropdown-menu${isDropdownOpen ? ' show' : ''}`}>
-          <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Select Category')}>Select Category</a></li>
-          <li><hr className="dropdown-divider"/></li>
-          <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Textbooks and Study Materials')}>Textbooks and Study Materials</a></li>
-          <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Electronics and Tech Gadgets')}>Electronics and Tech Gadgets</a></li>
-          <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Furniture and Home Decor')}>Furniture and Home Decor</a></li>
-          <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Clothing and Accessories')}>Clothing and Accessories</a></li>
-          <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('School Supplies')}>School Supplies</a></li>
-          <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Dorm Essentials')}>Dorm Essentials</a></li>
-          <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Sports and Fitness Gear')}>Sports and Fitness Gear</a></li>
-          <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Entertainment and Leisure')}>Entertainment and Leisure</a></li>
-          <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Kitchen and Cooking Supplies')}>Kitchen and Cooking Supplies</a></li>
-          <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Transportation')}>Transportation</a></li>
-          <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Health and Beauty Products')}>Health and Beauty Products</a></li>
-          <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Miscellaneous')}>Miscellaneous</a></li>
-
-        </ul> */}
         <DropdownMenu isDropdownOpen={isDropdownOpen} handleItemClick={handleItemClick} />
       </div>
 
@@ -177,9 +218,6 @@ const handleSortChange = (sortType) => {
 
       <br></br>
       
-      {/* <div className="item-image-container">
-        <img src={itemImage} alt="Item" className="item-image" />
-      </div> */}
 <div className="container my-4">
   <div className="row g-4"> {/* 'g-4' adds a gap between cards */}
     {items.map((item, index) => (
@@ -190,12 +228,26 @@ const handleSortChange = (sortType) => {
           price={`$${item.price || item.bid}`} 
           location={item.location}
           imageUrl={item.image}
-          onClick={() => handleCardClick(item)}
+          onClick={() => handleCardClick(item._id)}
         />
       </div>
     ))}
   </div>
 </div>
+<div className="pagination">
+        <button onClick={goToPrevPage} disabled={currentPage === 1}>Previous</button>
+        {/* Render page numbers */}
+        {[...Array(numberOfPages).keys()].map(number => (
+          <button
+            key={number + 1}
+            onClick={() => goToPage(number + 1)}
+            disabled={currentPage === number + 1}
+          >
+            {number + 1}
+          </button>
+        ))}
+        <button onClick={goToNextPage} disabled={currentPage === numberOfPages}>Next</button>
+      </div>
 
       <Footer />
     </div>

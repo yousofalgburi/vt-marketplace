@@ -6,8 +6,10 @@ import TopNav from '../Components/TopNav';
 import Footer from '../Components/Footer';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
-const BuyItemPage = () => {
+const BuyItemPage = ({user}) => {
+  // let { itemId } = useParams();
   const navigate = useNavigate();
   const [emailVisible, setEmailVisible] = useState(false);
   const [bid, setBid] = useState('');
@@ -15,6 +17,10 @@ const BuyItemPage = () => {
   });
 
   useEffect(() => {
+    if(!user){
+      alert("LogIn/SingUP First")
+      navigate("/")
+    }
     async function getItemDetails(itemId) {
       try {
         const response = await axios.get(
@@ -52,7 +58,15 @@ const BuyItemPage = () => {
     <div>
       <TopNav vtLogo={vtLogo} goToItemsPage={goToItemsPage} />
       <div className="item-container">
-        <img src={itemImage} alt={itemDetails.title} />
+        {/* <img src={itemDetails.image} alt={itemDetails.title} /> */}
+        <img 
+  src={itemDetails.image || itemImage} // First try to load the item image
+  alt={itemDetails.title}
+  onError={(e) => { 
+    e.target.onerror = null; // Prevents future triggers of the onError handler
+    e.target.src = itemImage; // Fallback to the placeholder image if there's an error
+  }}
+/>
         <h1>{itemDetails.title}</h1>
         {itemDetails.type === 'Price' ? (
           <p>Price: ${itemDetails.price}</p>
