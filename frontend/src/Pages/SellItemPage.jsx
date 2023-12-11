@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import '../App.css';
 import TopNav from '../Components/TopNav';
@@ -16,8 +16,7 @@ const SellItemPage = () => {
     description: '',
     image: '',
     price: '',
-    category: '',
-    //tag: '',
+    tag: '',
     type: 'Price'
   });
 
@@ -27,136 +26,62 @@ const SellItemPage = () => {
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
-    setItem({ ...item, category });
+    setItem({ ...item, tag: category});
     setIsDropdownOpen(false);
   };
 
-//   const handleImageUpload = async (e) => {
-//     const file = e.target.files[0];
-//     const formData = new FormData();
-//     formData.append('file', file);
-//     formData.append('upload_preset', 'ml_default'); 
-  
-//     try {
-//       const response = await axios.post('https://api.cloudinary.com/v1_1/$dwigsfksu/upload', formData);
-//       const data = response.data;
-//       const fileUrl = data.secure_url; 
-  
-//       setItem({ ...item, image: fileUrl }); 
-//     } catch (error) {
-//       console.error('Error uploading file:', error);
-//     }
-//   };
+
+const axiosInstance = axios.create({
+  baseURL: 'https://api.cloudinary.com/v1_1/dwigsfksu',
+  headers: {}
+});
 
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
     let imageUrl = "";
     if (image) {
-      const formData = new FormData();
-      formData.append("file", image);
-      formData.append("upload_preset", "ml_default");
-      const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/dwigsfksu/upload",
-        formData
-      );
-      imageUrl = response.data.url;
+      const data = new FormData();
+    data.append('file', image);
+    data.append('upload_preset', 'ml_default');
+
+    await axiosInstance.post('/image/upload', data, {withCredentials: false, headers:{Authorization: undefined}})
+      .then(response => {
+        console.log(response.data);
+        console.log(response.data.url);
+        imageUrl = response.data.url;
+      })
+      .catch(error => {
+        console.error(error);
+        alert('Error uploading image');
+        return;
+      });
     }
 
     const submitPost = {
       ...item,
       image: imageUrl,
-      category: selectedCategory
+      tag: selectedCategory,
+      bid: item.type === 'Auction' ? item.price : undefined,
+      price: item.type === 'Price' ? item.price : undefined
     };
 
-    // TODO: Replace with your actual endpoint and POST the item details
-    // await axios.post("http://localhost:3001/list-item", submitPost);
-
-    console.log('Item submitted', submitPost);
-    navigate('/success-page'); // Redirect to a success page or handle accordingly
+    await axios.post('/create', submitPost)
+    console.log("Item created successfully");
+    navigate('/items');
   } catch (err) {
+    alert ('Error creating item');
     console.error(err);
     // Handle errors such as displaying a message to the user
   }
 };
-  
-  const handleImageUpload = async (e) => {
-    const data = new FormData();
-    data.append('file', e.target.files[0]);
-    data.append('upload_preset', 'ml_default');
-  
-    axios.post('https://api.cloudinary.com/v1_1/dwigsfksu/upload', data)
-      .then(response => {
-        console.log(response.data);
-        console.log(response.data.url);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
-  
-// async function handleSubmit(e) {
-//     e.preventDefault();
-//     try {
-//       let imageUrl = "";
-//       if (image) {
-//         const formData = new FormData();
-//         formData.append("file", image);
-//         formData.append("upload_preset", "ml-default");
-//         const dataRes = await axios.post(
-//           "cloudinary://139997819647154:dKTb7XBEW6ThWHsyjSoPcp99oP0@dwigsfksu",
-//           formData
-//         );
-//         imageUrl = dataRes.data.url;
-//       }
 
-//       const submitPost = {
-//         image: imageUrl,
-//       };
-//       console.log(selectedCommunity);
-//       await axios.post("http://localhost:3001/store-image", submitPost);
-//     } catch (err) {
-//        err.response.data.msg && setError(err.response.data.msg);
-//     }
-// }
-async function handleSubmit2(e) {
-    e.preventDefault();
-    try {
-      let imageUrl = "";
-      if (image) {
-        const formData = new FormData();
-        formData.append("file", image);
-        formData.append("upload_preset", "ml_default");
-        const dataRes = await axios.post(
-          "cloudinary://139997819647154:dKTb7XBEW6ThWHsyjSoPcp99oP0@dwigsfksu",
-          formData
-        );
-        imageUrl = dataRes.data.url;
-      }
 
-      const submitPost = {
-        image: imageUrl,
-      };
-      console.log(selectedCommunity);
-    //   await axios.post("http://localhost:3001/store-image", submitPost);
-    } catch (err) {
-      err.response.data.msg && setError(err.response.data.msg);
-    }
-  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setItem({ ...item, [name]: value });
   };
-
-  const handleTagSelect = (tagName) => {
-    setItem({ ...item, tag: tagName });
-  };
-
-  /*const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Item submitted', item);
-  };*/
 
   return (
     <div>
