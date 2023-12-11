@@ -26,7 +26,7 @@ function Commerce() {
             </nav>
 
             <div className="back-to-terms">
-                <NavLink to="/terms-and-policies">&larr; Back to Terms and Policies</NavLink>
+                <NavLink to="/terms">&larr; Back to Terms and Policies</NavLink>
             </div>
 
             <div className="commerce-container">

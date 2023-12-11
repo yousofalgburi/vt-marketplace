@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import person from '../assets/person.png';
 import physicalSafety from '../assets/physical_safety.png';
@@ -14,11 +14,16 @@ import inspect from '../assets/inspect.png';
 import communication from '../assets/communication.png';
 
 function Securitas() {
+    const [activeIndex, setActiveIndex] = useState(null);
     const navigate = useNavigate();
 
     const goToMarketplace = () => {
         navigate('/items');
     }
+
+    const toggleFAQ = (index) => {
+        setActiveIndex(activeIndex === index ? null : index);
+    };
 
     return (
         <div className="securitas-container">
@@ -29,7 +34,7 @@ function Securitas() {
                     <button onClick={goToMarketplace}>Browse Marketplace</button>
                 </div>
                 <img src={person} alt="Person" className="person-image" />
-            </div>
+            </div> <br></br> <br></br> <br></br>
 
             <div className="info-section">
                 <div className="info-block">
@@ -47,7 +52,7 @@ function Securitas() {
                         <p>Creating trust between buyers and sellers is particularly important when considering an in-person transaction. In Marketplace, you can read ratings and reviews for sellers and review their badges. These existing & new features are designed to make it easier for buyers to evaluate sellers.</p>
                     </div>
                 </div>
-            </div>
+            </div> <br></br> <br></br> <br></br>
             
             <h2 className="safe-shopping-header">Ways you can shop safely in-person</h2>
             <div className="shop-safely">
@@ -94,10 +99,10 @@ function Securitas() {
             <div className="avoid-scams">
                 <div className="scams-content">
                     <p>If you think something is a scam, stop communicating with the buyer or seller and <a href="/report">report the suspected scam to Hokie Services</a>. You can find more information about <a href="/avoiding-scams">avoiding scams</a>.</p>
-                    <button><a href="/avoiding-scams" target='_blank' className="learn-more-link" style={{color: 'white'}}>Learn more</a></button> <br></br> <br></br> <br></br>
+                    <button><a href="/avoiding-scams" target='_blank' className="learn-more-button" style={{color: 'white'}}>Learn more</a></button> <br></br> <br></br> <br></br>
                 </div>
 
-                <div className="scams-info">
+                <div className="scams-info-row">
                     <div className="scam-info-block">
                         <img src={transactions} alt="check bank transactions" className='scams-icon' />
                         <h5>Check your bank account to verify transactions</h5>
@@ -119,20 +124,93 @@ function Securitas() {
                 </div>
             </div> <br></br> <br></br> <br></br>
 
+            { /*
             <div className="securitas-faqs">
-                <ul>
-                    <li>Where can I find more information about Marketplace?</li>
-                    <p>You can find common questions and step-by-step tutorials about how to use Marketplace in our <a href="/help">Help Center</a>.</p>
+                <h2>Frequently Asked Questions</h2>
+                <div className="faq-item">
+                    <button className="faq-question">
+                        Where can I find more information about Marketplace?
+                        <span className="faq-toggle">+</span>
+                    </button>
+                    <div className="faq-answer">
+                        <p>You can find common questions and step-by-step tutorials about how to use Marketplace in our <a href="/help">Help Center</a>.</p>
+                    </div>
+                </div>
 
-                    <li>I'm having an issue with something I purchased on VT Marketplace:</li>
+                <div className="faq-item">
+                    <button className="faq-question">
+                        I'm having an issue with something I purchased on VT Marketplace:
+                        <span className="faq-toggle">+</span>
+                    </button>
+                    <div className="faq-answer">
+                        <p>If you have an issue with an order on VT Marketplace, please contact the seller for help. If the seller doesn't reply or resolve your issue within 2 business days, you can contact Hokie Services support.</p>
+                    </div>
+                </div>
+
+                <div className="faq-item">
+                    <button className="faq-question">
+                        How does Purchase Protection work on Facebook?
+                        <span className="faq-toggle">+</span>
+                    </button>
+                    <div className="faq-answer">
+                        <p>Many purchases made with checkout on VT Marketplace are covered by our Purchase Protection policies. Note that purchases made through third-party sites, local pickups, Hokie Messenger transactions, or through other messaging services don't qualify for Purchase Protection. Learn more in our <a href="/help">Help Center</a>.</p>
+                    </div>
+                </div>
+            </div>
+            */ }
+
+            <div className="securitas-faqs">
+                <h2>Frequently Asked Questions</h2>
+                <div className="faq-item">
+                    <button className="faq-question" onClick={() => toggleFAQ(0)}>
+                    Where can I find more information about Marketplace?
+                    <span className="faq-toggle">{activeIndex === 0 ? '−' : '+'}</span>
+                    </button>
+                    <div className={`faq-answer ${activeIndex === 0 ? 'show' : ''}`}>
+                    <p>You can find common questions and step-by-step tutorials about how to use Marketplace in our <a href="/help">Help Center</a>.</p>
+                    </div>
+                </div>
+
+                <div className="faq-item">
+                    <button className="faq-question" onClick={() => toggleFAQ(1)}>
+                    I'm having an issue with something I purchased on VT Marketplace:
+                    <span className="faq-toggle">{activeIndex === 1 ? '−' : '+'}</span>
+                    </button>
+                    <div className={`faq-answer ${activeIndex === 1 ? 'show' : ''}`}>
+                    <p>If you have an issue with an order on VT Marketplace, please contact the seller for help. If the seller doesn't reply or resolve your issue within 2 business days, you can contact Hokie Services support.</p>
+                    </div>
+                </div>
+
+                <div className="faq-item">
+                    <button className="faq-question" onClick={() => toggleFAQ(2)}>
+                    How does Purchase Protection work on Facebook?
+                    <span className="faq-toggle">{activeIndex === 2 ? '−' : '+'}</span>
+                    </button>
+                    <div className={`faq-answer ${activeIndex === 2 ? 'show' : ''}`}>
+                    <p>Many purchases made with checkout on VT Marketplace are covered by our Purchase Protection policies. Note that purchases made through third-party sites, local pickups, Hokie Messenger transactions, or through other messaging services don't qualify for Purchase Protection. Learn more in our <a href="/help">Help Center</a>.</p>
+                    </div>
+                </div>
+            </div>
+            
+            {/*
+            <div className="securitas-faqs">
+                <div className="securitas-faq-question">
+                    <h3>Where can I find more information about Marketplace?</h3>
+                    <p>You can find common questions and step-by-step tutorials about how to use Marketplace in our <a href="/help">Help Center</a>.</p>
+                </div>
+                
+                <div className="securitas-faq-question">
+                    <h3>I'm having an issue with something I purchased on VT Marketplace:</h3>
                     <p>If you have an issue with an order on VT Marketplace, please contact the seller for help. If the seller doesn't
                         reply or resolve your issue within 2 business days, you can contact Hokie Services support.</p>
+                </div>
 
-                    <li>How does Purchase Protection work on Facebook?</li>
-                    <p>Many purchases made with checkout on VT Marketplace are covered by our Purchase Protection policies. Note that purchases made through third-party sites, local
-                        pickups, Hokie Messenger transactions, or through other messaging services don't qualify for Purchase Protection. Learn more in our <a href="/help">Help Center</a>.</p>
-                </ul>
+                <div className="securitas-faq-question">
+                    <h3>How does Purchase Protection work on Facebook?</h3>
+                    <p>Many purchases made with checkout on VT Marketplace are covered by our Purchase Protection policies...</p>
+                </div>
             </div>
+            */}
         </div>
     );
 }
