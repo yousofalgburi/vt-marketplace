@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import setAuthToken from '../token';
 
 function Login({ handleSignIn }) {
     const [username, setUsername] = useState('');
@@ -16,18 +18,11 @@ function Login({ handleSignIn }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const user = usersDatabase.find((user) => user.username === username);
-
-        if (user && user.password === password) {
-            // Perform sign-in operations
-            //handleSignIn();
-            navigate('/home'); // Navigate to the home page
-        } else {
-            setErrorMessage('Invalid username or password');
-        }
+        signIn();
+        navigate('/home');
     };
 
-    async function Signin(){
+    async function signIn(){
         await axios.post('/user/signin', {
           email: username,
           password: password
@@ -55,7 +50,7 @@ function Login({ handleSignIn }) {
     
     return (
         <div className="login-container">
-            <form className="form-login" onSubmit={Signin}>
+            <form className="form-login" onSubmit={handleSubmit}>
                 <div className="user-icon"></div> <br></br>
 
                 {errorMessage && <div className="error-message">{errorMessage}</div>}

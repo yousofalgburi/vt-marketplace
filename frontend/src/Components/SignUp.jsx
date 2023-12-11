@@ -55,7 +55,7 @@ function SignUp() {
         return isValid;
     };
 
-    async function SignUP(){
+    async function signUP(){
         await axios.post('/user/signup', {
           email: email,
           password: password,
@@ -101,7 +101,7 @@ function SignUp() {
             setPassword('');
             setConfirmPassword('');
             setError({ firstName: '', lastName: '', email: '', password: '', confirmPassword: '' });
-            SignUP();
+            signUP();
             navigate('/home');
         }
     };
