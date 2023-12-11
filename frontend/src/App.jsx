@@ -17,7 +17,9 @@ import Report from './Components/footer/report.jsx';
 import Scams from './Components/footer/scams.jsx';
 import Policies from './Components/footer/purchase_policies.jsx';
 import BuyItemPage from './Pages/BuyItemPage.jsx';
-import SellItemPage from './Pages/SellItemPage.jsx'
+import SellItemPage from './Pages/SellItemPage.jsx';
+import Privacy from './Components/footer/privacy';
+import Cookies from './Components/footer/cookies.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -44,6 +46,9 @@ function App() {
           <Route path="/scams" element={<Scams />} />
           <Route path="item_page" element={<BuyItemPage signedIn={signedIn} />} />
           <Route path="sell_page" element={<SellItemPage signedIn={signedIn} />} />
+          <Route path='/help' element={<Help />}/>
+          <Route path='/privacy' element={<Privacy />} />
+          <Route path='/cookies' element={<Cookies />} />
         </Routes>
       </BrowserRouter>
       {openLogin && <Login signIn={signIn} closeLogin={setOpenLogin} />}
