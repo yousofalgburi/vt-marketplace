@@ -172,7 +172,7 @@ const handleSortChange = (sortType) => {
           <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Health and Beauty Products')}>Health and Beauty Products</a></li>
           <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Miscellaneous')}>Miscellaneous</a></li>
 
-        </ul> */}
+        </ul> */}down menu should be a category available
         <DropdownMenu isDropdownOpen={isDropdownOpen} handleItemClick={handleItemClick} />
       </div>
 

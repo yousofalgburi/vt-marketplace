@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import '../App.css';
 
-const TopNav = ({ vtLogo, goToItemsPage, isLoggedIn, handleAuthAction }) => {
+const TopNav = ({ vtLogo, isLoggedIn, handleAuthAction }) => {
   const navigate = useNavigate();
 
   // Function to handle login/logout actions
@@ -14,7 +14,7 @@ const TopNav = ({ vtLogo, goToItemsPage, isLoggedIn, handleAuthAction }) => {
       navigate('/home'); // Redirect to home after logout
     } else {
       // If the user is not logged in, redirect to the sign in page
-      navigate('/signin');
+      navigate('/login');
     }
   };
 
@@ -22,6 +22,10 @@ const TopNav = ({ vtLogo, goToItemsPage, isLoggedIn, handleAuthAction }) => {
   const onSignUpClick = () => {
     navigate('/signup');
   };
+
+  const goToMarketplace = () => {
+    navigate('/items');
+  }
 
   return (
     <div className="App">
@@ -36,7 +40,7 @@ const TopNav = ({ vtLogo, goToItemsPage, isLoggedIn, handleAuthAction }) => {
         </div>
         
         <div className='auth-buttons'>
-          <button className="marketplace-button" onClick={goToItemsPage}>
+          <button className="marketplace-button" onClick={goToMarketplace}>
             GO TO MARKETPLACE
           </button>
 
