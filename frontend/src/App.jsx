@@ -1,5 +1,5 @@
 // App.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
@@ -25,8 +25,13 @@ import AvoidingScams from './Components/footer/avoiding-scams.jsx';
 import Policies from './Components/footer/purchase_policies.jsx';
 import BuyItemPage from './Pages/BuyItemPage.jsx';
 import SellItemPage from './Pages/SellItemPage.jsx';
+import Privacy from './Components/footer/privacy';
 import Footer from './Components/Footer.jsx';
+import Finding from './Components/finding_things.jsx';
+import SellingLocal from './Components/selling_locally.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 function App() {
   const [openLogin, setOpenLogin] = useState(false);
@@ -48,26 +53,45 @@ function App() {
     }
   };
 
+  const [user, setUser] = useState(null)
   axios.defaults.headers.common['Authorization'] =localStorage.getItem('jwtToken')?localStorage.getItem('jwtToken'):'';
+
+  useEffect(() => {
+    async function getCurrentUser() {
+      try {
+        const response = await axios.get('https://localhost:5000/user/currentUser');
+        const data = response.data;
+        setUser(data);
+        signIn(true);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+        signIn(false);
+      }
+    }
+    getCurrentUser();
+  }, []);
 
 
   return (
     <div>
       <BrowserRouter>
         { /* <Topbar signedIn={signedIn} openLoginPage={setOpenLogin} signIn={signIn} />   */ }
-        <TopNav
+        {/* <TopNav
           signedIn={signedIn}
           openLoginPage={setOpenLogin}
           handleSignOut={handleSignOut}
           // ... other props ...
+        /> */}
+                <TopNav
+                user={user}
+          // ... other props ...
         />
         <Routes>
-          <Route path="/" element={<Homepage signedIn={signedIn} />} />
-          <Route path="/home" element={<Homepage signedIn={signedIn} />} />
-          <Route path="/signup" element={<SignUp signedIn={signedIn} />} />
-          <Route path="/login" element={<Login signedIn={signedIn} />} />
-          <Route path="/items" element={<Items signedIn={signedIn} />} />
-          <Route path="/buying" element={<Buying />} />
+          <Route path="/" element={<Homepage user={user} />} />
+          <Route path="/home" element={<Homepage user={user} />} />
+          <Route path="/signup" element={<SignUp user={user} />} />
+          <Route path="/login" element={<Login user={user} />} />
+          <Route path="/items" element={<Items user={user} />} />
           <Route path="/securitas" element={<Securitas />} />
           <Route path="/commerce" element={<Commerce />} />
           <Route path="/boosted-listings" element={<BoostedListings />} />
@@ -82,13 +106,19 @@ function App() {
           <Route path="/report" element={<Report />} />
           <Route path="/scams" element={<Scams />} />
           <Route path="/avoiding-scams" element={<AvoidingScams />} />
-          <Route path="/item_page" element={<BuyItemPage signedIn={signedIn} />} />
+          <Route path='/help' element={<Help />}/>
+          <Route path='/privacy' element={<Privacy />} />
+          <Route path='/cookies' element={<Cookies />} />
           <Route path="/selling" element={<SellItemPage signedIn={signedIn} />} />
+          <Route path="/finding_things" element={<Finding />} />
+          <Route path='/selling_locally' element={<SellingLocal />} />
+          <Route path="/item_page/:_id" element={<BuyItemPage user={user} />} />
+          <Route path="/sell_page" element={<SellItemPage user={user} />} />
         </Routes>
         {openLogin && <Login handleSignIn={handleSignIn} setOpenLogin={setOpenLogin} />}
 
         <br></br> <br></br> <br></br>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
       {openLogin && <Login signIn={signIn} closeLogin={setOpenLogin} />}
     </div>

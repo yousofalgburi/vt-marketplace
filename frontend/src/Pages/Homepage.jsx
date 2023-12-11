@@ -1,5 +1,5 @@
 // Homepage.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../App.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 // import vtLogo from '../assets/vt.png';
@@ -13,11 +13,20 @@ import buying_items2 from '../assets/buying_items2.png';
 import selling_items from '../assets/selling_items.png';
 import commercePoliciesImg from '../assets/commerce_policy.png';
 import boostedListingsImg from '../assets/boosted_listing.png';
+import TopNav from '../Components/TopNav';
 // You can import NavLink if you need navigation links on your homepage.
 
-function Homepage() {
+function Homepage({user}) {
   const navigate = useNavigate();
-  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if(user){
+      console.log("HOMEPAGE USER:", user);
+    }
+    else {
+      console.log("HOMEPAGE USER: NO USER");
+    }
+  });
     
   const goToItemsPage = () => {
     navigate('/items');
@@ -25,10 +34,10 @@ function Homepage() {
   
   return (
     <div className="App">
-      <nav className="topnav">
+      {/* <nav className="topnav">
         <div className="nav-content">
           <img src={vtLogo} alt="VT Logo" className="vt-logo" />
-          <NavLink to="/home" activeClassName="active">VT Marketplace</NavLink>
+          <NavLink to="/home" activeClassName="active">Home</NavLink>
           <NavLink to="/blog" activeClassName="active">Blog</NavLink>
           <NavLink to="/buying" activeClassName="active">Buying</NavLink>
           <NavLink to="/selling" activeClassName="active">Selling</NavLink>
@@ -37,7 +46,8 @@ function Homepage() {
         <button className="marketplace-button" onClick={goToItemsPage}>
           GO TO MARKETPLACE
         </button>
-      </nav>
+      </nav> */}
+      {/* <div><TopNav></TopNav></div> */}
 
       <h1> Discover, buy, and sell goods with the new VT Marketplace App.</h1> <br></br> <br></br>
 

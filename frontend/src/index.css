@@ -2000,3 +2000,54 @@ body {
   margin: 20px 0; /* Add space above and below the header */
   padding: 10px; /* Add space inside the header boundaries */
 }
+
+/* Items.jsx */
+
+
+
+
+/* privacy.jsx */
+.privacy-container{
+  font-family: Arial, sans-serif;
+}
+
+.privacy-container p {
+  text-align: left;
+}
+
+.privacy-bottom-section button {
+  color: white;
+  background-color: maroon;
+  font-size: 20px;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.privacy-info ul {
+  display: inline-block;
+}
+
+.privacy-info li {
+  text-align: left;
+  font-size: 20px;
+}
+
+.privacy-bottom-section a {
+  font-size: 20px;
+}
+
+.scams-button{
+  margin-right: 10px;
+}
+
+.cookies-button{
+  margin-left: 10px;
+
+}
+
+.terms-button{
+  margin-left: 20px;
+}
+
+.policy-button{
+  margin-left: 19px;
+}
