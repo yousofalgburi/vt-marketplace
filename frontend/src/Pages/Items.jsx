@@ -103,7 +103,7 @@ const handleSortChange = (sortType) => {
 
   return (
     <div>
-      <TopNav vtLogo={vtLogo} goToItemsPage={goToItemsPage} />
+      {/* <TopNav vtLogo={vtLogo} goToItemsPage={goToItemsPage} /> */}
       <div className="btn-group">
         <button type="button" className="btn btn-secondary dropdown-toggle" 
                 aria-expanded={isDropdownOpen}

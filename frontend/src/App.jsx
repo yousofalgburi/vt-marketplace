@@ -72,10 +72,14 @@ function App() {
     <div>
       <BrowserRouter>
         { /* <Topbar signedIn={signedIn} openLoginPage={setOpenLogin} signIn={signIn} />   */ }
-        <TopNav
+        {/* <TopNav
           signedIn={signedIn}
           openLoginPage={setOpenLogin}
           handleSignOut={handleSignOut}
+          // ... other props ...
+        /> */}
+                <TopNav
+                user={user}
           // ... other props ...
         />
         <Routes>
