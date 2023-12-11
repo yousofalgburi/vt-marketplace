@@ -26,10 +26,36 @@ function Login({ handleSignIn }) {
             setErrorMessage('Invalid username or password');
         }
     };
+
+    async function Signin(){
+        await axios.post('/user/signin', {
+          email: username,
+          password: password
+        })
+        .then(function (response) {
+          console.log(response);
+          setAuthToken(response.data.token);
+          GetCurrentUser();
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
+      
+      async function GetCurrentUser(){
+        await axios.get('/user/currentUser', {withCredentials: true})
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+      
     
     return (
         <div className="login-container">
-            <form className="form-login" onSubmit={handleSubmit}>
+            <form className="form-login" onSubmit={Signin}>
                 <div className="user-icon"></div> <br></br>
 
                 {errorMessage && <div className="error-message">{errorMessage}</div>}
