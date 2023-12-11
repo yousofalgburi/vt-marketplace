@@ -833,7 +833,6 @@ h1.about-header {
 }
 
 .about-footer {
-  position: fixed;
   border-top: 1px solid #ccc;
   padding-top: 20px;
 }
@@ -1901,7 +1900,6 @@ body {
   text-align: center; /* Center the text, or use left/right */
   margin: 20px 0; /* Add space above and below the header */
   padding: 10px; /* Add space inside the header boundaries */
-<<<<<<< HEAD
 }
 
 /* Items.jsx */
@@ -1914,19 +1912,14 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.privacy-container h3 {
-  font-size: 35px;
-}
-
 .privacy-container p {
-  text-align: center;
-  font-size: 30px;
+  text-align: left;
 }
 
-.privacy-info button {
+.privacy-bottom-section button {
   color: white;
   background-color: maroon;
-  font-size: 30px;
+  font-size: 20px;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
@@ -1939,7 +1932,7 @@ body {
   font-size: 20px;
 }
 
-.privacy-info a {
+.privacy-bottom-section a {
   font-size: 20px;
 }
 
@@ -1958,91 +1951,4 @@ body {
 
 .policy-button{
   margin-left: 19px;
-}
-
-
-/* cookies.jsx*/
-.cookies-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.cookies-container h1 {
-  font-size: 24px;
-  margin-bottom: 0.5em;
-  color: #4b4f56;
-  padding-bottom: .3em;
-  border-bottom: 1px solid #ccd0d5;
-}
-
-.cookies-container h2 {
-  font-size: 20px;
-  color: #4b4f56;
-  margin-top: 2em;
-  margin-bottom: 0.5em;
-  text-align: left;
-}
-
-.cookies-container h5 {
-  font-size: 14px;
-  color: #606770;
-  margin-top: 0;
-  margin-bottom: 1em;
-  text-align: left;
-}
-
-.cookies-container p {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #1c1e21;
-  text-align: left;
-}
-
-.cookies-container a {
-  color: #3b5998;
-  text-decoration: none;
-}
-
-.cookies-container a:hover {
-  text-decoration: underline;
-}
-
-.cookies-container ol, .cookies-container ul {
-  margin-left: 20px;
-  padding-left: 0;
-  text-align: left;
-}
-
-.cookies-container li {
-  margin-bottom: 0.5em;
-}
-
-.cookies-container b {
-  font-weight: 600;
-}
-
-.cookies-container ul li {
-  list-style-type: disc;
-}
-
-.cookies-container ol li {
-  list-style-type: decimal;
-}
-
-/* Specific styles for nested lists */
-.cookies-container ul {
-  list-style-type: none;
-}
-
-.cookies-container ul li::before {
-  content: '• ';
-  color: #3b5998; /* To match the bullet color with the link color */
-  font-weight: bold;
-  display: inline-block; 
-  width: 1em;
-  margin-left: -1em;
-=======
->>>>>>> origin/Pranav-branch
 }

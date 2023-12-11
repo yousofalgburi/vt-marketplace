@@ -24,12 +24,8 @@ import AvoidingScams from './Components/footer/avoiding-scams.jsx';
 import Policies from './Components/footer/purchase_policies.jsx';
 import BuyItemPage from './Pages/BuyItemPage.jsx';
 import SellItemPage from './Pages/SellItemPage.jsx';
-<<<<<<< HEAD
 import Privacy from './Components/footer/privacy';
-import Cookies from './Components/footer/cookies.jsx'
-=======
 import Footer from './Components/Footer.jsx';
->>>>>>> origin/Pranav-branch
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -86,14 +82,11 @@ function App() {
           <Route path="/scams" element={<Scams />} />
           <Route path="/avoiding-scams" element={<AvoidingScams />} />
           <Route path="item_page" element={<BuyItemPage signedIn={signedIn} />} />
-<<<<<<< HEAD
           <Route path="sell_page" element={<SellItemPage signedIn={signedIn} />} />
           <Route path='/help' element={<Help />}/>
           <Route path='/privacy' element={<Privacy />} />
           <Route path='/cookies' element={<Cookies />} />
-=======
           <Route path="/selling" element={<SellItemPage signedIn={signedIn} />} />
->>>>>>> origin/Pranav-branch
         </Routes>
         {openLogin && <Login handleSignIn={handleSignIn} setOpenLogin={setOpenLogin} />}
 

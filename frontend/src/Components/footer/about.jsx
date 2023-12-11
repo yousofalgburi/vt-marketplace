@@ -42,7 +42,7 @@ function About() {
                 </ul> <br></br>
                 <p><b>Keep in mind that items on Marketplace must follow our <a href="/commerce">Commerce Policies</a>.</b></p> <br></br>
             </div>
-            
+
             <div className="about-footer">
                 <h2>Popular Articles</h2>
                 <a href="/accessibility">I can't access VT Marketplace</a>
