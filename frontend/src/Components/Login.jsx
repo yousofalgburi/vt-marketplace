@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import setAuthToken from '../token';
+import { setAuthToken } from '../token';
 
 function Login({ handleSignIn }) {
     const [username, setUsername] = useState('');

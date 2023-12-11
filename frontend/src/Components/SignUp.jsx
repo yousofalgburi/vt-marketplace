@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import setAuthToken from '../token';
-
+import { setAuthToken } from '../token.js';
 function SignUp() {
     // State variables
     const [firstName, setFirstName] = useState('');
