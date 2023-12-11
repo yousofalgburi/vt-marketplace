@@ -109,7 +109,7 @@ async function getItems() {
       title: item.title,
       price: item.price,
       location: 'Location',
-      imageUrl: item.image || placeholderImage,
+      imageUrl: "https://res.cloudinary.com/dwigsfksu/image/upload/v1702195107/7502f671423309da83f2f2546c782fde_q40sgf.jpg",
     }));
     setItems(itemsFromResponse);
   } catch (error) {
@@ -191,7 +191,7 @@ const handleSortChange = (sortType) => {
           <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Health and Beauty Products')}>Health and Beauty Products</a></li>
           <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Miscellaneous')}>Miscellaneous</a></li>
 
-        </ul> */}down menu should be a category available
+        </ul> */}
         <DropdownMenu isDropdownOpen={isDropdownOpen} handleItemClick={handleItemClick} />
       </div>
 
