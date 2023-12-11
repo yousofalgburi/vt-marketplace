@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
 import vtLogo from '../assets/vtNew.png';
@@ -8,8 +8,12 @@ import PriceModal from '../Components/PriceModal';
 import placeholderImage from '../assets/placeholderImage.png';
 import Card from '../Components/Card';
 import DropdownMenu from '../Components/CategoryDropdownMenu';
+import axios from 'axios';
 
 function Items() {
+    useEffect(() => {
+    getItems();
+  }, []);
   const navigate = useNavigate();
   const [selectedItem, setSelectedItem] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -74,18 +78,27 @@ function Items() {
   };
 
   // Example function to fetch data and update image
-const fetchItemData = async () => {
-  // Fetch data from database
-  // ...
+// const fetchItemData = async () => {
+//   // Fetch data from database
+//   // ...
 
-  const imageUrlFromDatabase = 'path_to_actual_image.jpg'; // Replace with actual path
-  setItemImage(imageUrlFromDatabase);
+//   const imageUrlFromDatabase = 'path_to_actual_image.jpg'; // Replace with actual path
+//   setItemImage(imageUrlFromDatabase);
 
-  useEffect(() => {
-    fetchItemData();
-  }, []);
+//   useEffect(() => {
+//     fetchItemData();
+//   }, []);
   
-};
+// };
+async function getItems() {
+  await axios.get('/home')
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
 
 
 const handleSortChange = (sortType) => {
@@ -159,7 +172,7 @@ const handleSortChange = (sortType) => {
           <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Health and Beauty Products')}>Health and Beauty Products</a></li>
           <li><a className="dropdown-item" href="#" onClick={() => handleItemClick('Miscellaneous')}>Miscellaneous</a></li>
 
-        </ul> */}
+        </ul> */}down menu should be a category available
         <DropdownMenu isDropdownOpen={isDropdownOpen} handleItemClick={handleItemClick} />
       </div>
 

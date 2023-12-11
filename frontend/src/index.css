@@ -89,7 +89,7 @@ button:focus, button:focus-visible {
 }
 
 .topnav a {
-  color: white;
+  color: darkorange;
   padding: 10px 16px; /* Adjust padding to match the image */
   text-decoration: none;
   font-size: 17px;
@@ -98,7 +98,13 @@ button:focus, button:focus-visible {
 
 .topnav a:hover,
 .topnav a:focus {
-  background-color: #365899; /* Darker blue on hover/focus */
+  background-color: #ffffff; /* Light background for hover/focus */
+  color: #800000; /* Dark text for visibility */
+  border-radius: 4px; /* Match the border-radius of the active class */
+}
+
+.active {
+  background-color: #0044cc;
   color: white;
 }
 
@@ -118,6 +124,7 @@ button:focus, button:focus-visible {
   background-color: #e7f3ff; /* Light blue background for the button */
   color: #4267B2; /* Text color */
   padding: 10px 24px; /* Increase padding for a larger button */
+  margin-right: 25%;
   border: none;
   border-radius: 6px; /* More rounded corners */
   cursor: pointer;
@@ -126,7 +133,159 @@ button:focus, button:focus-visible {
 }
 
 .marketplace-button:hover {
-  background-color: #d8e7ff; /* Slightly darker on hover */
+  background-color: #d8e7ff;
+}
+
+/* Style for the SignUp container */
+.sign-up-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+  background-color: #f4f4f4; /* Light grey background */
+}
+
+/* Style for the form */
+.form-sign-up {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 400px; /* Fixed width */
+  margin: auto; /* Center the form */
+}
+
+/* Style for the input fields */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px; /* Rounded borders for the input fields */
+}
+
+/* Style for the Sign Up button */
+.button-sign-up {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px; /* Spacing above the button */
+}
+
+/* Style for error messages */
+.error-message {
+  color: red;
+  font-size: 14px;
+  padding-left: 10px;
+  height: 20px; /* Fixed height for alignment */
+}
+
+/* Style for success message */
+.success-message {
+  color: green;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px; /* Spacing above the message */
+  padding: 10px;
+  background-color: #ccffcc; /* Light green background */
+  border-radius: 4px; /* Rounded borders for the message box */
+}
+
+.user-icon{
+  font-size:2em;  /* change font size should change size of icon */
+  margin-left: 25%;
+}
+.user-icon{
+  border-radius:4em;
+  border: 1px solid skyblue;
+  height: 6em;
+  width: 6em;  
+  background: none;
+  padding: 0.01em;
+}
+
+.user-icon::before{
+  content: " ";
+  display: block;
+  height: 2em;
+  width: 2em;
+  background: skyblue;
+  position: relative;
+  left: 2em;
+  top: 0.8em;
+  border-radius: 2em;
+}
+.user-icon::after{
+  content: " ";
+  display: block;
+  height: 2em;
+  width: 4em;
+  background: skyblue;
+  position: relative;
+  left: 1em;
+  top: 1em;
+  border-radius: 2em 2em 0 0;
+}
+
+/* Add this CSS to the existing index.css file */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.form-login {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin: auto;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-login {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Style for the user mini-icon on the topbar */
+.user-mini-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 50%;
+  position: absolute;
+  right: 20px; /* Adjust as necessary */
+  top: 10px; /* Adjust as necessary */
 }
 
 .benefits-section {
@@ -260,6 +419,83 @@ button:focus, button:focus-visible {
   height: 600px; /* Maintain aspect ratio */
 }
 
+.sell-item-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sell-item-form-container h1 {
+  text-align: center;
+  color: #343a40;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #495057;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group .dropdown-toggle {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.form-group .dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  display: block;
+}
+
+.dropdown-divider {
+  border-top: 1px solid #e9ecef;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
 .resources {
   font-size: 2.5em; /* Set the font size larger as per your design requirement */
 }
@@ -321,7 +557,7 @@ h2.resources {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 3px 20px;
   width: 100%;
   box-sizing: border-box;
   background-color: #4267B2;
@@ -377,11 +613,139 @@ h2.resources {
 }
 
 .footer-links a:hover {
+  background-color: brown;
   color: #d8e7ff; /* Lighter blue on hover */
 }
 
 .footer-rights {
   white-space: nowrap; /* Ensure this text stays on one line */
+}
+
+.active {
+  background-color: #cccccc !important;
+  color: black !important;
+}
+
+.securitas-container {
+  font-family: Arial, sans-serif;
+  width: 1300px;
+}
+
+.trust-safety {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8f8f8; /* Adjust color to match the design */
+  padding: 40px;
+}
+
+.trust-safety-text {
+  max-width: 50%;
+}
+
+.trust-safety h1 {
+  font-size: 2em; /* Adjust size to match the design */
+  color: #000; /* Adjust color to match the design */
+  margin-bottom: 20px;
+}
+
+.trust-safety p {
+  font-size: 1em; /* Adjust size to match the design */
+  color: #666; /* Adjust color to match the design */
+  margin-bottom: 20px;
+}
+
+.trust-safety button {
+  background-color: #0044cc; /* Adjust color to match the design */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.person-image {
+  width: 50%; /* Adjust size to match the design */
+  /* Add more styles for the image position and responsiveness */
+}
+
+.info-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align to the top if the text and image don't line up */
+}
+
+.info-block {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  margin: 20px; /* Add margin for spacing */
+}
+
+.info-text {
+  max-width: 600px; /* Adjust width as needed */
+}
+
+.info-text h2 {
+  font-size: 24px; /* Adjust to match the design */
+  color: #000;
+  margin-bottom: 0.5em;
+}
+
+.info-text p {
+  font-size: 16px; /* Adjust to match the design */
+  color: #666;
+  line-height: 1.5;
+}
+
+.info-image {
+  width: 300px; /* Adjust width to match design */
+  height: auto;
+  margin-left: 20px; /* Add space between text and image */
+}
+
+.safe-shopping-header {
+  text-align: center;
+  margin-bottom: 40px; /* Adjust as necessary */
+}
+
+.shop-safely {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
+  gap: 20px; /* Space between grid items */
+  text-align: center;
+}
+
+.safety-tips {
+  background: #f8f8f8; /* Light grey background */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+}
+
+.safety-icon {
+  height: 60px; /* Adjust size as needed */
+  margin-bottom: 20px; /* Space below the icon */
+}
+
+.safety-tips h5 {
+  font-size: 1.2em; /* Slightly larger text for headers */
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.safety-tips p {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 20px; /* Space above the button */
+}
+
+.learn-more {
+  background-color: #0044cc; /* Adjust color to match the design */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase; /* All caps for button text */
 }
 
 .about-page {
@@ -868,6 +1232,100 @@ h1.about-header {
   background-color: #e7e7e7;
 }
 
+.boosted-listings-container {
+  font-family: 'Your Font', sans-serif;
+  line-height: 1.6;
+}
+
+.boosted-header {
+  background-color: gold;
+  text-align: center;
+  padding: 20px;
+  margin-top: 5%;
+}
+
+.boosted-header h1 {
+  color: #333;
+  font-size: 3em;
+}
+
+.boosted-header p {
+  color: #666;
+  font-size: 1.5em;
+}
+
+.how-boosting-works li {
+  text-align: left;
+}
+
+.boost {
+  background-color: #00A7E1;
+  padding: 2.5%;
+}
+
+.boosted-header button {
+  background-color: #0068FF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.boosting-faqs {
+  background-color: burlywood; /* Adjust color to match the screenshot */
+  padding: 20px;
+  border-top: 1px solid #ccc; /* This creates the line above the FAQ section */
+}
+
+.boosting-faqs h2 {
+  color: #000;
+  font-size: 24px; /* Adjust size to match the screenshot */
+  margin-bottom: 20px;
+}
+
+.faq-question {
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px; /* Adjust size to match the screenshot */
+  color: #000;
+  cursor: pointer;
+  position: relative;
+}
+
+.faq-question .icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 0 15px 0;
+  border-bottom: 1px solid #ccc; /* This creates the line below each answer when expanded */
+  color: #666; /* Adjust the color to match the screenshot */
+  font-size: 16px; /* Adjust size to match the screenshot */
+  color: purple;
+}
+
+.faq-answer.show {
+  display: block;
+  text-align: left;
+}
+
+/* Plus and Minus icons would need to be added via a web font or SVG. For demonstration, we'll use simple text */
+.icon.plus::before {
+  content: "+"; /* Replace with actual plus icon */
+}
+
+.icon.minus::before {
+  content: "-"; /* Replace with actual minus icon */
+}
+
 .report-container {
   max-width: 1300px;
   margin: auto;
@@ -1024,6 +1482,122 @@ h1.about-header {
   color: #4267B2;
 }
 
+.avoid-scams-header {
+  text-align: center;
+  margin-bottom: 40px; /* Adjust as necessary */
+}
+
+.avoid-scams {
+  display: flex;
+  flex-direction: column;
+  /*justify-content: space-evenly;*/
+  align-items: flex-start; /* Align to the top */
+}
+
+.scams-content {
+  /*flex-basis: 100%; Adjust as necessary */
+  text-align: center;
+  margin-bottom: 20px; /* Space below the content before the row */
+}
+
+.scams-info-row {
+  display: flex;
+  justify-content: center;
+  padding: 0 50px;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.scam-info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 40px;
+  max-width: 300px; /* Set a max-width for each block */
+}
+
+.scams-icon {
+  height: 60px; /* Adjust size as needed */
+  margin-bottom: 20px; /* Space below the icon */
+}
+
+.scam-info-block h5 {
+  font-size: 1.2em; /* Slightly larger text for headers */
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.scam-info-block p {
+  font-size: 1em;
+  color: #666;
+  text-align: center;
+}
+
+.learn-more-button {
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  text-decoration: none; /* Remove underline from link */
+  display: inline-block; /* Needed to apply padding and border-radius */
+  margin-bottom: 15px; /* Space below the button */
+}
+
+.report-link,
+.avoiding-scams-link {
+  color: #0044cc;
+  text-decoration: underline;
+}
+
+.securitas-faqs h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.faq-item {
+  margin-bottom: 35px;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  position: relative;
+  font-size: 16px;
+}
+
+.faq-toggle {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding: 0 20px;
+}
+
+.faq-answer.show {
+  max-height: 1000px; /* Large enough to fit content */
+  transition: max-height 0.5s ease-in;
+}
+
+.faq-answer p {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
 .terms-container {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
@@ -1063,14 +1637,92 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Global styles for anchor tags */
-/*a {
-  color: #0645AD;
-  text-decoration: underline;
-}*/
-
 a:hover {
   color: #0B0080;
+}
+
+/* index.css */
+.cookies-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cookies-container h1 {
+  font-size: 24px;
+  margin-bottom: 0.5em;
+  color: #4b4f56;
+  padding-bottom: .3em;
+  border-bottom: 1px solid #ccd0d5;
+}
+
+.cookies-container h2 {
+  font-size: 20px;
+  color: #4b4f56;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  text-align: left;
+}
+
+.cookies-container h5 {
+  font-size: 14px;
+  color: #606770;
+  margin-top: 0;
+  margin-bottom: 1em;
+  text-align: left;
+}
+
+.cookies-container p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1c1e21;
+  text-align: left;
+}
+
+.cookies-container a {
+  color: #3b5998;
+  text-decoration: none;
+}
+
+.cookies-container a:hover {
+  text-decoration: underline;
+}
+
+.cookies-container ol, .cookies-container ul {
+  margin-left: 20px;
+  padding-left: 0;
+  text-align: left;
+}
+
+.cookies-container li {
+  margin-bottom: 0.5em;
+}
+
+.cookies-container b {
+  font-weight: 600;
+}
+
+.cookies-container ul li {
+  list-style-type: disc;
+}
+
+.cookies-container ol li {
+  list-style-type: decimal;
+}
+
+/* Specific styles for nested lists */
+.cookies-container ul {
+  list-style-type: none;
+}
+
+.cookies-container ul li::before {
+  content: '• ';
+  color: #3b5998; /* To match the bullet color with the link color */
+  font-weight: bold;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1em;
 }
 
 @media (prefers-color-scheme: light) {
@@ -1123,6 +1775,38 @@ a:hover {
     margin: 0 auto; /* Center the image with automatic horizontal margins */
   }
 
+  .info-section {
+    flex-direction: column;
+  }
+
+  .info-block {
+    flex-direction: column-reverse; /* Image on top for mobile */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .info-image {
+    width: 100%; /* Full width on mobile */
+    margin-left: 0;
+    margin-bottom: 20px; /* Space between image and text */
+  }
+
+  .info-text {
+    max-width: 100%;
+  }
+
+  .shop-safely {
+    grid-template-columns: 1fr; /* Stack items in a single column on small screens */
+  }
+
+  .scams-info-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .scam-info-block {
+    max-width: 100%; /* Blocks take full width on small screens */
+  }
+
   .resources-section {
     flex-direction: column; /* Stack the columns on top of each other */
   }
@@ -1139,6 +1823,7 @@ a:hover {
     margin-top: 10px; /* Add space between links and copyright text on smaller screens */
   }
 }
+
 /* Items.jsx */
 .item-image-container {
   width: 300px; /* or any other size */
@@ -1204,7 +1889,6 @@ a:hover {
   background-color: #9B0014; /* A darker shade for hover */
 }
 
-/* Additional global styles, if needed */
 body {
   font-family: 'Open Sans', sans-serif; /* Example font */
 }
@@ -1217,6 +1901,7 @@ body {
   text-align: center; /* Center the text, or use left/right */
   margin: 20px 0; /* Add space above and below the header */
   padding: 10px; /* Add space inside the header boundaries */
+<<<<<<< HEAD
 }
 
 /* Items.jsx */
@@ -1358,4 +2043,6 @@ body {
   display: inline-block; 
   width: 1em;
   margin-left: -1em;
+=======
+>>>>>>> origin/Pranav-branch
 }

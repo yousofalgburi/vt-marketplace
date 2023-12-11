@@ -55,7 +55,7 @@ export const placeBid = async (req, res) => {
 
 	await Post.findByIdAndUpdate(id, updatedPost, { new: true })
 
-	res.json(updatedPost)
+	return res.json(updatedPost)
 }
 
 
