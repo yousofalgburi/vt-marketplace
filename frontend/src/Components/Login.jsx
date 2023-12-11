@@ -1,17 +1,77 @@
-import React, { useState } from "react";
-// import { Button } from 'react-bootstrap-buttons';
-import { Button } from 'react-bootstrap';
-//import { NotificationContainer, NotificationManager } from 'react-notifications';
-//import 'react-notifications/lib/notifications.css';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Login = ({ signIn, closeLogin }) => {
+function Login({ handleSignIn }) {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    
+    const navigate = useNavigate();
+
+    // Mock user database
+    const usersDatabase = [
+        { username: 'test_user', password: 'password123' }
+        // ... other users
+    ];
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const user = usersDatabase.find((user) => user.username === username);
+
+        if (user && user.password === password) {
+            // Perform sign-in operations
+            //handleSignIn();
+            navigate('/home'); // Navigate to the home page
+        } else {
+            setErrorMessage('Invalid username or password');
+        }
+    };
+    
+    return (
+        <div className="login-container">
+            <form className="form-login" onSubmit={handleSubmit}>
+                <div className="user-icon"></div> <br></br>
+
+                {errorMessage && <div className="error-message">{errorMessage}</div>}
+
+                <div>
+                <label>Username</label>
+                <input 
+                    type="text"
+                    className="input-field"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                </div>
+                
+                <div>
+                <label>Password</label>
+                <input 
+                    type="password"
+                    className="input-field"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                </div>
+
+                <button type="submit" className="button-login">Login</button>
+            </form>
+        </div>
+    );
+}
+
+export default Login;
+
+
+
+/*const Login = ({ signIn, closeLogin }) => {
     return (
         <div>
             <p>Login</p>
         </div>
     )
 
-    /* const [username, setUsername] = useState('')
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
     const handleSubmit = () => {
@@ -53,7 +113,5 @@ const Login = ({ signIn, closeLogin }) => {
                 <NotificationContainer />
             </div>
         </div>
-    ); */
-};
-
-export default Login;
+    );
+};*/
