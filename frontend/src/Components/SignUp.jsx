@@ -59,7 +59,8 @@ function SignUp() {
           console.log("STATUS: ", response.status);
           if(response.status ===201 ){
             setAuthToken(response.data.token);
-            navigate('/');
+            // navigate('/');
+            window.location.href = '/';
             alert("User created successfully");
             GetCurrentUser();
           }
@@ -159,7 +160,7 @@ function SignUp() {
                 </div>
 
                 <button type="submit" className="button-sign-up">Sign Up</button>
-                {isRegistered && <div className="success-message">{successMessage}</div>}
+                {/* {isRegistered && <div className="success-message">{successMessage}</div>} */}
             </form>
         </div>
     );
