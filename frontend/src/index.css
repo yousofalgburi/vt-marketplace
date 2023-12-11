@@ -557,7 +557,7 @@ h2.resources {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 3px 20px;
   width: 100%;
   box-sizing: border-box;
   background-color: #4267B2;
@@ -613,11 +613,139 @@ h2.resources {
 }
 
 .footer-links a:hover {
+  background-color: brown;
   color: #d8e7ff; /* Lighter blue on hover */
 }
 
 .footer-rights {
   white-space: nowrap; /* Ensure this text stays on one line */
+}
+
+.active {
+  background-color: #cccccc !important;
+  color: black !important;
+}
+
+.securitas-container {
+  font-family: Arial, sans-serif;
+  width: 1300px;
+}
+
+.trust-safety {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8f8f8; /* Adjust color to match the design */
+  padding: 40px;
+}
+
+.trust-safety-text {
+  max-width: 50%;
+}
+
+.trust-safety h1 {
+  font-size: 2em; /* Adjust size to match the design */
+  color: #000; /* Adjust color to match the design */
+  margin-bottom: 20px;
+}
+
+.trust-safety p {
+  font-size: 1em; /* Adjust size to match the design */
+  color: #666; /* Adjust color to match the design */
+  margin-bottom: 20px;
+}
+
+.trust-safety button {
+  background-color: #0044cc; /* Adjust color to match the design */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.person-image {
+  width: 50%; /* Adjust size to match the design */
+  /* Add more styles for the image position and responsiveness */
+}
+
+.info-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align to the top if the text and image don't line up */
+}
+
+.info-block {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  margin: 20px; /* Add margin for spacing */
+}
+
+.info-text {
+  max-width: 600px; /* Adjust width as needed */
+}
+
+.info-text h2 {
+  font-size: 24px; /* Adjust to match the design */
+  color: #000;
+  margin-bottom: 0.5em;
+}
+
+.info-text p {
+  font-size: 16px; /* Adjust to match the design */
+  color: #666;
+  line-height: 1.5;
+}
+
+.info-image {
+  width: 300px; /* Adjust width to match design */
+  height: auto;
+  margin-left: 20px; /* Add space between text and image */
+}
+
+.safe-shopping-header {
+  text-align: center;
+  margin-bottom: 40px; /* Adjust as necessary */
+}
+
+.shop-safely {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
+  gap: 20px; /* Space between grid items */
+  text-align: center;
+}
+
+.safety-tips {
+  background: #f8f8f8; /* Light grey background */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+}
+
+.safety-icon {
+  height: 60px; /* Adjust size as needed */
+  margin-bottom: 20px; /* Space below the icon */
+}
+
+.safety-tips h5 {
+  font-size: 1.2em; /* Slightly larger text for headers */
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.safety-tips p {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 20px; /* Space above the button */
+}
+
+.learn-more {
+  background-color: #0044cc; /* Adjust color to match the design */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase; /* All caps for button text */
 }
 
 .about-page {
@@ -1529,6 +1657,94 @@ a:hover {
     max-width: 95%; /* Allow the image to be a bit smaller on small screens */
     margin: 0 auto; /* Center the image with automatic horizontal margins */
   }
+
+  .info-section {
+    flex-direction: column;
+  }
+
+  .info-block {
+    flex-direction: column-reverse; /* Image on top for mobile */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .info-image {
+    width: 100%; /* Full width on mobile */
+    margin-left: 0;
+    margin-bottom: 20px; /* Space between image and text */
+  }
+
+  .info-text {
+    max-width: 100%;
+  }
+
+  .shop-safely {
+    grid-template-columns: 1fr; /* Stack items in a single column on small screens */
+  }
+
+.avoid-scams-header {
+  text-align: center;
+  margin-bottom: 40px; /* Adjust as necessary */
+}
+
+.avoid-scams {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start; /* Align to the top */
+}
+
+.scams-content {
+  flex-basis: 100%; /* Adjust as necessary */
+  text-align: center;
+}
+
+.scams-content p {
+  margin-bottom: 20px; /* Space above the button */
+}
+
+.learn-more-link {
+  color: white;
+  text-decoration: none;
+}
+
+.avoid-scams button {
+  background-color: #0044cc; /* Adjust color to match the design */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.scams-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.scam-info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.scams-icon {
+  height: 60px; /* Adjust size as needed */
+  margin-bottom: 20px; /* Space below the icon */
+}
+
+.scam-info-block h5 {
+  font-size: 1.2em; /* Slightly larger text for headers */
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.scam-info-block p {
+  font-size: 1em;
+  color: #666;
+  text-align: center;
+}
 
   .resources-section {
     flex-direction: column; /* Stack the columns on top of each other */

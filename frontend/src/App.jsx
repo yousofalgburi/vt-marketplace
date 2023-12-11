@@ -1,12 +1,14 @@
 // App.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 import './App.css';
 import Homepage from './Pages/Homepage.jsx';
 import SignUp from './Components/SignUp.jsx';
 import Login from './Components/Login.jsx';
 import TopNav from './Components/TopNav.jsx';
 import Items from './Pages/Items.jsx';
+import Securitas from './Components/Securitas.jsx';
 import Commerce from './Components/Commerce.jsx';
 import BoostedListings from './Components/BoostedListings.jsx';
 import About from './Components/footer/about.jsx';
@@ -18,11 +20,14 @@ import Usability from './Components/footer/usability.jsx';
 import Help from './Components/footer/marketplace_help.jsx';
 import Report from './Components/footer/report.jsx';
 import Scams from './Components/footer/scams.jsx';
+import AvoidingScams from './Components/footer/avoiding-scams.jsx';
 import Policies from './Components/footer/purchase_policies.jsx';
 import BuyItemPage from './Pages/BuyItemPage.jsx';
-import SellItemPage from './Pages/SellItemPage.jsx'
+import SellItemPage from './Pages/SellItemPage.jsx';
+import Footer from './Components/Footer.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
+
+
 
 function App() {
   const [openLogin, setOpenLogin] = useState(false);
@@ -44,7 +49,24 @@ function App() {
     }
   };
 
+  const [user, setUser] = useState(null)
   axios.defaults.headers.common['Authorization'] =localStorage.getItem('jwtToken')?localStorage.getItem('jwtToken'):'';
+
+  useEffect(() => {
+    async function getCurrentUser() {
+      try {
+        const response = await axios.get('https://localhost:5000/user/currentUser');
+        const data = response.data;
+        console.log ("DATA: ", data);
+        setUser(data);
+        signIn(true);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+        signIn(false);
+      }
+    }
+    getCurrentUser();
+  }, []);
 
 
   return (
@@ -58,11 +80,12 @@ function App() {
           // ... other props ...
         />
         <Routes>
-          <Route path="/" element={<Homepage signedIn={signedIn} />} />
-          <Route path="/home" element={<Homepage signedIn={signedIn} />} />
-          <Route path="/signup" element={<SignUp signedIn={signedIn} />} />
-          <Route path="/login" element={<Login signedIn={signedIn} />} />
-          <Route path="/items" element={<Items signedIn={signedIn} />} />
+          <Route path="/" element={<Homepage user={user} />} />
+          <Route path="/home" element={<Homepage user={user} />} />
+          <Route path="/signup" element={<SignUp user={user} />} />
+          <Route path="/login" element={<Login user={user} />} />
+          <Route path="/items" element={<Items user={user} />} />
+          <Route path="/securitas" element={<Securitas />} />
           <Route path="/commerce" element={<Commerce />} />
           <Route path="/boosted-listings" element={<BoostedListings />} />
           <Route path="/about" element={<About />} />
@@ -75,10 +98,14 @@ function App() {
           <Route path="/purchase_policies" element={<Policies />} />
           <Route path="/report" element={<Report />} />
           <Route path="/scams" element={<Scams />} />
+          <Route path="/avoiding-scams" element={<AvoidingScams />} />
           <Route path="item_page" element={<BuyItemPage signedIn={signedIn} />} />
           <Route path="sell_page" element={<SellItemPage signedIn={signedIn} />} />
         </Routes>
         {openLogin && <Login handleSignIn={handleSignIn} setOpenLogin={setOpenLogin} />}
+
+        <br></br> <br></br> <br></br>
+        <Footer />
       </BrowserRouter>
       {openLogin && <Login signIn={signIn} closeLogin={setOpenLogin} />}
     </div>

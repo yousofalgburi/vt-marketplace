@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import '../App.css';
+import vtLogo from '../assets/vtNew.png';
 
-const TopNav = ({ vtLogo, isLoggedIn, handleAuthAction }) => {
+const TopNav = ({  isLoggedIn, handleAuthAction }) => {
   const navigate = useNavigate();
 
   // Function to handle login/logout actions
@@ -36,7 +37,7 @@ const TopNav = ({ vtLogo, isLoggedIn, handleAuthAction }) => {
           <NavLink to="/blog" activeClassName="active">Blog</NavLink>
           <NavLink to="/buying" activeClassName="active">Buying</NavLink>
           <NavLink to="/sell_page" activeClassName="active">Selling</NavLink>
-          <NavLink to="/trust-and-safety" activeClassName="active">Trust & Safety</NavLink>
+          <NavLink to="/securitas" activeClassName="active">Trust & Safety</NavLink>
         </div>
         
         <div className='auth-buttons'>
@@ -100,7 +101,7 @@ const TopNav = ({ vtLogo, goToItemsPage, isLoggedIn, handleAuthAction }) => {
           <NavLink to="/blog" activeClassName="active">Blog</NavLink>
           <NavLink to="/buying" activeClassName="active">Buying</NavLink>
           <NavLink to="/selling" activeClassName="active">Selling</NavLink>
-          <NavLink to="/trust-and-safety" activeClassName="active">Trust & Safety</NavLink>
+          <NavLink to="/securitas" activeClassName="active">Trust & Safety</NavLink>
         </div>
         
         <div className='auth-buttons'>

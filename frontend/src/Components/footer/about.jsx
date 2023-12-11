@@ -19,7 +19,7 @@ function About() {
                     <NavLink to="/blog" activeClassName="active">Blog</NavLink>
                     <NavLink to="/buying" activeClassName="active">Buying</NavLink>
                     <NavLink to="/selling" activeClassName="active">Selling</NavLink>
-                    <NavLink to="/trust-and-safety" activeClassName="active">Trust & Safety</NavLink>
+                    <NavLink to="/securitas" activeClassName="active">Trust & Safety</NavLink>
                 </div>
                 <button className="marketplace-button" onClick={goToItemsPage}>GO TO MARKETPLACE</button>
             </nav>
@@ -50,6 +50,19 @@ function About() {
                 <a href="/selling_info">Selling on VT Marketplace</a>
                 <a href="/marketplace_help">Get Help with Marketplace</a>
             </div>
+
+            <footer className="footer-nav">
+                <div className="footer-links">
+                    <NavLink to="/about">About</NavLink>
+                    <NavLink to="/privacy">Privacy</NavLink>
+                    <NavLink to="/terms">Terms</NavLink>
+                    <NavLink to="/cookies">Cookies</NavLink>
+                    <NavLink to="/help">Help</NavLink>
+                </div>
+                <div className="footer-rights">
+                    © Virginia Tech Marketplace. All Rights Reserved.
+                </div>
+            </footer>
         </div>
     )
 }
