@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import person from '../assets/person.png';
 import physicalSafety from '../assets/physical_safety.png';
 import trust from '../assets/establishing_trust.png';
@@ -40,7 +40,8 @@ function Securitas() {
                 <div className="info-block">
                     <div className="info-text">
                         <h2>Physical Safety</h2>
-                        <p>We continue to make progress on making Marketplace a safer and more responsible place to transact. Key features we have launched include: create & share a meetup plan, add a trusted contact in a Messenger conversation, and share your live location with a family member or friend.</p>
+                        <p>We continue to make progress on making Marketplace a safer and more responsible place to transact. Key features we have launched include:
+                            create & share a meetup plan, add a trusted contact in a Messenger conversation, and share your live location with a family member or friend.</p>
                     </div>
                     <img src={physicalSafety} alt="Physical Safety" className="info-image" />
                 </div>
@@ -49,7 +50,8 @@ function Securitas() {
                     <img src={trust} alt="Establishing Trust" className="info-image" />
                     <div className="info-text">
                         <h2>Establishing Trust</h2>
-                        <p>Creating trust between buyers and sellers is particularly important when considering an in-person transaction. In Marketplace, you can read ratings and reviews for sellers and review their badges. These existing & new features are designed to make it easier for buyers to evaluate sellers.</p>
+                        <p>Creating trust between buyers and sellers is particularly important when considering an in-person transaction. In Marketplace, you can read ratings
+                            and reviews for sellers and review their badges. These existing & new features are designed to make it easier for buyers to evaluate sellers.</p>
                     </div>
                 </div>
             </div> <br></br> <br></br> <br></br>
@@ -124,41 +126,6 @@ function Securitas() {
                 </div>
             </div> <br></br> <br></br> <br></br>
 
-            { /*
-            <div className="securitas-faqs">
-                <h2>Frequently Asked Questions</h2>
-                <div className="faq-item">
-                    <button className="faq-question">
-                        Where can I find more information about Marketplace?
-                        <span className="faq-toggle">+</span>
-                    </button>
-                    <div className="faq-answer">
-                        <p>You can find common questions and step-by-step tutorials about how to use Marketplace in our <a href="/help">Help Center</a>.</p>
-                    </div>
-                </div>
-
-                <div className="faq-item">
-                    <button className="faq-question">
-                        I'm having an issue with something I purchased on VT Marketplace:
-                        <span className="faq-toggle">+</span>
-                    </button>
-                    <div className="faq-answer">
-                        <p>If you have an issue with an order on VT Marketplace, please contact the seller for help. If the seller doesn't reply or resolve your issue within 2 business days, you can contact Hokie Services support.</p>
-                    </div>
-                </div>
-
-                <div className="faq-item">
-                    <button className="faq-question">
-                        How does Purchase Protection work on Facebook?
-                        <span className="faq-toggle">+</span>
-                    </button>
-                    <div className="faq-answer">
-                        <p>Many purchases made with checkout on VT Marketplace are covered by our Purchase Protection policies. Note that purchases made through third-party sites, local pickups, Hokie Messenger transactions, or through other messaging services don't qualify for Purchase Protection. Learn more in our <a href="/help">Help Center</a>.</p>
-                    </div>
-                </div>
-            </div>
-            */ }
-
             <div className="securitas-faqs">
                 <h2>Frequently Asked Questions</h2>
                 <div className="faq-item">
@@ -191,26 +158,6 @@ function Securitas() {
                     </div>
                 </div>
             </div>
-            
-            {/*
-            <div className="securitas-faqs">
-                <div className="securitas-faq-question">
-                    <h3>Where can I find more information about Marketplace?</h3>
-                    <p>You can find common questions and step-by-step tutorials about how to use Marketplace in our <a href="/help">Help Center</a>.</p>
-                </div>
-                
-                <div className="securitas-faq-question">
-                    <h3>I'm having an issue with something I purchased on VT Marketplace:</h3>
-                    <p>If you have an issue with an order on VT Marketplace, please contact the seller for help. If the seller doesn't
-                        reply or resolve your issue within 2 business days, you can contact Hokie Services support.</p>
-                </div>
-
-                <div className="securitas-faq-question">
-                    <h3>How does Purchase Protection work on Facebook?</h3>
-                    <p>Many purchases made with checkout on VT Marketplace are covered by our Purchase Protection policies...</p>
-                </div>
-            </div>
-            */}
         </div>
     );
 }

@@ -1,4 +1,4 @@
-// App.jsx
+
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import axios from 'axios'
@@ -29,6 +29,37 @@ import Footer from './Components/Footer.jsx'
 import Finding from './Components/finding_things.jsx'
 import SellingLocal from './Components/selling_locally.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
+import './App.css';
+import Homepage from './Pages/Homepage.jsx';
+import SignUp from './Components/SignUp.jsx';
+import Login from './Components/Login.jsx';
+import TopNav from './Components/TopNav.jsx';
+import Items from './Pages/Items.jsx';
+import Buying from './Components/Buying.jsx'
+import Securitas from './Components/Securitas.jsx';
+import Commerce from './Components/Commerce.jsx';
+import BoostedListings from './Components/BoostedListings.jsx';
+import About from './Components/footer/about.jsx';
+import Terms from './Components/footer/terms.jsx';
+import Cookies from './Components/footer/cookies.jsx';
+import Responsibility from './Components/footer/responsibility.jsx';
+import Accessibility from './Components/footer/accessibility.jsx';
+import Usability from './Components/footer/usability.jsx';
+import Help from './Components/footer/marketplace_help.jsx';
+import Report from './Components/footer/report.jsx';
+import Scams from './Components/footer/scams.jsx';
+import AvoidingScams from './Components/footer/avoiding-scams.jsx';
+import Policies from './Components/footer/purchase_policies.jsx';
+import BuyItemPage from './Pages/BuyItemPage.jsx';
+import SellItemPage from './Pages/SellItemPage.jsx';
+import Privacy from './Components/footer/privacy';
+import Footer from './Components/Footer.jsx';
+import Finding from './Components/finding_things.jsx';
+import SellingLocal from './Components/selling_locally.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 	const [openLogin, setOpenLogin] = useState(false)
