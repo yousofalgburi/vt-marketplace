@@ -8,6 +8,7 @@ import SignUp from './Components/SignUp.jsx';
 import Login from './Components/Login.jsx';
 import TopNav from './Components/TopNav.jsx';
 import Items from './Pages/Items.jsx';
+import Buying from './Components/Buying.jsx'
 import Securitas from './Components/Securitas.jsx';
 import Commerce from './Components/Commerce.jsx';
 import BoostedListings from './Components/BoostedListings.jsx';
@@ -66,6 +67,7 @@ function App() {
           <Route path="/signup" element={<SignUp signedIn={signedIn} />} />
           <Route path="/login" element={<Login signedIn={signedIn} />} />
           <Route path="/items" element={<Items signedIn={signedIn} />} />
+          <Route path="/buying" element={<Buying />} />
           <Route path="/securitas" element={<Securitas />} />
           <Route path="/commerce" element={<Commerce />} />
           <Route path="/boosted-listings" element={<BoostedListings />} />
@@ -80,7 +82,7 @@ function App() {
           <Route path="/report" element={<Report />} />
           <Route path="/scams" element={<Scams />} />
           <Route path="/avoiding-scams" element={<AvoidingScams />} />
-          <Route path="item_page" element={<BuyItemPage signedIn={signedIn} />} />
+          <Route path="/item_page" element={<BuyItemPage signedIn={signedIn} />} />
           <Route path="/selling" element={<SellItemPage signedIn={signedIn} />} />
         </Routes>
         {openLogin && <Login handleSignIn={handleSignIn} setOpenLogin={setOpenLogin} />}
