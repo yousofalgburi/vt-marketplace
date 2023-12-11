@@ -1,5 +1,5 @@
 // App.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
@@ -27,6 +27,8 @@ import SellItemPage from './Pages/SellItemPage.jsx';
 import Footer from './Components/Footer.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+
 function App() {
   const [openLogin, setOpenLogin] = useState(false);
   const [signedIn, signIn] = useState(false);
@@ -47,7 +49,24 @@ function App() {
     }
   };
 
+  const [user, setUser] = useState(null)
   axios.defaults.headers.common['Authorization'] =localStorage.getItem('jwtToken')?localStorage.getItem('jwtToken'):'';
+
+  useEffect(() => {
+    async function getCurrentUser() {
+      try {
+        const response = await axios.get('https://localhost:5000/user/currentUser');
+        const data = response.data;
+        console.log ("DATA: ", data);
+        setUser(data);
+        signIn(true);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+        signIn(false);
+      }
+    }
+    getCurrentUser();
+  }, []);
 
 
   return (
@@ -61,11 +80,11 @@ function App() {
           // ... other props ...
         />
         <Routes>
-          <Route path="/" element={<Homepage signedIn={signedIn} />} />
-          <Route path="/home" element={<Homepage signedIn={signedIn} />} />
-          <Route path="/signup" element={<SignUp signedIn={signedIn} />} />
-          <Route path="/login" element={<Login signedIn={signedIn} />} />
-          <Route path="/items" element={<Items signedIn={signedIn} />} />
+          <Route path="/" element={<Homepage user={user} />} />
+          <Route path="/home" element={<Homepage user={user} />} />
+          <Route path="/signup" element={<SignUp user={user} />} />
+          <Route path="/login" element={<Login user={user} />} />
+          <Route path="/items" element={<Items user={user} />} />
           <Route path="/securitas" element={<Securitas />} />
           <Route path="/commerce" element={<Commerce />} />
           <Route path="/boosted-listings" element={<BoostedListings />} />

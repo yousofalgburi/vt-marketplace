@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import setAuthToken from '../token';
@@ -14,6 +14,8 @@ function SignUp() {
     const [error, setError] = useState({ firstName: '', lastName: '', email: '', password: '', confirmPassword: '' });
     const [isRegistered, setIsRegistered] = useState(false);
     const navigate = useNavigate();
+
+ 
 
     // Mock function to simulate email check
     const checkEmailExists = (email) => {
@@ -65,11 +67,22 @@ function SignUp() {
         })
         .then(function (response) {
           console.log(response);
-          setAuthToken(response.data.token);
-          GetCurrentUser();
+          console.log("STATUS: ", response.status);
+          if(response.status ===201 ){
+            setAuthToken(response.data.token);
+            navigate('/');
+            alert("User created successfully");
+            GetCurrentUser();
+          }
+          
         })
         .catch(function (error) {
-          console.log(error);
+            if(error.response.status === 400){
+                alert("User already exists");
+                return;
+            }
+            alert("Something went wrong")
+            console.log(error);
         });
       }
 
@@ -92,17 +105,17 @@ function SignUp() {
         
         if (isValidForm) {
             // Process the form submission
-            setSuccessMessage('User registered successfully!');
-            setIsRegistered(true);
+            // setSuccessMessage('User registered successfully!');
+            // setIsRegistered(true);
             // Reset the form fields
-            setFirstName('');
-            setLastName('');
-            setEmail('');
-            setPassword('');
-            setConfirmPassword('');
-            setError({ firstName: '', lastName: '', email: '', password: '', confirmPassword: '' });
+            // setFirstName('');
+            // setLastName('');
+            // setEmail('');
+            // setPassword('');
+            // setConfirmPassword('');
+            // setError({ firstName: '', lastName: '', email: '', password: '', confirmPassword: '' });
             signUP();
-            navigate('/home');
+            // navigate('/home');
         }
     };
 

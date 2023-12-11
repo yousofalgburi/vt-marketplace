@@ -1,5 +1,5 @@
 // Homepage.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../App.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 // import vtLogo from '../assets/vt.png';
@@ -15,9 +15,17 @@ import commercePoliciesImg from '../assets/commerce_policy.png';
 import boostedListingsImg from '../assets/boosted_listing.png';
 // You can import NavLink if you need navigation links on your homepage.
 
-function Homepage() {
+function Homepage({user}) {
   const navigate = useNavigate();
-  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if(user){
+      console.log("HOMEPAGE USER:", user);
+    }
+    else {
+      console.log("HOMEPAGE USER: NO USER");
+    }
+  });
     
   const goToItemsPage = () => {
     navigate('/items');

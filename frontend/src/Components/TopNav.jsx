@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import '../App.css';
+import vtLogo from '../assets/vtNew.png';
 
-const TopNav = ({ vtLogo, isLoggedIn, handleAuthAction }) => {
+const TopNav = ({  isLoggedIn, handleAuthAction }) => {
   const navigate = useNavigate();
 
   // Function to handle login/logout actions
