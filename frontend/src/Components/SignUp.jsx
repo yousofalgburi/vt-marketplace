@@ -9,18 +9,8 @@ function SignUp() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [successMessage, setSuccessMessage] = useState('');
     const [error, setError] = useState({ firstName: '', lastName: '', email: '', password: '', confirmPassword: '' });
-    const [isRegistered, setIsRegistered] = useState(false);
     const navigate = useNavigate();
-
- 
-
-    // Mock function to simulate email check
-    const checkEmailExists = (email) => {
-        // This should be replaced with an actual API call
-        return email === 'zkoder@bezkoder.com';
-    };
 
     // Validate form fields
     const validate = () => {
@@ -103,18 +93,7 @@ function SignUp() {
         const isValidForm = validate();
         
         if (isValidForm) {
-            // Process the form submission
-            // setSuccessMessage('User registered successfully!');
-            // setIsRegistered(true);
-            // Reset the form fields
-            // setFirstName('');
-            // setLastName('');
-            // setEmail('');
-            // setPassword('');
-            // setConfirmPassword('');
-            // setError({ firstName: '', lastName: '', email: '', password: '', confirmPassword: '' });
             signUP();
-            // navigate('/home');
         }
     };
 

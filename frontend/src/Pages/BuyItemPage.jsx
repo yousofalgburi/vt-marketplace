@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import itemImage from '../assets/placeholderImage.png'; // Replace with the actual image from the itemDetails
 import vtLogo from '../assets/vtNew.png';
 import '../App.css';
 import TopNav from '../Components/TopNav';
 import Footer from '../Components/Footer';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const BuyItemPage = () => {
   const navigate = useNavigate();
@@ -23,6 +24,25 @@ const BuyItemPage = () => {
     createdAt: new Date('2023-12-09T09:03:02.892+00:00'),
     bidCount: 0,
   });
+
+  useEffect(() => {
+    //Get the item id from the url
+    const itemId = window.location.pathname.split('/').pop();
+    getItemDetails(itemId);
+  });
+
+  async function getItemDetails(itemId) {
+    try {
+      const response = await axios.get(
+        `/home/${itemId}`
+      );
+      const data = response.data;
+      console.log('DATA: ', data);
+      setItemDetails(data);
+    } catch (error) {
+      console.log('Error getting item details:', error);
+    }
+  }
 
   const toggleEmailVisibility = () => {
     setEmailVisible(!emailVisible);
