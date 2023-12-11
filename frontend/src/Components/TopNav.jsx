@@ -1,7 +1,6 @@
 // TopNav.js
 import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import vtLogo from '../assets/vt.png';
 import '../App.css';
 import vtLogo from '../assets/vtNew.png';
 import { deleteAuthToken } from '../token';
@@ -48,7 +47,7 @@ import { deleteAuthToken } from '../token';
           <NavLink to="/home" activeClassName="active">Home</NavLink>
           <NavLink to="/blog" activeClassName="active">Blog</NavLink>
           <NavLink to="/buying" activeClassName="active">Buying</NavLink>
-          <NavLink to="/selling" activeClassName="active">Selling</NavLink>
+          <NavLink to="/sell_page" activeClassName="active">Selling</NavLink>
           <NavLink to="/securitas" activeClassName="active">Trust & Safety</NavLink>
         </div>
         

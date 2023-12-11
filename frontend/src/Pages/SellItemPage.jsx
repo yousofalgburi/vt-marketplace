@@ -8,7 +8,9 @@ import { useNavigate } from 'react-router-dom';
 
 const SellItemPage = ({user}) => {
     useEffect(() => {
+        console.log("CLICKED USER:", user)
         if(!user){
+            console.log(user)
           alert("LogIn/SingUP First")
           navigate("/")
         }
