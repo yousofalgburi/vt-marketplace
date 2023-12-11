@@ -102,8 +102,8 @@ function App() {
           <Route path="/report" element={<Report />} />
           <Route path="/scams" element={<Scams />} />
           <Route path="/avoiding-scams" element={<AvoidingScams />} />
-          <Route path="/item_page/:_id" element={<BuyItemPage signedIn={signedIn} />} />
-          <Route path="/sell_page" element={<SellItemPage signedIn={signedIn} />} />
+          <Route path="/item_page/:_id" element={<BuyItemPage user={user} />} />
+          <Route path="/sell_page" element={<SellItemPage user={user} />} />
         </Routes>
         {openLogin && <Login handleSignIn={handleSignIn} setOpenLogin={setOpenLogin} />}
 

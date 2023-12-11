@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-const BuyItemPage = () => {
+const BuyItemPage = ({user}) => {
   // let { itemId } = useParams();
   const navigate = useNavigate();
   const [emailVisible, setEmailVisible] = useState(false);
@@ -17,6 +17,10 @@ const BuyItemPage = () => {
   });
 
   useEffect(() => {
+    if(!user){
+      alert("LogIn/SingUP First")
+      navigate("/")
+    }
     async function getItemDetails(itemId) {
       try {
         const response = await axios.get(
