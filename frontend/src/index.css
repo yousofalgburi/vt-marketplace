@@ -365,6 +365,58 @@ button:focus, button:focus-visible {
   height: auto; /* Maintain the aspect ratio of the images */
 }
 
+/* ... (existing styles) */
+
+.search-container {
+  position: relative;
+  margin-right: 1em; /* Adjust as necessary */
+}
+
+.search-input {
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+}
+
+.suggestions-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.suggestion-item {
+  padding: 0.5em;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-info {
+  display: flex;
+  align-items: center;
+}
+
+.suggestion-name {
+  margin: 0;
+  font-weight: bold;
+}
+
+.suggestion-price,
+.suggestion-location {
+  margin: 0;
+  font-size: 0.85em;
+}
+
+/* ... (any additional styles) */
+
+
 .selling-section {
   background-color: #00A7E1; /* Choose a color that fits the selling section, this is just an example */
   color: white;
@@ -1595,6 +1647,53 @@ h1.about-header {
   margin-top: 15px;
   margin-bottom: 15px;
   text-align: left;
+}
+
+.avoid-scams-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.avoid-scams-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.warning-box {
+  background-color: #f8d7da; /* light red for warning */
+  color: #721c24; /* dark red for text */
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #f5c6cb; /* border color */
+  border-radius: 4px; /* rounded corners */
+}
+
+.avoid-scams-container h2 {
+  color: #333;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.avoid-scams-container ul {
+  padding-left: 20px;
+}
+
+.avoid-scams-container li, p {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.avoid-scams-container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.avoid-scams-container a:hover {
+  text-decoration: underline;
 }
 
 .terms-container {
