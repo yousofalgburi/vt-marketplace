@@ -11,6 +11,7 @@ import Commerce from './Components/Commerce.jsx';
 import BoostedListings from './Components/BoostedListings.jsx';
 import About from './Components/footer/about.jsx';
 import Terms from './Components/footer/terms.jsx';
+import Cookies from './Components/footer/cookies.jsx';
 import Responsibility from './Components/footer/responsibility.jsx';
 import Accessibility from './Components/footer/accessibility.jsx';
 import Usability from './Components/footer/usability.jsx';
@@ -66,6 +67,7 @@ function App() {
           <Route path="/boosted-listings" element={<BoostedListings />} />
           <Route path="/about" element={<About />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/cookies" element={<Cookies />} />
           <Route path="/responsibility" element={<Responsibility />} />
           <Route path="/accessibility" element={<Accessibility />} />
           <Route path="/usability" element={<Usability />} />
