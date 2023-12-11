@@ -27,6 +27,7 @@ import SellItemPage from './Pages/SellItemPage.jsx';
 import Privacy from './Components/footer/privacy';
 import Footer from './Components/Footer.jsx';
 import Finding from './Components/finding_things.jsx';
+import SellingLocal from './Components/selling_locally.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -89,6 +90,7 @@ function App() {
           <Route path='/cookies' element={<Cookies />} />
           <Route path="/selling" element={<SellItemPage signedIn={signedIn} />} />
           <Route path="/finding_things" element={<Finding />} />
+          <Route path='/selling_locally' element={<SellingLocal />} />
         </Routes>
         {openLogin && <Login handleSignIn={handleSignIn} setOpenLogin={setOpenLogin} />}
 

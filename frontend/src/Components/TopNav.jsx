@@ -36,7 +36,7 @@ const TopNav = ({ isLoggedIn, handleAuthAction }) => {
           <NavLink to="/home" activeClassName="active">Home</NavLink>
           <NavLink to="/blog" activeClassName="active">Blog</NavLink>
           <NavLink to="/buying" activeClassName="active">Buying</NavLink>
-          <NavLink to="/selling" activeClassName="active">Selling</NavLink>
+          <NavLink to="/sell_page" activeClassName="active">Selling</NavLink>
           <NavLink to="/securitas" activeClassName="active">Trust & Safety</NavLink>
         </div>
         
