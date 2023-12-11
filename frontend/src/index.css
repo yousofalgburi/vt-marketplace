@@ -1227,22 +1227,48 @@ body {
 /* privacy.jsx */
 .privacy-container{
   font-family: Arial, sans-serif;
-
 }
 
-.privacy-info button{
+.privacy-container h3 {
+  font-size: 35px;
+}
+
+.privacy-container p {
+  text-align: center;
+  font-size: 30px;
+}
+
+.privacy-info button {
   color: white;
   background-color: maroon;
   font-size: 30px;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+.privacy-info ul {
+  display: inline-block;
+}
+
+.privacy-info li {
+  text-align: left;
+  font-size: 20px;
+}
+
+.privacy-info a {
+  font-size: 20px;
+}
+
 .scams-button{
   margin-right: 10px;
 }
 
+.cookies-button{
+  margin-left: 10px;
+
+}
+
 .terms-button{
-  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .policy-button{
