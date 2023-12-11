@@ -27,7 +27,7 @@ function Items() {
 
   const handleCardClick = (item) => {
     console.log('Item clicked:', item);
-    navigate(`/item_page/${item._id}`);
+    navigate(`/item_page/${item}`);
   };
 
   const handleItemClick = (item) => {
@@ -190,7 +190,7 @@ const handleSortChange = (sortType) => {
           price={`$${item.price || item.bid}`} 
           location={item.location}
           imageUrl={item.image}
-          onClick={() => handleCardClick(item)}
+          onClick={() => handleCardClick(item._id)}
         />
       </div>
     ))}

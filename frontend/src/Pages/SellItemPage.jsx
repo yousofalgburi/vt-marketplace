@@ -125,7 +125,7 @@ const handleSubmit = async (e) => {
           <button type="submit">List Item</button>
         </form>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 
