@@ -26,6 +26,7 @@ import BuyItemPage from './Pages/BuyItemPage.jsx';
 import SellItemPage from './Pages/SellItemPage.jsx';
 import Privacy from './Components/footer/privacy';
 import Footer from './Components/Footer.jsx';
+import Finding from './Components/finding_things.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -87,6 +88,7 @@ function App() {
           <Route path='/privacy' element={<Privacy />} />
           <Route path='/cookies' element={<Cookies />} />
           <Route path="/selling" element={<SellItemPage signedIn={signedIn} />} />
+          <Route path="/finding_things" element={<Finding />} />
         </Routes>
         {openLogin && <Login handleSignIn={handleSignIn} setOpenLogin={setOpenLogin} />}
 
