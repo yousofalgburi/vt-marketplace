@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const setAuthToken = token => {
+export function setAuthToken(token){
     if (token) {
         // Apply to every request
         axios.defaults.headers.common["Authorization"] = token;
@@ -12,4 +12,8 @@ const setAuthToken = token => {
     }
 }
 
-export default setAuthToken;
+export function deleteAuthToken() {
+    delete axios.defaults.headers.common["Authorization"];
+    localStorage.removeItem("jwtToken");
+}
+

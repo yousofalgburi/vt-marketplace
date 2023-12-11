@@ -2,6 +2,30 @@ import express from 'express'
 import Post from '../models/post.js'
 const router = express.Router()
 
+/**
+ * 
+ * @param {*} req
+ * 		- req.body.description
+ * 		- req.body.title
+ * 		- req.body.image
+ * 		- req.body.type
+ * 		- req.body.bid
+ * 		- req.body.price 
+ * @param {*} res 
+ * 		- 201: Post created successfully
+ * 		- 400: Description is required
+ * 		- 400: Title is required
+ * 		- 400: Image URL is required
+ * 		- 400: Type is required (Auction, Price)
+ * 		- 400: Type must be Auction or Price
+ * 		- 400: Bid is required
+ * 		- 400: Price is required
+ * 		- 400: Price and Bid cannot be used together
+ * 		- 400: Bid must be greater than 0
+ * 		- 400: Price must be greater than 0
+ * 		- 409: error.message
+ * @returns 
+ */
 export const createPost = async (req, res) => {
 
 	const post = req.body
