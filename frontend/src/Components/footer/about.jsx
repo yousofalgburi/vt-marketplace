@@ -15,7 +15,7 @@ function About() {
             <nav className="topnav">
                 <div className="nav-content">
                     <img src={vtLogo} alt="VT Logo" className="vt-logo" />
-                    <NavLink to="/home" activeClassName="active">VT Marketplace</NavLink>
+                    <NavLink to="/home" activeClassName="active">Home</NavLink>
                     <NavLink to="/blog" activeClassName="active">Blog</NavLink>
                     <NavLink to="/buying" activeClassName="active">Buying</NavLink>
                     <NavLink to="/selling" activeClassName="active">Selling</NavLink>
@@ -40,9 +40,9 @@ function About() {
                     <li><NavLink to="/ratings_info">How ratings work on VT Marketplace.</NavLink></li>
                     <li><NavLink to="/tips">Tips for shopping safely and avoiding scams on VT Marketplace.</NavLink></li>
                 </ul> <br></br>
-                <p><b>Keep in mind that items on Marketplace must follow our <a href="/commerce-policies">Commerce Policies</a>.</b></p> <br></br>
+                <p><b>Keep in mind that items on Marketplace must follow our <a href="/commerce">Commerce Policies</a>.</b></p> <br></br>
             </div>
-            
+
             <div className="about-footer">
                 <h2>Popular Articles</h2>
                 <a href="/accessibility">I can't access VT Marketplace</a>

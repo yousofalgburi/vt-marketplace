@@ -24,7 +24,9 @@ import AvoidingScams from './Components/footer/avoiding-scams.jsx';
 import Policies from './Components/footer/purchase_policies.jsx';
 import BuyItemPage from './Pages/BuyItemPage.jsx';
 import SellItemPage from './Pages/SellItemPage.jsx';
+import Privacy from './Components/footer/privacy';
 import Footer from './Components/Footer.jsx';
+import Finding from './Components/finding_things.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -102,6 +104,11 @@ function App() {
           <Route path="/report" element={<Report />} />
           <Route path="/scams" element={<Scams />} />
           <Route path="/avoiding-scams" element={<AvoidingScams />} />
+          <Route path='/help' element={<Help />}/>
+          <Route path='/privacy' element={<Privacy />} />
+          <Route path='/cookies' element={<Cookies />} />
+          <Route path="/selling" element={<SellItemPage signedIn={signedIn} />} />
+          <Route path="/finding_things" element={<Finding />} />
           <Route path="/item_page/:_id" element={<BuyItemPage user={user} />} />
           <Route path="/sell_page" element={<SellItemPage user={user} />} />
         </Routes>
