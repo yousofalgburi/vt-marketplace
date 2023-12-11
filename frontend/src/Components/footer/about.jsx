@@ -18,7 +18,7 @@ function About() {
                     <NavLink to="/home" activeClassName="active">Home</NavLink>
                     <NavLink to="/blog" activeClassName="active">Blog</NavLink>
                     <NavLink to="/buying" activeClassName="active">Buying</NavLink>
-                    <NavLink to="/selling" activeClassName="active">Selling</NavLink>
+                    <NavLink to="/sell_page" activeClassName="active">Selling</NavLink>
                     <NavLink to="/securitas" activeClassName="active">Trust & Safety</NavLink>
                 </div>
                 <button className="marketplace-button" onClick={goToItemsPage}>GO TO MARKETPLACE</button>
@@ -35,8 +35,8 @@ function About() {
                 <ul>
                     <li><NavLink to="/responsibility">Buying and selling responsibly on VT Marketplace.</NavLink></li>
                     <li><NavLink to="/accessibility">Accessing VT Marketplace.</NavLink></li>
-                    <li><NavLink to="/about_content">Finding things to buy on VT Marketplace by searching for a specific item or browsing categories.</NavLink></li>
-                    <li><NavLink to="/selling_info">Selling locally on VT Marketplace.</NavLink></li>
+                    <li><NavLink to="/finding_things">Finding things to buy on VT Marketplace by searching for a specific item or browsing categories.</NavLink></li>
+                    <li><NavLink to="/selling_locally">Selling locally on VT Marketplace.</NavLink></li>
                     <li><NavLink to="/ratings_info">How ratings work on VT Marketplace.</NavLink></li>
                     <li><NavLink to="/tips">Tips for shopping safely and avoiding scams on VT Marketplace.</NavLink></li>
                 </ul> <br></br>
