@@ -19,9 +19,14 @@ function Items() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [items, setItems] = useState([]);
+  const [currentCategory, setCurrentCategory] = useState(null);
   useEffect(() => {
-    getItems(currentPage);
-  }, [currentPage]);
+    if (currentCategory) {
+      getItemsByFilter(currentCategory, currentPage);
+    } else {
+      getItems(currentPage);
+    }
+  }, [currentPage, currentCategory]);
 
 
   const goToItemsPage = () => {
@@ -33,17 +38,13 @@ function Items() {
     navigate(`/item_page/${item}`);
   };
 
-  const handleItemClick = (item) => {
-    setSelectedItem(item);
-    setShowDialog(true); // Show dialog when item is clicked
-    setIsDropdownOpen(false); // Close dropdown
-    // getItemsByFilter();
-    if (item !== '') {
-      getItemsByFilter(item); // Call getItemsByFilter with the filter string
-    }
-    else {
-      getItems();
-    }
+  const handleItemClick = (category) => {
+    setSelectedItem(category);
+    setShowDialog(true);
+    setIsDropdownOpen(false);
+    setCurrentPage(1); // Reset to page 1 when a category is selected
+    setCurrentCategory(category); // Set the current category
+    getItemsByFilter(category, 1); // Fetch items from the first page of this category
   };
 
   const toggleDropdown = () => {
@@ -102,30 +103,52 @@ function Items() {
       console.error('Error fetching items:', error);
     }
   };
-async function getItemsByFilter(item) {
-  try {
-    const response = await axios.get(`/home/tags/${item}`);
-    console.log(response.data);
-    const itemsFromResponse = response.data; // Access the 'data' property of the response data
-    setItems(itemsFromResponse); // Update state with fetched items
-  } catch (error) {
-    console.error('Error fetching items:', error);
-    // Handle error appropriately
-  }
-}
+  const getItemsByFilter = async (category, page) => {
+    try {
+      if (category === "Select Category") {
+        getItems(page)
+        return;
+      }
+      const response = await axios.get(`/home/tags/${category}?page=${page}`);
+      setItems(response.data);
+      setCurrentPage(1);
+      setNumberOfPages(0);
+    } catch (error) {
+      console.error('Error fetching items:', error);
+    }
+  };
  // Function to go to the next page
- const goToNextPage = () => {
-  setCurrentPage((prevCurrentPage) => prevCurrentPage < numberOfPages ? prevCurrentPage + 1 : prevCurrentPage);
-};
-
-// Function to go to the previous page
-const goToPrevPage = () => {
-  setCurrentPage((prevCurrentPage) => prevCurrentPage > 1 ? prevCurrentPage - 1 : prevCurrentPage);
-};
-
-// Function to go to a specific page
-const goToPage = (page) => {
+ const goToPage = (page) => {
   setCurrentPage(page);
+  if (currentCategory) {
+    getItemsByFilter(currentCategory, page);
+  } else {
+    getItems(page);
+  }
+};
+
+const goToNextPage = () => {
+  setCurrentPage((prevCurrentPage) => {
+    const nextPage = prevCurrentPage < numberOfPages ? prevCurrentPage + 1 : prevCurrentPage;
+    if (currentCategory) {
+      getItemsByFilter(currentCategory, nextPage);
+    } else {
+      getItems(nextPage);
+    }
+    return nextPage;
+  });
+};
+
+const goToPrevPage = () => {
+  setCurrentPage((prevCurrentPage) => {
+    const prevPage = prevCurrentPage > 1 ? prevCurrentPage - 1 : prevCurrentPage;
+    if (currentCategory) {
+      getItemsByFilter(currentCategory, prevPage);
+    } else {
+      getItems(prevPage);
+    }
+    return prevPage;
+  });
 };
 
 
