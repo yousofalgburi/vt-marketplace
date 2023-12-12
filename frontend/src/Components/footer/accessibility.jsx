@@ -3,12 +3,6 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import vtLogo from '../../assets/vt.png';
 
 function Accessibility() {
-    const navigate = useNavigate();
-
-    const goToItemsPage = () => {
-        navigate('/items');
-    };
-
     const [openSections, setOpenSections] = useState({});
 
     const toggleSection = (section) => {
