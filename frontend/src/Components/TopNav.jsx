@@ -39,6 +39,9 @@ const TopNav = ({ user }) => {
 	const goToMarketplace = () => {
 		navigate('/items')
 	}
+  const goToUserPage = () => {
+		navigate('/user_page')
+	}
 	return (
 		<div className='App'>
 			<nav className='topnav'>
@@ -69,6 +72,9 @@ const TopNav = ({ user }) => {
 							GO TO MARKETPLACE
 						</button>
 					)}
+          {user && (
+            <button className='auth-button' onClick={goToUserPage}>{user.fname}</button>
+          )}
 
 					{user ? (
 						<button className='auth-button' onClick={signOut}>
@@ -81,6 +87,9 @@ const TopNav = ({ user }) => {
 							</button>
 							<button className='auth-button' onClick={onSignInClick}>
 								Sign In
+							</button>
+              <button className='auth-button' onClick={onSignInClick}>
+								Welcome!
 							</button>
 						</>
 					)}
