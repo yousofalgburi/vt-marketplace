@@ -18,7 +18,7 @@ export const getPosts = async (req, res) => {
 	const { page, sortBy, filterBy, priceRange } = req.query
 	
 	try {
-		const LIMIT = 9
+		const LIMIT = 12
 		const startIndex = (Number(page) - 1) * LIMIT
 		const total = await Post.countDocuments({})
 
@@ -29,10 +29,15 @@ export const getPosts = async (req, res) => {
         const tags = filterPairs.filter(pair => pair[0] === 'tag').map(pair => pair[1]);
         const otherFilters = Object.fromEntries(filterPairs.filter(pair => pair[0] !== 'tag'));
 
+		//if filter contains type Auction, do the priceRange by bidPrice, else do priceRange by price
+		const priceRangeKey = otherFilters.type === 'Auction' ? 'bid' : 'price';
+
+
         const filterParams = tags.length > 0 ? { ...otherFilters, tag: { $in: tags } } : otherFilters;
 		if (priceRange) {
 			const [minPrice, maxPrice] = priceRange.split('-').map(Number);
-            filterParams.price = { $gte: minPrice, $lte: maxPrice };
+            // filterParams.price = { $gte: minPrice, $lte: maxPrice };
+			filterParams[`${priceRangeKey}`] = { $gte: minPrice, $lte: maxPrice };
 		}
 
 
