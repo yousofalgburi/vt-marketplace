@@ -16,7 +16,7 @@ function Commerce() {
             <nav className="topnav">
                 <div className="nav-content">
                     <img src={vtLogo} alt="VT Logo" className="vt-logo" />
-                    <NavLink to="/home" activeClassName="active">VT Marketplace</NavLink>
+                    <NavLink to="/home" activeClassName="active">Home</NavLink>
                     <NavLink to="/blog" activeClassName="active">Blog</NavLink>
                     <NavLink to="/buying" activeClassName="active">Buying</NavLink>
                     <NavLink to="/selling" activeClassName="active">Selling</NavLink>
@@ -26,7 +26,7 @@ function Commerce() {
             </nav>
 
             <div className="back-to-terms">
-                <NavLink to="/terms-and-policies">&larr; Back to Terms and Policies</NavLink>
+                <NavLink to="/terms">&larr; Back to Terms and Policies</NavLink>
             </div>
 
             <div className="commerce-container">

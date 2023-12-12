@@ -19,7 +19,8 @@ function Login({ handleSignIn }) {
     const handleSubmit = (event) => {
         event.preventDefault();
         signIn();
-        navigate('/home');
+        // navigate('/home');
+        // window.location.href = '/';
     };
 
     async function signIn(){
@@ -31,8 +32,10 @@ function Login({ handleSignIn }) {
           console.log(response);
           setAuthToken(response.data.token);
           GetCurrentUser();
+          window.location.href = '/';
         })
         .catch(function (error) {
+            console.log("dhruv", error);
           console.log(error);
         });
       }
