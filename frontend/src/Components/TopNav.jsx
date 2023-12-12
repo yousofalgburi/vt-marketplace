@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import '../App.css'
-import vtLogo from '../assets/vtNew.png'
+// import vtLogo from '../assets/vtNew.png'
+import vtLogo from '../assets/hokie-bird.png'
 import { deleteAuthToken } from '../token'
 
 // const TopNav = ({  isLoggedIn, handleAuthAction }) => {

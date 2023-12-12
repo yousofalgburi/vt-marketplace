@@ -114,7 +114,6 @@ button:focus-visible {
 	height: 50px; /* Set the height of your logo */
 	margin-right: 0px; /* Adjust spacing between logo and text */
 	vertical-align: middle; /* Align it vertically with the text if necessary */
-	background-color: #00008b;
 }
 
 .nav-content {
