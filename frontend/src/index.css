@@ -30,6 +30,7 @@ body {
 	padding-top: 70px;
 	width: 100%;
 	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
@@ -111,7 +112,6 @@ button:focus-visible {
 	height: 50px; /* Set the height of your logo */
 	margin-right: 0px; /* Adjust spacing between logo and text */
 	vertical-align: middle; /* Align it vertically with the text if necessary */
-	background-color: #00008b;
 }
 
 .nav-content {
@@ -860,20 +860,22 @@ h2.resources {
 
 /* Footer styles */
 .footer-nav {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 3px 20px;
-	width: 100%;
-	box-sizing: border-box;
-	background-color: #4267b2;
-	color: white;
-	font-size: 0.9em;
-	border-top: 1px solid #365899;
-	bottom: 0;
-	left: 0;
-	z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #4267b2;
+    color: white;
+    font-size: 0.9em;
+    border-top: 1px solid #365899;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    position: sticky;
 }
+
 
 .footer-nav a {
 	color: white;
@@ -2226,7 +2228,7 @@ a:hover {
 }
 
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif; /* Example font */
 }
 .header-selected-item {
 	font-size: 2em;
@@ -2282,4 +2284,10 @@ body {
 
 .policy-button {
 	margin-left: 19px;
+}
+/* Individual Buy item Page */
+.item-page-image {
+    width: 500px;    /* adjust the width as needed */
+    height: 500px;   /* adjust the height as needed */
+    object-fit: contain; /* this will make sure the image is scaled properly within the set dimensions */
 }

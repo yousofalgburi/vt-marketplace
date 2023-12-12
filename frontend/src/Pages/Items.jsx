@@ -319,7 +319,7 @@ function Items() {
         <button onClick={goToNextPage} disabled={currentPage === numberOfPages}>Next</button>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

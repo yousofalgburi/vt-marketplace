@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import{ useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const UserSettings = ({user}) => {
   const navigate = useNavigate();
@@ -21,13 +22,15 @@ const UserSettings = ({user}) => {
   // State for password changes
   const [passwords, setPasswords] = useState({
     oldPassword: '',
-    newPassword: '',
+    password: '',
     confirmPassword: '',
   });
 
-  const handlePersonalInfoChange = (e) => {
-    const { name, value } = e.target;
-    setPersonalInfo({ ...personalInfo, [name]: value });
+  const handlePersonalInfoChange = (event) => {
+    setPersonalInfo({
+      ...personalInfo,
+      [event.target.name]: event.target.value
+    });
   };
 
   const handlePasswordChange = (e) => {
@@ -35,24 +38,49 @@ const UserSettings = ({user}) => {
     setPasswords({ ...passwords, [name]: value });
   };
 
-  // API call stubs
   const updatePersonalInfo = () => {
+    console.log('Personal information updated:', personalInfo);
     if (window.confirm('Are you sure you want to update your personal information?')) {
-      // Placeholder for an API call
-      console.log('Personal information updated:', personalInfo);
-      // TODO: Implement the actual API call
+      axios.patch('/user/update', {
+        fname: personalInfo.fname,
+        lname: personalInfo.lname,
+        email: personalInfo.email
+      })
+        .then(response => {
+          // Handle success
+          console.log('Personal information updated:', response.data);
+          alert('Your personal information has been updated successfully.');
+        })
+        .catch(error => {
+          // Handle error
+          console.error('Error updating personal information', error);
+          alert('There was an error updating your personal information.');
+        });
     }
   };
 
   const updatePassword = () => {
-    if (passwords.newPassword !== passwords.confirmPassword) {
+    if (passwords.password !== passwords.confirmPassword) {
       alert('New passwords do not match.');
       return;
     }
     if (window.confirm('Are you sure you want to change your password?')) {
-      // Placeholder for an API call
-      console.log('Password updated:', passwords);
-      // TODO: Implement the actual API call
+      // Here we use axios to send a PATCH request
+      axios.patch('https://localhost:5000/user/updatePassword', {
+        oldPassword: passwords.oldPassword,
+        password: passwords.password,
+        confirmPassword: passwords.confirmPassword
+      })
+      .then(response => {
+        // Handle success
+        console.log('Password updated successfully', response.data);
+        alert('Your password has been changed successfully.');
+      })
+      .catch(error => {
+        // Handle error
+        console.error('Error updating password', error);
+        alert('There was an error updating your password.');
+      });
     }
   };
 
@@ -74,15 +102,15 @@ const UserSettings = ({user}) => {
         <h3>Change Personal Information</h3>
         <input
           type="text"
-          name="firstName"
-          value={personalInfo.firstName}
+          name="fname"
+          value={personalInfo.fname}
           onChange={handlePersonalInfoChange}
           placeholder="First Name"
         />
         <input
           type="text"
-          name="lastName"
-          value={personalInfo.lastName}
+          name="lname"
+          value={personalInfo.lname}
           onChange={handlePersonalInfoChange}
           placeholder="Last Name"
         />
@@ -108,8 +136,8 @@ const UserSettings = ({user}) => {
         />
         <input
           type="password"
-          name="newPassword"
-          value={passwords.newPassword}
+          name="password"
+          value={passwords.password}
           onChange={handlePasswordChange}
           placeholder="New Password"
         />
