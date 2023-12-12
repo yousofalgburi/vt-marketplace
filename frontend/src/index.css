@@ -2291,3 +2291,25 @@ body {
     height: 500px;   /* adjust the height as needed */
     object-fit: contain; /* this will make sure the image is scaled properly within the set dimensions */
 }
+/* Card Icons and Delte and Edit */
+  .card.custom-card {
+	/* ...existing styles... */
+	position: relative; /* This enables absolute positioning relative to the card */
+  }
+  
+  .card-icon-container {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px; /* Adds some space inside the container */
+  }
+  
+  .card-edit-icon,
+  .card-delete-icon {
+	width: 20px; /* Set a fixed size for icons */
+	height: 20px;
+	margin-left: 10px; /* Adds space between the icons */
+	cursor: pointer; /* Changes cursor to pointer when hovering over the icons */
+  }
+  
+  
