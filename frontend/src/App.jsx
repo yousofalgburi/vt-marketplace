@@ -29,6 +29,7 @@ import Footer from './Components/Footer.jsx';
 import Finding from './Components/finding_things.jsx';
 import SellingLocal from './Components/selling_locally.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Ratings from './Components/ratings.jsx';
 
 
 
@@ -113,6 +114,7 @@ function App() {
           <Route path='/selling_locally' element={<SellingLocal />} />
           <Route path="/item_page/:_id" element={<BuyItemPage user={user} />} />
           <Route path="/sell_page" element={<SellItemPage user={user} />} />
+          <Route path='/ratings' element={<Ratings />}/>
         </Routes>
         {openLogin && <Login handleSignIn={handleSignIn} setOpenLogin={setOpenLogin} />}
 

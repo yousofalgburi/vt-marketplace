@@ -37,7 +37,7 @@ function About() {
                     <li><NavLink to="/accessibility">Accessing VT Marketplace.</NavLink></li>
                     <li><NavLink to="/finding_things">Finding things to buy on VT Marketplace by searching for a specific item or browsing categories.</NavLink></li>
                     <li><NavLink to="/selling_locally">Selling locally on VT Marketplace.</NavLink></li>
-                    <li><NavLink to="/ratings_info">How ratings work on VT Marketplace.</NavLink></li>
+                    <li><NavLink to="/ratings">How ratings work on VT Marketplace.</NavLink></li>
                     <li><NavLink to="/tips">Tips for shopping safely and avoiding scams on VT Marketplace.</NavLink></li>
                 </ul> <br></br>
                 <p><b>Keep in mind that items on Marketplace must follow our <a href="/commerce">Commerce Policies</a>.</b></p> <br></br>
@@ -47,7 +47,7 @@ function About() {
                 <h2>Popular Articles</h2>
                 <a href="/accessibility">I can't access VT Marketplace</a>
                 <a href="/usability">Who can use VT Marketplace</a>
-                <a href="/selling_info">Selling on VT Marketplace</a>
+                <a href="/selling_locally">Selling on VT Marketplace</a>
                 <a href="/marketplace_help">Get Help with Marketplace</a>
             </div>
 

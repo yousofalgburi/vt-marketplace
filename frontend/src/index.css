@@ -79,7 +79,7 @@ button:focus, button:focus-visible {
   justify-content: space-between;
   align-items: center;
   background-color: maroon;
-  padding: 10px 20px;
+  padding: 0px 20px;
   width: 100%;
   box-sizing: border-box;
   position: fixed; /* Fixed position */
@@ -1952,3 +1952,9 @@ body {
 .policy-button{
   margin-left: 19px;
 }
+
+
+
+/* finding_things.jsx*/
+
+
