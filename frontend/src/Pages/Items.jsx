@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
-import vtLogo from '../assets/vtNew.png';
-import TopNav from '../Components/TopNav';
 import Footer from '../Components/Footer';
 import PriceModal from '../Components/PriceModal';
-import placeholderImage from '../assets/placeholderImage.png';
 import Card from '../Components/Card';
 import DropdownMenu from '../Components/CategoryDropdownMenu';
 import axios from 'axios';
@@ -20,7 +17,7 @@ function Items() {
   const [showDialog, setShowDialog] = useState(false);
   const [items, setItems] = useState([]);
   const [currentCategory, setCurrentCategory] = useState(null);
-  const [sortBy, setSortBy] = useState('');
+  const [sortBy, setSortBy] = useState(null);
   const [filterBy, setFilterBy] = useState(null);
   const [priceRange, setPriceRange] = useState(null);
 
@@ -58,7 +55,7 @@ function Items() {
       setShowDialog(false); // Close dialog if no item is selected and dropdown is closing
     }
   };
-  const [lowerPrice, setLowerPrice] = useState(10);
+  const [lowerPrice, setLowerPrice] = useState(0);
   const [higherPrice, setHigherPrice] = useState(2500);
 
   useEffect(() => {
