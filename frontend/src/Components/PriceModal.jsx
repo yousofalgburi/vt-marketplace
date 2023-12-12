@@ -1,7 +1,5 @@
 // PriceModal.jsx
 
-import React from 'react';
-
 function PriceModal({ price, setPrice, increasePrice, decreasePrice, modalId, title }) {
   const handlePriceInput = (event) => {
     const inputPrice = parseInt(event.target.value.replace(/\D/g, ''), 10);
