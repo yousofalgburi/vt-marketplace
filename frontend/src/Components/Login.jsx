@@ -35,8 +35,8 @@ function Login({ handleSignIn }) {
           window.location.href = '/';
         })
         .catch(function (error) {
-            console.log("dhruv", error);
           console.log(error);
+          alert(`Something went wrong: ${error.response.data.message}`);
         });
       }
       

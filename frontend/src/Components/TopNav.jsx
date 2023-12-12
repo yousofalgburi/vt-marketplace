@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import '../App.css'
-import vtLogo from '../assets/vtNew.png'
+// import vtLogo from '../assets/vtNew.png'
+import vtLogo from '../assets/hokie-bird.png'
 import { deleteAuthToken } from '../token'
 
 // const TopNav = ({  isLoggedIn, handleAuthAction }) => {
@@ -39,6 +40,9 @@ const TopNav = ({ user }) => {
 	const goToMarketplace = () => {
 		navigate('/items')
 	}
+  const goToUserPage = () => {
+		navigate('/user_page')
+	}
 	return (
 		<div className='App'>
 			<nav className='topnav'>
@@ -65,10 +69,13 @@ const TopNav = ({ user }) => {
 
 				<div className='auth-buttons'>
 					{user && (
-						<button className='marketplace-button' onClick={goToMarketplace}>
+						<button onClick={goToMarketplace}>
 							GO TO MARKETPLACE
 						</button>
 					)}
+          {user && (
+            <button onClick={goToUserPage}>{user.fname}</button>
+          )}
 
 					{user ? (
 						<button className='auth-button' onClick={signOut}>
@@ -81,6 +88,9 @@ const TopNav = ({ user }) => {
 							</button>
 							<button className='auth-button' onClick={onSignInClick}>
 								Sign In
+							</button>
+              <button className='auth-button' onClick={onSignInClick}>
+								Welcome!
 							</button>
 						</>
 					)}

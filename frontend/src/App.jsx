@@ -8,7 +8,6 @@ import SignUp from './Components/SignUp.jsx';
 import Login from './Components/Login.jsx';
 import TopNav from './Components/TopNav.jsx';
 import Items from './Pages/Items.jsx';
-import Buying from './Components/Buying.jsx'
 import Securitas from './Components/Securitas.jsx';
 import Commerce from './Components/Commerce.jsx';
 import BoostedListings from './Components/BoostedListings.jsx';
@@ -33,6 +32,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Ratings from './Components/ratings.jsx';
 import Tips from './Components/tips_safety.jsx';
 
+import UserPage from './Pages/UserPage.jsx'
+import UserSettings from './Pages/UserSettings.jsx';
+import Buying from './Components/Buying.jsx';
 
 
 function App() {
@@ -119,6 +121,8 @@ function App() {
           <Route path="/sell_page" element={<SellItemPage user={user} />} />
           <Route path='/ratings' element={<Ratings />}/>
           <Route path="/tips_safety" element={<Tips />} />
+          <Route path="/user_page" element={<UserPage user={user} />} />
+          <Route path="/user_settings" element={<UserSettings user={user} />} />
         </Routes>
         {openLogin && <Login handleSignIn={handleSignIn} setOpenLogin={setOpenLogin} />}
 
