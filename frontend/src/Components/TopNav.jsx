@@ -68,12 +68,12 @@ const TopNav = ({ user }) => {
 
 				<div className='auth-buttons'>
 					{user && (
-						<button className='marketplace-button' onClick={goToMarketplace}>
+						<button onClick={goToMarketplace}>
 							GO TO MARKETPLACE
 						</button>
 					)}
           {user && (
-            <button className='auth-button' onClick={goToUserPage}>{user.fname}</button>
+            <button onClick={goToUserPage}>{user.fname}</button>
           )}
 
 					{user ? (

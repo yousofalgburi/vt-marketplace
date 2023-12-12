@@ -77,7 +77,7 @@ const BuyItemPage = ({user}) => {
       <TopNav vtLogo={vtLogo} goToItemsPage={goToItemsPage} />
       <div className="item-container">
         {/* <img src={itemDetails.image} alt={itemDetails.title} /> */}
-        <img 
+        <img className='item-page-image'
   src={itemDetails.image || itemImage} // First try to load the item image
   alt={itemDetails.title}
   onError={(e) => { 
@@ -109,7 +109,7 @@ const BuyItemPage = ({user}) => {
           {emailVisible ? `${sellerEmail}` : "Show Seller's Email"} {/* Replace with actual email logic */}
         </button>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
