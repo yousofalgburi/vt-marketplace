@@ -74,7 +74,7 @@ const BuyItemPage = ({user}) => {
 
   return (
     <div>
-      <TopNav vtLogo={vtLogo} goToItemsPage={goToItemsPage} />
+      {/* <TopNav vtLogo={vtLogo} goToItemsPage={goToItemsPage} /> */}
       <div className="item-container">
         {/* <img src={itemDetails.image} alt={itemDetails.title} /> */}
         <img className='item-page-image'
