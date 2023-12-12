@@ -4,6 +4,7 @@ import location from '../assets/location.png';
 import deals from '../assets/deals.png';
 import inspect from '../assets/inspect.png';
 import peopleIcon from '../assets/people_icon.png';
+import communication from '../assets/communication.png';
 import check from '../assets/vet_seller.png';
 
 function Buying() {
@@ -24,13 +25,13 @@ function Buying() {
                 <h2>Buying on Marketplace</h2>
                 <p>Learn more about buying things on Hokie Marketplace, where you can find thousands of items for sale by people near you.</p>
                 <button onClick={goToMarketplace}>Go to Marketplace</button>
-            </div>
+            </div> <br></br> <br></br> <br></br>
 
             <div className="about-marketplace">
                 <h2>About Marketplace</h2>
                 <p>Marketplace makes it easy to find new and used items like clothes, furniture, electronics and even your next home to rent.
                     Here's more information about Marketplace and how to buy things on Hokie Services.</p>
-            </div>
+            </div> <br></br> <br></br> <br></br>
 
             <h2>Benefits of Buying on Marketplace</h2>
             <div className="benefits-of-marketplace">
@@ -48,8 +49,9 @@ function Buying() {
 
                 <div className="marketplace-tips">
                     <img src={inspect} alt="inspect items" className='inspect' />
-                    <h5>Find deals on top brands</h5>
-                    <p>You can also find deals on new and used items from top brands on Marketplace.</p>
+                    <h5>Easily find what you're looking for</h5>
+                    <p>You can search for specific items or browse by category. You can also use filters to adjust the seller's location, price and
+                        more when buying on Marketplace. If you're not ready to buy, you can save your favorite listings for later.</p>
                 </div>
 
                 <div className="marketplace-tips">
@@ -57,6 +59,13 @@ function Buying() {
                     <h5>Join Buy and Sell Groups</h5>
                     <p>You can shop among people who have things in common with you through buy and sell groups. You can find buy and sell groups around
                         specific neighborhoods, interests, items and more by searching the Marketplace.</p>
+                </div>
+
+                <div className="marketplace-tips">
+                    <img src={communication} alt="message through Hokie Services" className='chatIcon' />
+                    <h5>Message online and pay through Hokie Services</h5>
+                    <p>You don't need to leave Marketplace when shopping on online or give your phone number and email to strangers. Instead, you can use
+                        Hokie Messenger on most listings to ask the seller questions, arrange pickup and pay.</p>
                 </div>
 
                 <div className="marketplace-tips">
@@ -68,6 +77,7 @@ function Buying() {
 
             <div className="buying-faqs">
                 <h2>Frequently Asked Questions</h2>
+                
                 <div className="buying-faq-item">
                     <button className="buying-faq-question" onClick={() => toggleFAQ(0)}>
                         How can I buy things on Marketplace?
@@ -106,45 +116,45 @@ function Buying() {
                             in mind when buying things on Marketplace and for additional information:</p>
                         <ol>
                             <li>
-                                <b>Know what is allowed to be sold on Marketplace.</b>
+                                <b style={{color: 'gold'}}>Know what is allowed to be sold on Marketplace. </b>
                                 You can read what items can be sold on Marketplace in our <a href="/help">help center</a> and <a href="/commerce">Commerce Policies</a>. Don't attempt to
                                 buy anything illegal. If you’re unsure about an item, familiarize yourself with what is allowed to be sold on Marketplace.
-                            </li>
+                            </li> <br></br>
 
                             <li>
-                                <b>Learn more about the item you want to buy.</b>
+                                <b style={{color: 'gold'}}>Learn more about the item you want to buy. </b>
                                 Ask a lot of questions before buying an item you’re interested in. Make sure you are able to see pictures that show all angles of the item, and get information
                                 from the seller about an item’s history, authenticity and current condition. Thoroughly inspect the item before buying and test it if possible.
-                            </li>
+                            </li> <br></br>
 
                             <li>
-                                <b>Learn more about the seller.</b>
+                                <b style={{color: 'gold'}}>Learn more about the seller. </b>
                                 Spend a few minutes learning more about a seller by looking at their profile to see the friends you may have in common, reviewing their Marketplace activity
                                 and reviewing any ratings they may have received.
-                            </li>
+                            </li> <br></br>
 
                             <li>
-                                <b>Keep your personal information protected.</b>
+                                <b style={{color: 'gold'}}>Keep your personal information protected. </b>
                                 Never share personal or banking information that could put your identity or money at risk. Use Hokie Messenger when possible to communicate so
                                 you don't have to give your personal phone number or email address.
-                            </li>
+                            </li> <br></br>
 
                             <li>
-                                <b>Know More About Meeting In-person.</b>
+                                <b style={{color: 'gold'}}>Know More About Meeting In-person. </b>
                                 If you're meeting, we recommend arranging your meeting in a public, well-lit area or a police station. Let others know where you're headed.
                                 Find a local law enforcement agency <a href="https://www.usacops.com/" target='_blank'>near you</a> in the United States from the USACOPS directory.
-                            </li>
+                            </li> <br></br>
 
                             <li>
-                                <b>Report a listing or a seller if you have any problems.</b>
+                                <b style={{color: 'gold'}}>Report a listing or a seller if you have any problems. </b>
                                 If you have an issue with a person or an item that's listed, such as violating community standards, harassing behavior or scams, it's easy to
                                 <a href="/report">report to Marketplace</a>. Just look for a Report link on the listing or on the seller's Marketplace profile.
-                            </li>
+                            </li> <br></br>
                         </ol>
                     </div>
                 </div>
 
-                <div className="faq-item">
+                <div className="buying-faq-item">
                     <button className="buying-faq-question" onClick={() => toggleFAQ(3)}>
                         Can I buy expensive items like cars? Are there are any restricted/prohibited items not for sale on Hokie Marketplace?
                         <span className="buying-faq-toggle">{activeIndex === 3 ? '−' : '+'}</span>
@@ -155,7 +165,7 @@ function Buying() {
                     </div>
                 </div>
 
-                <div className="faq-item">
+                <div className="buying-faq-item">
                     <button className="buying-faq-question" onClick={() => toggleFAQ(4)}>
                         Where can I find more information about how to use Marketplace?
                         <span className="buying-faq-toggle">{activeIndex === 4 ? '−' : '+'}</span>
@@ -164,7 +174,7 @@ function Buying() {
                         <p>You can find common questions and step-by-step tutorials about how to use Marketplace on our <a href="/help">help center</a>.</p>
                     </div>
                 </div>
-            </div>
+            </div> <br></br> <br></br> <br></br>
 
             <div className="buying-footer">
                 <h2>Buy or Sell on Marketplace</h2>
