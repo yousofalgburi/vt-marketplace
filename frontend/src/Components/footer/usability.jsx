@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import vtLogo from '../../assets/vt.png';
 
 function Usability() {
     const navigate = useNavigate();
@@ -23,6 +22,7 @@ function Usability() {
                     <h3>The Hokie Marketplace is only available and accessible to Virginia Tech students, faculty, associates, and other Blacksburg residents.</h3>
                     <h3>It is a Marketplace app for serving the Hokie community.</h3>
                 </div> <br></br>
+                
                 <h2>To access Facebook Marketplace, you must:</h2>
                 <ul>
                     <li>Be at least 18 years old.</li>
