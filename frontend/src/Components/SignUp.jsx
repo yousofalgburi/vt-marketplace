@@ -74,19 +74,17 @@ function SignUp() {
             alert("Something went wrong")
             console.log(error);
         });
-      }
+    }
 
-      async function GetCurrentUser(){
+    async function GetCurrentUser(){
         await axios.get('/user/currentUser', {withCredentials: true})
-          .then(function (response) {
+        .then(function (response) {
             console.log(response);
-          })
-          .catch(function (error) {
+        })
+        .catch(function (error) {
             console.log(error);
-          });
-      }
-      
-      
+        });
+    }
 
     // Handle form submission
     const handleSubmit = (event) => {
