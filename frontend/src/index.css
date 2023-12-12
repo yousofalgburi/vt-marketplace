@@ -366,7 +366,164 @@ button:focus-visible {
 	height: auto; /* Maintain the aspect ratio of the images */
 }
 
-/* ... (existing styles) */
+.buying-container {
+  font-family: 'Arial', sans-serif;
+}
+
+.buying-hero {
+  background: url('/path-to-your-hero-background.jpg') no-repeat center center/cover;
+  background-color: grey;
+  text-align: center;
+  padding: 100px 20px;
+  color: white;
+}
+
+.buying-hero h2 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: beige;
+}
+
+.buying-hero p {
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+}
+
+.buying-hero button {
+  padding: 10px 25px;
+  font-size: 1rem;
+  background-color: #006aff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.about-marketplace {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.about-marketplace h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.about-marketplace p {
+  font-size: 1rem;
+}
+
+.benefits-of-marketplace {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  padding: 50px 0;
+  gap: 2%; /* Adjust the gap between the items */
+}
+
+.marketplace-tips {
+  flex-basis: calc(33.333% - 2%); /* Adjust basis to 3 items per row, minus the gap */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px; /* Adjust maximum width as necessary */
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.marketplace-tips img {
+  width: 80px; /* Adjust image size as necessary */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.marketplace-tips h5 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.marketplace-tips p {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 0 10px;
+}
+
+.buying-faqs {
+  padding: 50px 20px;
+}
+
+.buying-faqs h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.buying-faq-item {
+  margin-bottom: 10px;
+  background-color: gray;
+}
+
+.buying-faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.buying-faq-toggle {
+  margin-left: auto;
+  float: right;
+  font-size: 1.5rem;
+  align-self: auto;
+}
+
+.buying-faq-answer {
+  display: none;
+  padding: 20px;
+  font-size: 1.1rem;
+  color: palegreen;
+}
+
+.buying-faq-answer a {
+  color: yellow;
+}
+
+.buying-faq-answer ol {
+  text-align: left;
+}
+
+.buying-faq-answer.show {
+  display: block;
+}
+
+.buying-footer {
+  background-color: #ebb7b7;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.buying-footer h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.buying-footer button {
+  padding: 10px 25px;
+  font-size: 1rem;
+  background-color: #006aff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Add any additional styles and responsive design as needed */
+
 
 .search-container {
   position: relative;

@@ -13,7 +13,6 @@ import buying_items2 from '../assets/buying_items2.png';
 import selling_items from '../assets/selling_items.png';
 import commercePoliciesImg from '../assets/commerce_policy.png';
 import boostedListingsImg from '../assets/boosted_listing.png';
-import TopNav from '../Components/TopNav';
 // You can import NavLink if you need navigation links on your homepage.
 
 function Homepage({user}) {
@@ -117,6 +116,7 @@ function Homepage({user}) {
             <p>Products sold through VT Marketplace must comply with our Commerce Policies. Buyers and sellers are also responsible for complying with all applicable laws and regulations.</p>
           </a>
         </div>
+
         <div className="resource">
           <a href="/boosted-listings" className="resource-link">
             <img src={boostedListingsImg} alt="Boosted Listings" className="resource-image" />
@@ -125,21 +125,6 @@ function Homepage({user}) {
           </a>
         </div>
       </div>
-
-      <br></br> <br></br> <br></br>
-
-      <footer className="footer-nav">
-        <div className="footer-links">
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/privacy">Privacy</NavLink>
-          <NavLink to="/terms">Terms</NavLink>
-          <NavLink to="/cookies">Cookies</NavLink>
-          <NavLink to="/help">Help</NavLink>
-        </div>
-        <div className="footer-rights">
-          © Virginia Tech Marketplace. All Rights Reserved.
-        </div>
-      </footer>
     </div>
   );
 }
