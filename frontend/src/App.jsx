@@ -109,6 +109,6 @@ function App() {
       {openLogin && <Login signIn={signIn} closeLogin={setOpenLogin} />}
     </div>
   );
-};
+}
 
 export default App;
