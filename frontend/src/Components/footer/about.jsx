@@ -4,11 +4,6 @@ import marketplaceGraphic from '../../assets/marketplace.png';
 import vtLogo from '../../assets/vt.png';
 
 function About() {
-    const navigate = useNavigate();
-
-    const goToItemsPage = () => {
-        navigate('/items');
-    };
     
     return (
         <div className="about-page">
@@ -26,7 +21,7 @@ function About() {
                     <li><NavLink to="/finding_things">Finding things to buy on VT Marketplace by searching for a specific item or browsing categories.</NavLink></li>
                     <li><NavLink to="/selling_locally">Selling locally on VT Marketplace.</NavLink></li>
                     <li><NavLink to="/ratings">How ratings work on VT Marketplace.</NavLink></li>
-                    <li><NavLink to="/tips">Tips for shopping safely and avoiding scams on VT Marketplace.</NavLink></li>
+                    <li><NavLink to="/tips_safety">Tips for shopping safely and avoiding scams on VT Marketplace.</NavLink></li>
                 </ul> <br></br>
                 <p><b>Keep in mind that items on Marketplace must follow our <a href="/commerce">Commerce Policies</a>.</b></p> <br></br>
             </div>

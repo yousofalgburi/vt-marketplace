@@ -4,14 +4,8 @@ import vtLogo from '../assets/vt.png';
 
 
 function SellingLocal() {
-     // naviagting through the pages
-     const goToItemsPage = () => {
-        navigate('/items');
-    };
-
-
     return(
-        <div className="privacy-container">
+        <div className="selling-local-container">
             <h1>Selling Locally</h1>
             <h3>Selling an item in VT Marketplace</h3>
             <p>When you sell something on VT Marketplace, you create a public listing that can be viewed
@@ -25,6 +19,7 @@ function SellingLocal() {
                 <li>Then, you will click submit and <b>List Item</b>. </li>
                 <li>Now you can view your product in the <b>GO TO MARKETPLACE</b></li>
             </ol>
+            <p><b>These steps can only be done if you are signed into the account!</b></p>
         </div>
     )
 }

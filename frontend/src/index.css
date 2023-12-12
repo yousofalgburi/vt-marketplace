@@ -1031,6 +1031,10 @@ h1.about-header {
 	line-height: 1.6;
 }
 
+.about-content p {
+  text-align: center;
+}
+
 .about-content a {
 	color: #4267b2;
 	text-decoration: none;
@@ -2213,6 +2217,104 @@ body {
 
 
 
-/* finding_things.jsx*/
+/* tips_safety.jsx*/
+.tips-container button {
+  background-color: maroon;
+}
+
+.tips-container h1 {
+  color: maroon;
+}
+
+.tips-container h3 {
+  color: maroon;
+}
+
+.tips-container ul {
+  display: inline-block;
+}
+
+.tips-container li {
+  text-align: left;
+}
+
+.tips-container p {
+  text-align: center;
+}
 
 
+.avoid-scams-button {
+  margin-right: 10px;
+}
+
+.help-section-button {
+  margin-left: 10px;
+}
+
+
+.identify-scams-button {
+  margin-left: 10px;
+}
+
+
+/*ratings.jsx*/
+.ratings-container h1{
+  color: maroon;
+}
+
+.ratings-container p {
+  text-align: center;
+}
+
+.ratings-container h3 {
+  font-weight: bold;
+  color: maroon;
+}
+
+/*selling_local.jsx*/
+
+.selling-local-container h1{
+  color: maroon;
+}
+
+
+.selling-local-container h3{
+  color: maroon;
+}
+
+.selling-local-container ol {
+  display: inline-block;
+}
+
+.selling-local-container li {
+  text-align: left;
+}
+
+.selling-local-container p {
+  text-align: center;
+}
+
+
+/*finding_things.jsx*/
+.finding-things-container :is(h1, h3) {
+  color: maroon;
+}
+
+.finding-things-container ul {
+  display: inline-block;
+}
+
+.finding-things-container ol {
+  display: inline-block;
+}
+
+.finding-things-container li {
+  text-align: left;
+  font-size: 17px;
+}
+
+.finding-things-container p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
