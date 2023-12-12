@@ -1,289 +1,257 @@
-import React, { useState, useEffect } from 'react'
-import '../App.css'
-import { useNavigate } from 'react-router-dom'
-import vtLogo from '../assets/vtNew.png'
-import TopNav from '../Components/TopNav'
-import Footer from '../Components/Footer'
-import PriceModal from '../Components/PriceModal'
-import placeholderImage from '../assets/placeholderImage.png'
-import Card from '../Components/Card'
-import DropdownMenu from '../Components/CategoryDropdownMenu'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import '../App.css';
+import { useNavigate } from 'react-router-dom';
+import vtLogo from '../assets/vtNew.png';
+import TopNav from '../Components/TopNav';
+import Footer from '../Components/Footer';
+import PriceModal from '../Components/PriceModal';
+import placeholderImage from '../assets/placeholderImage.png';
+import Card from '../Components/Card';
+import DropdownMenu from '../Components/CategoryDropdownMenu';
+import axios from 'axios';
 
 function Items() {
-	const navigate = useNavigate()
-	const [currentPage, setCurrentPage] = useState(1)
-	const [numberOfPages, setNumberOfPages] = useState(0)
-	const [selectedItem, setSelectedItem] = useState('')
-	const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-	const [showDialog, setShowDialog] = useState(false)
-	const [items, setItems] = useState([])
-	const [currentCategory, setCurrentCategory] = useState(null)
-	useEffect(() => {
-		if (currentCategory) {
-			getItemsByFilter(currentCategory, currentPage)
-		} else {
-			getItems(currentPage)
-		}
-	}, [currentPage, currentCategory])
 
-	const goToItemsPage = () => {
-		navigate('/items')
-	}
+  const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [numberOfPages, setNumberOfPages] = useState(0);
+  const [selectedItem, setSelectedItem] = useState('');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
+  const [items, setItems] = useState([]);
+  const [currentCategory, setCurrentCategory] = useState(null);
+  useEffect(() => {
+    if (currentCategory) {
+      getItemsByFilter(currentCategory, currentPage);
+    } else {
+      getItems(currentPage);
+    }
+  }, [currentPage, currentCategory]);
 
-	const handleCardClick = (item) => {
-		console.log('Item clicked:', item)
-		navigate(`/item_page/${item}`)
-	}
 
-	const handleItemClick = (category) => {
-		setSelectedItem(category)
-		setShowDialog(true)
-		setIsDropdownOpen(false)
-		setCurrentPage(1) // Reset to page 1 when a category is selected
-		setCurrentCategory(category) // Set the current category
-		getItemsByFilter(category, 1) // Fetch items from the first page of this category
-	}
+  const goToItemsPage = () => {
+    navigate('/items');
+  };
 
-	const toggleDropdown = () => {
-		setIsDropdownOpen(!isDropdownOpen)
-		if (isDropdownOpen && !selectedItem) {
-			setShowDialog(false) // Close dialog if no item is selected and dropdown is closing
-		}
-	}
-	const [lowerPrice, setLowerPrice] = useState(10)
-	const [higherPrice, setHigherPrice] = useState(250)
+  const handleCardClick = (item) => {
+    console.log('Item clicked:', item);
+    navigate(`/item_page/${item}`);
+  };
 
-	const increasePrice = (priceType) => {
-		if (priceType === 'lower') {
-			setLowerPrice((prevPrice) => {
-				const newPrice = prevPrice + 10
-				return newPrice <= higherPrice ? newPrice : prevPrice // Prevent lower price from exceeding or equaling higher price
-			})
-		} else if (priceType === 'higher') {
-			setHigherPrice((prevPrice) => prevPrice + 10)
-		}
+  const handleItemClick = (category) => {
+    setSelectedItem(category);
+    setShowDialog(true);
+    setIsDropdownOpen(false);
+    setCurrentPage(1); // Reset to page 1 when a category is selected
+    setCurrentCategory(category); // Set the current category
+    getItemsByFilter(category, 1); // Fetch items from the first page of this category
+  };
 
-		getItems()
-	}
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+    if (isDropdownOpen && !selectedItem) {
+      setShowDialog(false); // Close dialog if no item is selected and dropdown is closing
+    }
+  };
+  const [lowerPrice, setLowerPrice] = useState(10);
+  const [higherPrice, setHigherPrice] = useState(250);
 
-	const decreasePrice = (priceType) => {
-		if (priceType === 'lower') {
-			setLowerPrice((prevPrice) => {
-				const newPrice = prevPrice - 10
-				return newPrice >= 0 && newPrice < higherPrice ? newPrice : prevPrice // Prevent lower price from dropping below 0 or higher price
-			})
-		} else if (priceType === 'higher') {
-			setHigherPrice((prevPrice) => {
-				const newPrice = prevPrice - 10
-				return newPrice > lowerPrice ? newPrice : prevPrice // Prevent higher price from dropping below or equaling lower price
-			})
-		}
+  const increasePrice = (priceType) => {
+    if (priceType === 'lower') {
+      setLowerPrice(prevPrice => {
+        const newPrice = prevPrice + 10;
+        return newPrice <= higherPrice ? newPrice : prevPrice; // Prevent lower price from exceeding or equaling higher price
+      });
+    } else if (priceType === 'higher') {
+      setHigherPrice(prevPrice => prevPrice + 10);
+    }
+  };
 
-		getItems()
-	}
-	const [sortDropdownOpen, setSortDropdownOpen] = useState(false)
-	const [selectedSortItem, setSelectedSortItem] = useState('')
-	const [showSortDialog, setShowSortDialog] = useState(false)
+  const decreasePrice = (priceType) => {
+    if (priceType === 'lower') {
+      setLowerPrice(prevPrice => {
+        const newPrice = prevPrice - 10;
+        return newPrice >= 0 && newPrice < higherPrice ? newPrice : prevPrice; // Prevent lower price from dropping below 0 or higher price
+      });
+    } else if (priceType === 'higher') {
+      setHigherPrice(prevPrice => {
+        const newPrice = prevPrice - 10;
+        return newPrice > lowerPrice ? newPrice : prevPrice; // Prevent higher price from dropping below or equaling lower price
+      });
+    }
+  };
+  const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
+  const [selectedSortItem, setSelectedSortItem] = useState('');
+  const [showSortDialog, setShowSortDialog] = useState(false);
 
-	const toggleSortDropdown = () => {
-		setSortDropdownOpen(!sortDropdownOpen)
-		if (sortDropdownOpen && !selectedSortItem) {
-			setShowSortDialog(false) // Close dialog if no item is selected and dropdown is closing
-		}
-	}
+  const toggleSortDropdown = () => {
+    setSortDropdownOpen(!sortDropdownOpen);
+    if (sortDropdownOpen && !selectedSortItem) {
+      setShowSortDialog(false); // Close dialog if no item is selected and dropdown is closing
+    }
+  };
 
-	const getItems = async (page) => {
-		try {
-			const response = await axios.get(`/home?page=${page}&priceRange=${lowerPrice}-${higherPrice}`)
-			console.log(response.data)
-			setItems(response.data.data) // Update items state
-			setCurrentPage(response.data.currentPage) // Update current page state
-			setNumberOfPages(response.data.numberOfPages) // Update total pages state
-		} catch (error) {
-			console.error('Error fetching items:', error)
-		}
-	}
-	const getItemsByFilter = async (category, page) => {
-		try {
-			if (category === 'Select Category') {
-				getItems(page)
-				return
-			}
-			const response = await axios.get(`/home/tags/${category}?page=${page}`)
-			setItems(response.data)
-			setCurrentPage(1)
-			setNumberOfPages(0)
-		} catch (error) {
-			console.error('Error fetching items:', error)
-		}
-	}
-	// Function to go to the next page
-	const goToPage = (page) => {
-		setCurrentPage(page)
-		if (currentCategory) {
-			getItemsByFilter(currentCategory, page)
-		} else {
-			getItems(page)
-		}
-	}
 
-	const goToNextPage = () => {
-		setCurrentPage((prevCurrentPage) => {
-			const nextPage = prevCurrentPage < numberOfPages ? prevCurrentPage + 1 : prevCurrentPage
-			if (currentCategory) {
-				getItemsByFilter(currentCategory, nextPage)
-			} else {
-				getItems(nextPage)
-			}
-			return nextPage
-		})
-	}
+  const getItems = async (page) => {
+    try {
+      const response = await axios.get(`/home?page=${page}`);
+      console.log(response.data);
+      setItems(response.data.data); // Update items state
+      setCurrentPage(response.data.currentPage); // Update current page state
+      setNumberOfPages(response.data.numberOfPages); // Update total pages state
+    } catch (error) {
+      console.error('Error fetching items:', error);
+    }
+  };
+  const getItemsByFilter = async (category, page) => {
+    try {
+      if (category === "Select Category") {
+        getItems(page)
+        return;
+      }
+      const response = await axios.get(`/home/tags/${category}?page=${page}`);
+      setItems(response.data);
+      setCurrentPage(1);
+      setNumberOfPages(0);
+    } catch (error) {
+      console.error('Error fetching items:', error);
+    }
+  };
+ // Function to go to the next page
+ const goToPage = (page) => {
+  setCurrentPage(page);
+  if (currentCategory) {
+    getItemsByFilter(currentCategory, page);
+  } else {
+    getItems(page);
+  }
+};
 
-	const goToPrevPage = () => {
-		setCurrentPage((prevCurrentPage) => {
-			const prevPage = prevCurrentPage > 1 ? prevCurrentPage - 1 : prevCurrentPage
-			if (currentCategory) {
-				getItemsByFilter(currentCategory, prevPage)
-			} else {
-				getItems(prevPage)
-			}
-			return prevPage
-		})
-	}
+const goToNextPage = () => {
+  setCurrentPage((prevCurrentPage) => {
+    const nextPage = prevCurrentPage < numberOfPages ? prevCurrentPage + 1 : prevCurrentPage;
+    if (currentCategory) {
+      getItemsByFilter(currentCategory, nextPage);
+    } else {
+      getItems(nextPage);
+    }
+    return nextPage;
+  });
+};
 
-	const handleSortChange = (sortType) => {
-		// making API calls, etc.
-		setSelectedSortItem(sortType)
-		setShowSortDialog(true) // Show dialog when item is clicked
-		setSortDropdownOpen(false) // Close dropdown
-	}
+const goToPrevPage = () => {
+  setCurrentPage((prevCurrentPage) => {
+    const prevPage = prevCurrentPage > 1 ? prevCurrentPage - 1 : prevCurrentPage;
+    if (currentCategory) {
+      getItemsByFilter(currentCategory, prevPage);
+    } else {
+      getItems(prevPage);
+    }
+    return prevPage;
+  });
+};
 
-	return (
-		<div>
-			{/* <TopNav vtLogo={vtLogo} goToItemsPage={goToItemsPage} /> */}
-			<div className='btn-group'>
-				<button
-					type='button'
-					className='btn btn-secondary dropdown-toggle'
-					aria-expanded={isDropdownOpen}
-					onClick={toggleDropdown}
-				>
-					{selectedItem || 'Select an option'}
-				</button>
-				<DropdownMenu isDropdownOpen={isDropdownOpen} handleItemClick={handleItemClick} />
-			</div>
 
-			<div className='btn-group'>
-				<ul className={`dropdown-menu${sortDropdownOpen ? ' show' : ''}`}>
-					<li>
-						<a className='dropdown-item' href='#' onClick={() => handleSortChange('Select Sorting')}>
-							Select Sorting
-						</a>
-					</li>
-					<li>
-						<hr className='dropdown-divider' />
-					</li>
-					<li>
-						<a className='dropdown-item' href='#' onClick={() => handleSortChange('Price: Low to High')}>
-							Price: Low to High
-						</a>
-					</li>
-					<li>
-						<a className='dropdown-item' href='#' onClick={() => handleSortChange('Price: High to Low')}>
-							Price: High to Low
-						</a>
-					</li>
-					<li>
-						<a className='dropdown-item' href='#' onClick={() => handleSortChange('Alphabetical: A to Z')}>
-							Alphabetical: A to Z
-						</a>
-					</li>
-					<li>
-						<a className='dropdown-item' href='#' onClick={() => handleSortChange('Alphabetical: Z to A')}>
-							Alphabetical: Z to A
-						</a>
-					</li>
-				</ul>
-			</div>
+const handleSortChange = (sortType) => {
+  // making API calls, etc.
+  setSelectedSortItem(sortType);
+  setShowSortDialog(true); // Show dialog when item is clicked
+  setSortDropdownOpen(false); // Close dropdown
+};
 
-			{/* Update button text to show the current lower price */}
-			<button
-				type='button'
-				className='btn btn-primary'
-				data-bs-toggle='modal'
-				data-bs-target='#rangeModalLowerPrice'
-			>
-				Lower Price: ${lowerPrice}
-			</button>
+  return (
+    <div>
+      {/* <TopNav vtLogo={vtLogo} goToItemsPage={goToItemsPage} /> */}
+      <div className="btn-group">
+        <button type="button" className="btn btn-secondary dropdown-toggle" 
+                aria-expanded={isDropdownOpen}
+                onClick={toggleDropdown}>
+          {selectedItem || "Select an option"}
+        </button>
+        <DropdownMenu isDropdownOpen={isDropdownOpen} handleItemClick={handleItemClick} />
+      </div>
 
-			<PriceModal
-				price={lowerPrice}
-				setPrice={setLowerPrice}
-				increasePrice={() => increasePrice('lower')}
-				decreasePrice={() => decreasePrice('lower')}
-				modalId='rangeModalLowerPrice'
-				title='Set Lower Price'
-			/>
+      <div className="btn-group">
+        <button type="button" className="btn btn-secondary dropdown-toggle"
+                aria-expanded={sortDropdownOpen}
+                onClick={toggleSortDropdown}>
+          {selectedSortItem || "Sort options"}
+        </button>
+        <ul className={`dropdown-menu${sortDropdownOpen ? ' show' : ''}`}>
+        <li><a className="dropdown-item" href="#" onClick={() => handleSortChange('Select Sorting')}>Select Sorting</a></li>
+          <li><hr className="dropdown-divider"/></li>
+          <li><a className="dropdown-item" href="#" onClick={() => handleSortChange('Price: Low to High')}>Price: Low to High</a></li>
+          <li><a className="dropdown-item" href="#" onClick={() => handleSortChange('Price: High to Low')}>Price: High to Low</a></li>
+          <li><a className="dropdown-item" href="#" onClick={() => handleSortChange('Alphabetical: A to Z')}>Alphabetical: A to Z</a></li>
+          <li><a className="dropdown-item" href="#" onClick={() => handleSortChange('Alphabetical: Z to A')}>Alphabetical: Z to A</a></li>
+        </ul>
+      </div>
 
-			<button
-				type='button'
-				className='btn btn-primary'
-				data-bs-toggle='modal'
-				data-bs-target='#rangeModalHigherPrice'
-			>
-				Higher Price: ${higherPrice}
-			</button>
+      {/* Update button text to show the current lower price */}
+      <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rangeModalLowerPrice">
+        Lower Price: ${lowerPrice}
+      </button>
 
-			<PriceModal
-				price={higherPrice}
-				setPrice={setHigherPrice}
-				increasePrice={() => increasePrice('higher')}
-				decreasePrice={() => decreasePrice('higher')}
-				modalId='rangeModalHigherPrice'
-				title='Set Higher Price'
-			/>
+      <PriceModal
+        price={lowerPrice}
+        setPrice={setLowerPrice}
+        increasePrice={() => increasePrice('lower')}
+        decreasePrice={() => decreasePrice('lower')}
+        modalId="rangeModalLowerPrice"
+        title="Set Lower Price"
+      />
 
-			<h1 className='header-selected-item'>{selectedItem}</h1>
+<button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rangeModalHigherPrice">
+        Higher Price: ${higherPrice}
+      </button>
 
-			<br></br>
+      <PriceModal
+        price={higherPrice}
+        setPrice={setHigherPrice}
+        increasePrice={() => increasePrice('higher')}
+        decreasePrice={() => decreasePrice('higher')}
+        modalId="rangeModalHigherPrice"
+        title="Set Higher Price"
+      />
 
-			<div className='container my-4'>
-				<div className='row g-4'>
-					{' '}
-					{/* 'g-4' adds a gap between cards */}
-					{items.map((item, index) => (
-						<div className='col-12 col-sm-6 col-md-4 col-lg-3' key={index}>
-							<Card
-								type={item.type}
-								title={item.title}
-								price={`$${item.price || item.bid}`}
-								location={item.location}
-								imageUrl={item.image}
-								onClick={() => handleCardClick(item._id)}
-							/>
-						</div>
-					))}
-				</div>
-			</div>
-			<div className='pagination'>
-				<button onClick={goToPrevPage} disabled={currentPage === 1}>
-					Previous
-				</button>
-				{/* Render page numbers */}
-				{[...Array(numberOfPages).keys()].map((number) => (
-					<button key={number + 1} onClick={() => goToPage(number + 1)} disabled={currentPage === number + 1}>
-						{number + 1}
-					</button>
-				))}
-				<button onClick={goToNextPage} disabled={currentPage === numberOfPages}>
-					Next
-				</button>
-			</div>
+    <h1 className="header-selected-item">{selectedItem}</h1>
 
-			<Footer />
-		</div>
-	)
+      <br></br>
+      
+<div className="container my-4">
+  <div className="row g-4"> {/* 'g-4' adds a gap between cards */}
+    {items.map((item, index) => (
+      <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={index}>
+        <Card 
+          type={item.type}
+          title={item.title} 
+          price={`$${item.price || item.bid}`} 
+          location={item.location}
+          imageUrl={item.image}
+          onClick={() => handleCardClick(item._id)}
+        />
+      </div>
+    ))}
+  </div>
+</div>
+<div className="pagination">
+        <button onClick={goToPrevPage} disabled={currentPage === 1}>Previous</button>
+        {/* Render page numbers */}
+        {[...Array(numberOfPages).keys()].map(number => (
+          <button
+            key={number + 1}
+            onClick={() => goToPage(number + 1)}
+            disabled={currentPage === number + 1}
+          >
+            {number + 1}
+          </button>
+        ))}
+        <button onClick={goToNextPage} disabled={currentPage === numberOfPages}>Next</button>
+      </div>
+
+      <Footer />
+    </div>
+  );
 }
 
-export default Items
+export default Items;
