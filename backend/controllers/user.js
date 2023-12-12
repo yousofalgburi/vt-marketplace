@@ -102,6 +102,33 @@ export const getCurrentUser = async (req, res) => {
  * @param {*} req
  * 		- req.params.userID 
  * @param {*} res 
+ * 		- 200: User found
+ * 		- 400: No user ID provided
+ * 		- 404: User not found
+ * 		- 500: error.message
+ * @returns 
+ */
+export const getUserByID = async (req, res) => {
+	if (!req.params.userID) { return res.status(400).json({ message: 'No user ID provided' }) }
+	try {
+		const user = await UserModel.findById(req.params.userID);
+		if (!user) {
+			return res.status(404).json({ message: 'User not found' });
+		}
+		user.password = undefined
+		res.status(200).json(user);
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
+}
+
+
+
+/**
+ * 
+ * @param {*} req
+ * 		- req.params.userID 
+ * @param {*} res 
  * 		- 200: User deleted successfully
  * 		- 400: No user ID provided
  * 		- 404: User not found
