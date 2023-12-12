@@ -14,8 +14,8 @@ const BuyItemPage = ({user}) => {
   const [itemId, setItemId] = useState('');
   const [emailVisible, setEmailVisible] = useState(false);
   const [bid, setBid] = useState('');
-  const [itemDetails, setItemDetails] = useState({
-  });
+  const [itemDetails, setItemDetails] = useState({});
+  const [sellerEmail, setSellerEmail] = useState('');
 
   useEffect(() => {
     if(!user){
@@ -36,6 +36,9 @@ const BuyItemPage = ({user}) => {
       const data = response.data;
       console.log('DATA: ', data);
       setItemDetails(data);
+
+      const sellerEmail = (await axios.get(`/user/${data.creator}`)).data.email;
+      setSellerEmail(sellerEmail);
     } catch (error) {
       console.log('Error getting item details:', error);
     }
@@ -48,6 +51,7 @@ const BuyItemPage = ({user}) => {
   const handleBidChange = (e) => {
     setBid(e.target.value);
   };
+
 
   async function submitBid() {
     console.log('Bid submitted:', bid);
@@ -88,6 +92,7 @@ const BuyItemPage = ({user}) => {
           <>
             <p>Current bid: ${itemDetails.bid}</p>
             <p>Bid count: {itemDetails.bidCount}</p>
+            <p>Latest Bidder: {itemDetails.bidderID}</p>
             <input
               type="number"
               value={bid}
@@ -98,9 +103,10 @@ const BuyItemPage = ({user}) => {
           </>
         )}
         <p>Description: {itemDetails.description}</p>
+        <p>Category: {itemDetails.tag}</p>
         <p>Seller: {itemDetails.creator}</p>
         <button onClick={toggleEmailVisibility}>
-          {emailVisible ? 'seller@example.com' : "Show Seller's Email"} {/* Replace with actual email logic */}
+          {emailVisible ? `${sellerEmail}` : "Show Seller's Email"} {/* Replace with actual email logic */}
         </button>
       </div>
       <Footer />
