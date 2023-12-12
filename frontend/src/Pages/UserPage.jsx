@@ -30,6 +30,10 @@ const WelcomePage = ({ user }) => {
       console.error('Error fetching items:', error);
     }
   };
+  const handleCardClick = (item) => {
+    console.log('Item clicked:', item);
+    navigate(`/item_page/${item}`);
+  };
 
   return (
     <div className="welcome-page-container">
