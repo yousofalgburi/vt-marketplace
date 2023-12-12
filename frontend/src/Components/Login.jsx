@@ -43,6 +43,7 @@ function Login({ handleSignIn }) {
       async function GetCurrentUser(){
         await axios.get('/user/currentUser', {withCredentials: true})
           .then(function (response) {
+            localStorage.setItem('user', JSON.stringify(user));
             console.log(response);
           })
           .catch(function (error) {

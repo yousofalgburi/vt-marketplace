@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Card from '../Components/Card';
 
-const WelcomePage = ({ user }) => {
+const UserPage = ({ user }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -52,6 +52,8 @@ const WelcomePage = ({ user }) => {
           location={item.location}
           imageUrl={item.image}
           onClick={() => handleCardClick(item._id)}
+          user = {user}
+          item = {item}
         />
       </div>
     ))}
@@ -61,4 +63,4 @@ const WelcomePage = ({ user }) => {
   );
 };
 
-export default WelcomePage;
+export default UserPage;

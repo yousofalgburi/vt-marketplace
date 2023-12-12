@@ -7,7 +7,7 @@ import Card from '../Components/Card';
 import DropdownMenu from '../Components/CategoryDropdownMenu';
 import axios from 'axios';
 
-function Items() {
+function Items({user}) {
 
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
@@ -299,6 +299,8 @@ function Items() {
             location={item.location}
             imageUrl={item.image}
             onClick={() => handleCardClick(item._id)}
+            user = {user}
+            item = {item}
           />
         </div>
       ))}

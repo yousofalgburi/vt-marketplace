@@ -33,6 +33,7 @@ import SellingLocal from './Components/selling_locally.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserPage from './Pages/UserPage.jsx'
 import UserSettings from './Pages/UserSettings.jsx';
+import UpdateItem from './Pages/UpdateItem.jsx';
 
 function App() {
   const [openLogin, setOpenLogin] = useState(false);
@@ -119,6 +120,7 @@ function App() {
           <Route path="/sell_page" element={<SellItemPage user={user} />} />
           <Route path="/user_page" element={<UserPage user={user} />} />
           <Route path="/user_settings" element={<UserSettings user={user} />} />
+          <Route path="/update_item" element={<UpdateItem/>} />
         </Routes>
         {openLogin && <Login handleSignIn={handleSignIn} setOpenLogin={setOpenLogin} />}
 
