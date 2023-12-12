@@ -11,32 +11,38 @@ import { useParams } from 'react-router-dom';
 const BuyItemPage = ({user}) => {
   // let { itemId } = useParams();
   const navigate = useNavigate();
+  const [itemId, setItemId] = useState('');
   const [emailVisible, setEmailVisible] = useState(false);
   const [bid, setBid] = useState('');
-  const [itemDetails, setItemDetails] = useState({
-  });
+  const [itemDetails, setItemDetails] = useState({});
+  const [sellerEmail, setSellerEmail] = useState('');
 
   useEffect(() => {
     if(!user){
       alert("LogIn/SingUP First")
       navigate("/")
     }
-    async function getItemDetails(itemId) {
-      try {
-        const response = await axios.get(
-          `/home/${itemId}`
-        );
-        const data = response.data;
-        console.log('DATA: ', data);
-        setItemDetails(data);
-      } catch (error) {
-        console.log('Error getting item details:', error);
-      }
-    }
     // Get the item id from the url
     const itemId = window.location.pathname.split('/').pop();
+    setItemId(itemId);
     getItemDetails(itemId);
   }, []); 
+
+  async function getItemDetails(itemId) {
+    try {
+      const response = await axios.get(
+        `/home/${itemId}`
+      );
+      const data = response.data;
+      console.log('DATA: ', data);
+      setItemDetails(data);
+
+      const sellerEmail = (await axios.get(`/user/${data.creator}`)).data.email;
+      setSellerEmail(sellerEmail);
+    } catch (error) {
+      console.log('Error getting item details:', error);
+    }
+  }
 
   const toggleEmailVisibility = () => {
     setEmailVisible(!emailVisible);
@@ -46,9 +52,21 @@ const BuyItemPage = ({user}) => {
     setBid(e.target.value);
   };
 
-  const submitBid = () => {
+
+  async function submitBid() {
     console.log('Bid submitted:', bid);
-  };
+    try{
+      console.log('itemId:', itemId);
+      console.log('bid:', bid);
+      await axios.patch(`/posts/${itemId}/bid`, {bid: bid})
+      getItemDetails(itemId);
+      alert('Bid submitted successfully!');
+    }
+    catch(error){
+      console.log('Error submitting bid:', error);
+      alert(`Error submitting bid: ${error.response.data.message}`);
+    }
+  }
 
   const goToItemsPage = () => {
     navigate('/items');
@@ -72,8 +90,9 @@ const BuyItemPage = ({user}) => {
           <p>Price: ${itemDetails.price}</p>
         ) : (
           <>
-            <p>Current bid: ${itemDetails.price}</p>
+            <p>Current bid: ${itemDetails.bid}</p>
             <p>Bid count: {itemDetails.bidCount}</p>
+            <p>Latest Bidder: {itemDetails.bidderID}</p>
             <input
               type="number"
               value={bid}
@@ -84,9 +103,10 @@ const BuyItemPage = ({user}) => {
           </>
         )}
         <p>Description: {itemDetails.description}</p>
+        <p>Category: {itemDetails.tag}</p>
         <p>Seller: {itemDetails.creator}</p>
         <button onClick={toggleEmailVisibility}>
-          {emailVisible ? 'seller@example.com' : "Show Seller's Email"} {/* Replace with actual email logic */}
+          {emailVisible ? `${sellerEmail}` : "Show Seller's Email"} {/* Replace with actual email logic */}
         </button>
       </div>
       <Footer />
