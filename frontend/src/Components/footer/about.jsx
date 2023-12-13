@@ -1,10 +1,8 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import marketplaceGraphic from '../../assets/marketplace.png';
-import vtLogo from '../../assets/vt.png';
 
-function About() {
-    
+function About() {        
     return (
         <div className="about-page">
             <div className="about-header">
@@ -15,6 +13,7 @@ function About() {
             <div className="about-content">
                 <h3>You can use Marketplace to buy and sell items with fellow Hokies online.</h3> <br></br>
                 <h2>Learn more about:</h2>
+                
                 <ul>
                     <li><NavLink to="/responsibility">Buying and selling responsibly on VT Marketplace.</NavLink></li>
                     <li><NavLink to="/accessibility">Accessing VT Marketplace.</NavLink></li>

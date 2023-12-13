@@ -13,7 +13,6 @@ import buying_items2 from '../assets/buying_items2.png';
 import selling_items from '../assets/selling_items.png';
 import commercePoliciesImg from '../assets/commerce_policy.png';
 import boostedListingsImg from '../assets/boosted_listing.png';
-// You can import NavLink if you need navigation links on your homepage.
 
 function Homepage({user}) {
   const navigate = useNavigate();

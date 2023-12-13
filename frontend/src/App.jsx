@@ -8,6 +8,8 @@ import SignUp from './Components/SignUp.jsx';
 import Login from './Components/Login.jsx';
 import TopNav from './Components/TopNav.jsx';
 import Items from './Pages/Items.jsx';
+import Buying from './Components/Buying.jsx';
+import Blog from './Components/Blog.jsx';
 import Securitas from './Components/Securitas.jsx';
 import Commerce from './Components/Commerce.jsx';
 import BoostedListings from './Components/BoostedListings.jsx';
@@ -34,8 +36,7 @@ import Tips from './Components/tips_safety.jsx';
 
 import UserPage from './Pages/UserPage.jsx'
 import UserSettings from './Pages/UserSettings.jsx';
-import Buying from './Components/Buying.jsx';
-
+import UpdateItem from './Pages/UpdateItem.jsx';
 
 function App() {
   const [openLogin, setOpenLogin] = useState(false);
@@ -97,6 +98,7 @@ function App() {
           <Route path="/login" element={<Login user={user} />} />
           <Route path="/items" element={<Items user={user} />} />
           <Route path="/buying" element={<Buying />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/securitas" element={<Securitas />} />
           <Route path="/commerce" element={<Commerce />} />
           <Route path="/boosted-listings" element={<BoostedListings />} />
@@ -123,6 +125,7 @@ function App() {
           <Route path="/tips_safety" element={<Tips />} />
           <Route path="/user_page" element={<UserPage user={user} />} />
           <Route path="/user_settings" element={<UserSettings user={user} />} />
+          <Route path="/update_item" element={<UpdateItem/>} />
         </Routes>
         {openLogin && <Login handleSignIn={handleSignIn} setOpenLogin={setOpenLogin} />}
 

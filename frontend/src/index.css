@@ -4,9 +4,7 @@
 	font-weight: 400;
 
 	color-scheme: light dark;
-	/* color: rgba(255, 255, 255, 0.87); */
 	color: green;
-	/*background-color: #242424; */
 	background-color: beige;
 
 	font-synthesis: none;
@@ -171,7 +169,7 @@ button:focus-visible {
 	padding: 10px;
 	border: none;
 	border-radius: 4px;
-	background-color: #007bff; /* Bootstrap primary color */
+	background-color: #007bff;
 	color: white;
 	font-size: 16px;
 	cursor: pointer;
@@ -285,8 +283,8 @@ button:focus-visible {
 	background-color: #ccc;
 	border-radius: 50%;
 	position: absolute;
-	right: 20px; /* Adjust as necessary */
-	top: 10px; /* Adjust as necessary */
+	right: 20px;
+	top: 10px;
 }
 
 .benefits-section {
@@ -310,6 +308,112 @@ button:focus-visible {
 	width: 150px; /* Set a fixed width for icons */
 	height: auto; /* Keep aspect ratio */
 	margin-bottom: 10px; /* Add space between icon and text */
+}
+
+.blog-container {
+  font-family: 'Arial', sans-serif; /* Replace with the actual font used */
+}
+
+.blog-header {
+  background-color: gray; /* Replace with the actual color */
+  text-align: center;
+  padding: 20px 0;
+}
+
+.blog-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* This will space out the blog articles if there is space available */
+  align-items: flex-start; /* Aligns the tops of the articles */
+  max-width: 1200px; /* Adjust the max-width to match the content area of your design */
+  margin: auto; /* Centers the section in the page */
+  gap: 20px; /* Adds space between the flex items, if supported by your browser */
+}
+
+.blog-article {
+  width: calc(33.333% - 20px); /* Subtract the gap from the width to maintain the three per row layout */
+  display: flex;
+  flex-direction: column;
+  background: gold;
+  border: 1px solid #eaeaea; /* Adds a slight border */
+  margin-bottom: 20px; /* Space between rows */
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+.blog-article img {
+  width: 100%; /* Ensures the image takes up 100% of its parent width */
+  height: auto; /* Keeps the image aspect ratio */
+  max-height: 200px; /* Maximum height of the image */
+  object-fit: cover; /* Ensures the image covers the area, cropping if necessary */
+}
+
+.article-content {
+  padding: 15px; /* Adds space inside the content area */
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensures that the content area fills the parent's height */
+}
+
+.article-content h2 {
+  font-size: 1em; /* Adjusts the title font size */
+  margin-top: 0.5em; /* Adds a little space on the top */
+  margin-bottom: 0.5em; /* Adds a little space on the bottom */
+}
+
+.article-content p {
+  font-size: 0.9em; /* Adjusts the paragraph font size */
+}
+
+.article-date {
+  font-size: 0.8em; /* Adjusts the date font size */
+  color: #666; /* Adjusts the date color */
+  margin-top: auto; /* Pushes the date to the bottom of the content area */
+  padding-bottom: 0.5em; /* Adds a little space on the bottom */
+}
+
+.blog-footer {
+  background-color: #899caa;
+  color: #fff; /* Set the text color to white */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center the items vertically */
+  justify-content: space-between; /* Space out the text and image */
+  padding: 40px 60px; /* Adjust the padding to your layout */
+  flex-wrap: wrap; /* Allows items to wrap to the next line on small screens */
+}
+
+.blog-footer h2 {
+  margin-left: 250px;
+  padding-bottom: 25px;
+}
+
+.blog-footer p {
+  margin-left: 150px;
+  padding-bottom: 50px;
+}
+
+.blog-footer button {
+  margin-left: 200px;
+  margin-bottom: 50px;
+}
+
+.blog-footer button {
+  background-color: #e7a33e;
+  color: #fff; /* Button text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add padding inside the button */
+  text-transform: uppercase; /* Transform text to uppercase */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  font-size: 1em; /* Adjust button text size */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.blog-footer button:hover {
+  background-color: #cf8b3f;
+}
+
+.happy-people {
+  max-width: 40%;
+  height: auto; /* Keep image aspect ratio */
 }
 
 .buying-section {
@@ -522,12 +626,9 @@ button:focus-visible {
   cursor: pointer;
 }
 
-/* Add any additional styles and responsive design as needed */
-
-
 .search-container {
   position: relative;
-  margin-right: 1em; /* Adjust as necessary */
+  margin-right: 1em;
 }
 
 .search-input {
@@ -572,11 +673,8 @@ button:focus-visible {
   font-size: 0.85em;
 }
 
-/* ... (any additional styles) */
-
-
 .selling-section {
-	background-color: #00a7e1; /* Choose a color that fits the selling section, this is just an example */
+	background-color: #00a7e1;
 	color: white;
 	padding: 40px 20px;
 	text-align: center;
@@ -707,11 +805,11 @@ button:hover {
 }
 
 .resources {
-	font-size: 2.5em; /* Set the font size larger as per your design requirement */
+	font-size: 2.5em;
 }
 
 h2.resources {
-	font-size: 3.5em; /* Set the font size larger as per your design requirement */
+	font-size: 3.5em;
 	color: purple;
 }
 
@@ -745,7 +843,6 @@ h2.resources {
 	text-decoration: underline; /* No underline by default */
 }
 
-/* Since the link color is now light blue, you may want to ensure the text inside the link is also light blue */
 .resource-link h3 {
 	color: black;
 }
@@ -782,10 +879,10 @@ h2.resources {
 
 .footer-nav a {
 	color: white;
-	padding: 10px 16px; /* Adjust padding to match the image */
+	padding: 10px 16px;
 	text-decoration: none;
 	font-size: 14px;
-	margin: 0 10px; /* Add some margin between links */
+	margin: 0 10px;
 }
 
 .footer-nav a:hover,
@@ -794,25 +891,9 @@ h2.resources {
 	color: white;
 }
 
-/*
-.topnav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: maroon;
-  padding: 10px 20px;
-  width: 100%;
-  box-sizing: border-box;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-*/
-
 .footer-links {
 	display: flex;
-	gap: 10px; /* Adjust the space between links as needed */
+	gap: 10px;
 }
 
 .footer-links a {
@@ -845,7 +926,7 @@ h2.resources {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: #f8f8f8; /* Adjust color to match the design */
+	background-color: #f8f8f8;
 	padding: 40px;
 }
 
@@ -854,19 +935,19 @@ h2.resources {
 }
 
 .trust-safety h1 {
-	font-size: 2em; /* Adjust size to match the design */
-	color: #000; /* Adjust color to match the design */
+	font-size: 2em;
+	color: #000;
 	margin-bottom: 20px;
 }
 
 .trust-safety p {
-	font-size: 1em; /* Adjust size to match the design */
-	color: #666; /* Adjust color to match the design */
+	font-size: 1em;
+	color: #666;
 	margin-bottom: 20px;
 }
 
 .trust-safety button {
-	background-color: #0044cc; /* Adjust color to match the design */
+	background-color: #0044cc;
 	color: white;
 	border: none;
 	padding: 10px 20px;
@@ -875,8 +956,7 @@ h2.resources {
 }
 
 .person-image {
-	width: 50%; /* Adjust size to match the design */
-	/* Add more styles for the image position and responsiveness */
+	width: 50%;
 }
 
 .info-section {
@@ -892,30 +972,30 @@ h2.resources {
 }
 
 .info-text {
-	max-width: 600px; /* Adjust width as needed */
+	max-width: 600px;
 }
 
 .info-text h2 {
-	font-size: 24px; /* Adjust to match the design */
+	font-size: 24px;
 	color: #000;
 	margin-bottom: 0.5em;
 }
 
 .info-text p {
-	font-size: 16px; /* Adjust to match the design */
+	font-size: 16px;
 	color: #666;
 	line-height: 1.5;
 }
 
 .info-image {
-	width: 300px; /* Adjust width to match design */
+	width: 300px;
 	height: auto;
 	margin-left: 20px; /* Add space between text and image */
 }
 
 .safe-shopping-header {
 	text-align: center;
-	margin-bottom: 40px; /* Adjust as necessary */
+	margin-bottom: 40px;
 }
 
 .shop-safely {
@@ -932,7 +1012,7 @@ h2.resources {
 }
 
 .safety-icon {
-	height: 60px; /* Adjust size as needed */
+	height: 60px;
 	margin-bottom: 20px; /* Space below the icon */
 }
 
@@ -949,7 +1029,7 @@ h2.resources {
 }
 
 .learn-more {
-	background-color: #0044cc; /* Adjust color to match the design */
+	background-color: #0044cc;
 	color: white;
 	border: none;
 	padding: 10px 20px;
@@ -1488,14 +1568,14 @@ h1.about-header {
 }
 
 .boosting-faqs {
-	background-color: burlywood; /* Adjust color to match the screenshot */
+	background-color: burlywood;
 	padding: 20px;
 	border-top: 1px solid #ccc; /* This creates the line above the FAQ section */
 }
 
 .boosting-faqs h2 {
 	color: #000;
-	font-size: 24px; /* Adjust size to match the screenshot */
+	font-size: 24px;
 	margin-bottom: 20px;
 }
 
@@ -1505,7 +1585,7 @@ h1.about-header {
 	text-align: left;
 	width: 100%;
 	padding: 15px 0;
-	font-size: 18px; /* Adjust size to match the screenshot */
+	font-size: 18px;
 	color: #000;
 	cursor: pointer;
 	position: relative;
@@ -1522,8 +1602,8 @@ h1.about-header {
 	display: none;
 	padding: 0 0 15px 0;
 	border-bottom: 1px solid #ccc; /* This creates the line below each answer when expanded */
-	color: #666; /* Adjust the color to match the screenshot */
-	font-size: 16px; /* Adjust size to match the screenshot */
+	color: #666;
+	font-size: 16px;
 	color: purple;
 }
 
@@ -1532,7 +1612,6 @@ h1.about-header {
 	text-align: left;
 }
 
-/* Plus and Minus icons would need to be added via a web font or SVG. For demonstration, we'll use simple text */
 .icon.plus::before {
 	content: '+'; /* Replace with actual plus icon */
 }
@@ -1699,18 +1778,16 @@ h1.about-header {
 
 .avoid-scams-header {
 	text-align: center;
-	margin-bottom: 40px; /* Adjust as necessary */
+	margin-bottom: 40px;
 }
 
 .avoid-scams {
 	display: flex;
 	flex-direction: column;
-	/*justify-content: space-evenly;*/
 	align-items: flex-start; /* Align to the top */
 }
 
 .scams-content {
-	/*flex-basis: 100%; Adjust as necessary */
 	text-align: center;
 	margin-bottom: 20px; /* Space below the content before the row */
 }
@@ -1732,8 +1809,8 @@ h1.about-header {
 }
 
 .scams-icon {
-	height: 60px; /* Adjust size as needed */
-	margin-bottom: 20px; /* Space below the icon */
+	height: 60px;
+	margin-bottom: 20px;
 }
 
 .scam-info-block h5 {
@@ -1903,7 +1980,6 @@ a:hover {
 	color: #0b0080;
 }
 
-/* index.css */
 .cookies-container {
 	max-width: 1300px;
 	margin: 0 auto;
@@ -2089,7 +2165,7 @@ a:hover {
 
 /* Items.jsx */
 .item-image-container {
-	width: 300px; /* or any other size */
+	width: 300px;
 	height: 200px;
 	border: 1px solid #ccc;
 	display: flex;
@@ -2102,13 +2178,13 @@ a:hover {
 	max-height: 100%;
 }
 .custom-card {
-	height: 400px; /* Adjust the height as needed */
+	height: 400px;
 	display: flex;
 	flex-direction: column;
 }
 
 .custom-card .card-img-top {
-	height: 50%; /* Adjust the image height as needed */
+	height: 50%;
 	object-fit: cover; /* This makes the image cover the allotted space without stretching */
 }
 
@@ -2138,7 +2214,6 @@ a:hover {
 	padding: 1rem; /* Padding inside the card */
 }
 
-/* Styles for the buttons */
 .marketplace-button,
 .buying-buttons button,
 .selling-buttons button {
@@ -2156,18 +2231,19 @@ a:hover {
 	background-color: #9b0014; /* A darker shade for hover */
 }
 
+body {
+	font-family: 'Open Sans', sans-serif; /* Example font */
+}
 .header-selected-item {
-	font-size: 2em; /* Example size, adjust as needed */
-	font-family: 'Arial', sans-serif; /* This is an example, choose what fits your design */
+	font-size: 2em;
+	font-family: 'Arial', sans-serif;
 	color: #333; /* A dark grey, but choose any color that fits your design */
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* A subtle shadow for depth */
-	letter-spacing: 0.05em; /* Adjust spacing to your liking */
+	letter-spacing: 0.05em;
 	text-align: center; /* Center the text, or use left/right */
 	margin: 20px 0; /* Add space above and below the header */
 	padding: 10px; /* Add space inside the header boundaries */
 }
-
-/* Items.jsx */
 
 /* privacy.jsx */
 .privacy-container {
@@ -2322,3 +2398,25 @@ a:hover {
     height: 500px;   /* adjust the height as needed */
     object-fit: contain; /* this will make sure the image is scaled properly within the set dimensions */
 }
+/* Card Icons and Delte and Edit */
+  .card.custom-card {
+	/* ...existing styles... */
+	position: relative; /* This enables absolute positioning relative to the card */
+  }
+  
+  .card-icon-container {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px; /* Adds some space inside the container */
+  }
+  
+  .card-edit-icon,
+  .card-delete-icon {
+	width: 20px; /* Set a fixed size for icons */
+	height: 20px;
+	margin-left: 10px; /* Adds space between the icons */
+	cursor: pointer; /* Changes cursor to pointer when hovering over the icons */
+  }
+  
+  

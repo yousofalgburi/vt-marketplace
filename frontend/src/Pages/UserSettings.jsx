@@ -1,6 +1,8 @@
 import{ useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+// import { response } from 'express';
+import { deleteAuthToken } from '../token';
 
 const UserSettings = ({user}) => {
   const navigate = useNavigate();
@@ -83,13 +85,23 @@ const UserSettings = ({user}) => {
       });
     }
   };
+  async function signOut() {
+		deleteAuthToken()
+		window.location.href = '/'
+	}
 
   const deleteAccount = () => {
     if (window.confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
-      // Placeholder for an API call
-      console.log('Account deletion requested');
-      // TODO: Implement the actual API call
-      navigate('/'); // Redirect to home page or sign-in page after account deletion
+      axios.delete('https://localhost:5000/user/delete')
+      .then ( response => {
+        console.log("User Deleted succesfullly", response.data);
+        alert("User has been deleted succesfully");
+        signOut();
+      })
+      .catch(error => {
+        console.error('Error deleting user', error);
+        alert('There was an error deleting your account');
+      })
     }
   };
 
