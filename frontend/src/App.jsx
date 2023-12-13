@@ -116,7 +116,9 @@ function App() {
           </Routes>
           <br></br> <br></br> <br></br>
           
-          <Footer />
+          <div className="footer">
+            <Footer />
+          </div>
         </BrowserRouter>
         {openLogin && <Login signIn={signIn} closeLogin={setOpenLogin} />}
       </div>

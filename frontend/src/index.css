@@ -868,6 +868,13 @@ h2.resources {
 }
 
 /* Footer styles */
+.footer {
+	position:fixed;
+	left:0;
+	bottom:0;
+	right:0;
+}
+
 .footer-nav {
     display: flex;
     justify-content: space-between;
