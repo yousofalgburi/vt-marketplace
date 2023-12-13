@@ -1,5 +1,5 @@
 // TopNav.js
-import React, { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import '../App.css'
 // import vtLogo from '../assets/vtNew.png'
@@ -13,17 +13,6 @@ const TopNav = ({ user }) => {
 	}, [])
 	const navigate = useNavigate()
 
-	// Function to handle login/logout actions
-	const onAuthClick = () => {
-		if (isLoggedIn) {
-			// If the user is logged in, perform logout operations
-			handleAuthAction('logout')
-			navigate('/home') // Redirect to home after logout
-		} else {
-			// If the user is not logged in, redirect to the sign in page
-			navigate('/login')
-		}
-	}
 	async function signOut() {
 		deleteAuthToken()
 		window.location.href = '/'
@@ -35,10 +24,6 @@ const TopNav = ({ user }) => {
 	}
 	const onSignInClick = () => {
 		navigate('/login')
-	}
-
-	const goToMarketplace = () => {
-		navigate('/items')
 	}
   const goToUserPage = () => {
 		navigate('/user_page')
@@ -61,26 +46,29 @@ const TopNav = ({ user }) => {
 						<NavLink to='/sell_page' activeClassName='active'>
 							Selling
 						</NavLink>
+						
 					)}
 					<NavLink to='/securitas' activeClassName='active'>
 						Trust & Safety
 					</NavLink>
+					{user && (
+						<>
+							<NavLink to='/items' activeClassName='active'>
+								Marketplace
+							</NavLink>
+						</>
+					)}
 				</div>
 
-				<div className='auth-buttons'>
-					{user && (
-						<button onClick={goToMarketplace}>
-							GO TO MARKETPLACE
-						</button>
-					)}
-          {user && (
-            <button onClick={goToUserPage}>{user.fname}</button>
-          )}
-
+				<div className='auth'>
 					{user ? (
-						<button className='auth-button' onClick={signOut}>
-							Log Out
-						</button>
+						<>
+							<button  onClick={goToUserPage}>{user.fname}</button>
+							<button className='auth-button' onClick={signOut}>
+								Log Out
+							</button>
+						</>
+						
 					) : (
 						<>
 							<button className='auth-button' onClick={onSignUpClick}>
