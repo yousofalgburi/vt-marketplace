@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 // import { response } from 'express';
 import { deleteAuthToken } from '../token';
+import '../css/UserSettings.css';
 
 const UserSettings = ({user}) => {
   const navigate = useNavigate();
   useEffect(() => {
     if (!user) {
-      alert("LogIn/SignUp First");
       navigate("/");
     }
   }, [user, navigate]);

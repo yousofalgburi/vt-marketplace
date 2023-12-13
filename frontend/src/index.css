@@ -777,6 +777,15 @@ button:focus-visible {
 	position: relative;
 }
 
+.form-control {
+	display: block;
+	margin-top: 15px;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ced4da;
+	border-radius: 4px;
+}
+
 .dropdown-menu {
 	display: none;
 	position: absolute;
@@ -875,6 +884,13 @@ h2.resources {
 }
 
 /* Footer styles */
+.footer {
+	position:fixed;
+	left:0;
+	bottom:0;
+	right:0;
+}
+
 .footer-nav {
     display: flex;
     justify-content: space-between;
@@ -2089,18 +2105,6 @@ a:hover {
 	margin-left: -1em;
 }
 
-@media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	a:hover {
-		color: #747bff;
-	}
-	button {
-		background-color: #f9f9f9;
-	}
-}
 
 @media (max-width: 771px) {
 	.benefits-section {
@@ -2254,10 +2258,6 @@ a:hover {
 .buying-buttons button:hover,
 .selling-buttons button:hover {
 	background-color: #9b0014; /* A darker shade for hover */
-}
-
-body {
-	font-family: 'Open Sans', sans-serif; /* Example font */
 }
 .header-selected-item {
 	font-size: 2em;

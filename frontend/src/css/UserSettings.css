@@ -1,0 +1,38 @@
+.user-settings-page {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .user-settings-page h2, .user-settings-page h3 {
+    color: #333;
+  }
+  
+  .user-settings-page input[type="text"], .user-settings-page input[type="email"], .user-settings-page input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+  }
+  
+  .user-settings-page button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .user-settings-page button:hover {
+    background-color: #0056b3;
+  }
+  
+  .user-settings-page .delete-account-button {
+    background-color: #dc3545;
+  }
+  
+  .user-settings-page .delete-account-button:hover {
+    background-color: #c82333;
+  }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import DropdownMenu from '../Components/CategoryDropdownMenu';
@@ -14,9 +14,12 @@ const UpdateItem = () => {
         description: '',
         image: '',
         tag: '',
+        price: null,
+        bid: null,
+        type: '',
     });
     
-    const [selectedCategory, setSelectedCategory] = useState('Select Category');
+    const [selectedCategory, setSelectedCategory] = useState('Please Select a Category');
     const handleCategorySelect = (category) => {
         setSelectedCategory(category);
         setUpdatedItem(prevItem => ({ ...prevItem, tag: category }));
@@ -77,9 +80,12 @@ const UpdateItem = () => {
             title: item.title || '',
             description: item.description || '',
             image: item.image || '',
-            tag: item.tag || 'Select Category',
+            tag: item.tag || 'Please Select a Category',
+            price: item.price || null,
+            bid: item.bid || null,
+            type: item.type || '',
         });
-        setSelectedCategory(item.tag || 'Select Category');
+        setSelectedCategory(item.tag || 'Please Select a Category');
         // ... rest of your useEffect that depends on item and user
     }, [user, item, navigate, isLoading]);
 
@@ -146,6 +152,23 @@ const UpdateItem = () => {
           <label>Description:</label>
           <textarea name="description" value={updatedItem.description} onChange={handleChange} required />
         </div>
+        {item.type === 'Price' ?
+          <>
+            <div className="form-group">
+              <label>Price:</label>
+              <input type="number" name="price" value={updatedItem.price} onChange={handleChange} required />
+            </div>
+          </>
+          :
+          <>
+            {item.bidCount === 0 &&
+              <div className="form-group">
+                <label>Starting Bid:</label>
+                <input type="number" name="bid" value={updatedItem.bid} onChange={handleChange} required />
+              </div>
+            }
+          </>
+        }
         <div className="form-group">
           <label>Current Image:</label>
           <input type="file" onChange={handleImageChange} />

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import editIcon from '../assets/edit.png';
 import deleteIcon from '../assets/delete.png';
 import axios from 'axios';
-import { NavLink, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 function Card({ title, price, location, imageUrl, type, onClick, user, item }) {
   const [priceType, setType] = useState('Price');
@@ -23,7 +23,8 @@ function Card({ title, price, location, imageUrl, type, onClick, user, item }) {
         .then(response => {
           console.log('Item deleted:', response.data);
           alert('Item deleted succesfully, redirecting to homepage!');
-          window.location.href = '/';
+          // Refresh the page
+          window.location.reload();
         })
         .catch(error => {
           console.error('There was an error deleting the item:', error);
@@ -48,11 +49,13 @@ function Card({ title, price, location, imageUrl, type, onClick, user, item }) {
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <img src={imageUrl} className="card-img-top" alt={title} />
+        <br /> 
+        <br />
         <h6 className="card-subtitle mb-2 text-muted">{priceType}: {price}</h6>
         <p className="card-text">{location}</p>
       </div>
     </div>
   );
-};
+}
 
 export default Card;

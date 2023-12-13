@@ -5,7 +5,7 @@ const router = express.Router()
 
 export const updatePost = async (req, res) => {
 	const { id } = req.params
-	const { title, description, image, location, price, tag } = req.body
+	const { title, description, image, location, price, tag, bid } = req.body
 
 	if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`)
 
@@ -14,7 +14,12 @@ export const updatePost = async (req, res) => {
 	if(!post) return res.status(404).json({ message: 'Post not found' })
 	if(post.creator !== req.userId) return res.status(401).json({ message: 'Unauthorized' })
 
-	const updatedPost = { title, description, image, location, price, tag, _id: id }
+	const updatedPost = { title, description, image, location, price, bid, tag, _id: id }
+	
+	//if a post has been bid on, you cannot update the bid
+	if(post.type === 'Auction' && post.bidCount > 0) {
+		updatePost.bid = undefined
+	}
 
 	await Post.findByIdAndUpdate(id, updatedPost, { new: true })
 

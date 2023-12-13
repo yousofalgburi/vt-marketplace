@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Card from '../Components/Card';
@@ -8,7 +8,6 @@ const UserPage = ({ user }) => {
 
   useEffect(() => {
     if (!user) {
-      alert("LogIn/SignUp First");
       navigate("/");
     } else {
         getItems()
@@ -19,13 +18,11 @@ const UserPage = ({ user }) => {
     navigate('/user_settings');
   };
   const [items, setItems] = useState([]);
-  const getItems = async (page) => {
+  const getItems = async () => {
     try {
       const response = await axios.get(`/user/posts/${user._id}`);
       console.log(response.data);
       setItems(response.data); // Update items state
-      setCurrentPage(response.data.currentPage); // Update current page state
-      setNumberOfPages(response.data.numberOfPages); // Update total pages state
     } catch (error) {
       console.error('Error fetching items:', error);
     }

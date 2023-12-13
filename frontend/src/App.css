@@ -121,3 +121,15 @@
   background-color: #007bff; /* Highlight color for the active item */
   color: white;
 }
+
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.auth button {
+  background-color: #007bff;
+}

@@ -1,9 +1,8 @@
 // Homepage.jsx
-import React, { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import '../App.css';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import vtLogo from '../assets/vt.png';
-import vtLogo from '../assets/vtNew.png';
 import peopleIcon from '../assets/people.png';
 import freeToUseIcon from '../assets/free-to-use.png';
 import hokiesIcon from '../assets/hokie-bird.png';
@@ -32,20 +31,6 @@ function Homepage({user}) {
   
   return (
     <div className="App">
-      {/* <nav className="topnav">
-        <div className="nav-content">
-          <img src={vtLogo} alt="VT Logo" className="vt-logo" />
-          <NavLink to="/home" activeClassName="active">Home</NavLink>
-          <NavLink to="/blog" activeClassName="active">Blog</NavLink>
-          <NavLink to="/buying" activeClassName="active">Buying</NavLink>
-          <NavLink to="/selling" activeClassName="active">Selling</NavLink>
-          <NavLink to="/securitas" activeClassName="active">Trust & Safety</NavLink>
-        </div>
-        <button className="marketplace-button" onClick={goToItemsPage}>
-          GO TO MARKETPLACE
-        </button>
-      </nav> */}
-      {/* <div><TopNav></TopNav></div> */}
 
       <h1> Discover, buy, and sell goods with the new VT Marketplace App.</h1> <br></br> <br></br>
 
