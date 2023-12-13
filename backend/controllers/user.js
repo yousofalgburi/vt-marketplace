@@ -81,7 +81,11 @@ export const signup = async (req, res) => {
 /**
  * 
  * @param {*} req 
+ * 		- req.userId
  * @param {*} res 
+ * 		- 200: User found
+ * 		- 404: User not found
+ * 		- 500: error.message
  * @returns 
  */
 export const getCurrentUser = async (req, res) => {

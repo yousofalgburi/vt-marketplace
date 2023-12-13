@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import DropdownMenu from '../Components/CategoryDropdownMenu';
@@ -16,7 +16,7 @@ const UpdateItem = () => {
         tag: '',
     });
     
-    const [selectedCategory, setSelectedCategory] = useState('Select Category');
+    const [selectedCategory, setSelectedCategory] = useState('Please Select a Category');
     const handleCategorySelect = (category) => {
         setSelectedCategory(category);
         setUpdatedItem(prevItem => ({ ...prevItem, tag: category }));
@@ -77,9 +77,9 @@ const UpdateItem = () => {
             title: item.title || '',
             description: item.description || '',
             image: item.image || '',
-            tag: item.tag || 'Select Category',
+            tag: item.tag || 'Please Select a Category',
         });
-        setSelectedCategory(item.tag || 'Select Category');
+        setSelectedCategory(item.tag || 'Please Select a Category');
         // ... rest of your useEffect that depends on item and user
     }, [user, item, navigate, isLoading]);
 

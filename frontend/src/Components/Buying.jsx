@@ -24,7 +24,7 @@ function Buying() {
             <div className="buying-hero">
                 <h2>Buying on Marketplace</h2>
                 <p>Learn more about buying things on Hokie Marketplace, where you can find thousands of items for sale by people near you.</p>
-                <button onClick={goToMarketplace}>Go to Marketplace</button>
+                <button onClick={goToMarketplace}>Marketplace</button>
             </div> <br></br> <br></br> <br></br>
 
             <div className="about-marketplace">
@@ -178,7 +178,7 @@ function Buying() {
 
             <div className="buying-footer">
                 <h2>Buy or Sell on Marketplace</h2>
-                <button onClick={goToMarketplace}>Go to Marketplace</button>
+                <button onClick={goToMarketplace}>Marketplace</button>
             </div>
         </div>
     );

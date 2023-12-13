@@ -1,0 +1,51 @@
+/* .profile-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+} */
+
+/* h1, h2, h3 {
+    color: #333;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-bottom: 20px;
+} */
+
+.items-for-sale {
+    text-align: left;
+    margin-bottom: 20px;
+    color: black;
+  }
+
+  .profile-container {
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .profile-container h1, .profile-container h2, .profile-container h3 {
+    color: #333;
+  }
+  
+  .profile-container h1 {
+    margin-bottom: 10px;
+  }
+  
+  .profile-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .profile-container .container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .profile-container .col-12, .profile-container .col-sm-6, .profile-container .col-md-4, .profile-container .col-lg-3 {
+    margin-bottom: 20px;
+  }
+  
