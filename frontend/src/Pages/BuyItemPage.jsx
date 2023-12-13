@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import itemImage from '../assets/placeholderImage.png'; // Replace with the actual image from the itemDetails
-import '../App.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import '../css/BuyItemPage.css';
 
 
 const BuyItemPage = ({user}) => {
@@ -68,13 +68,13 @@ const BuyItemPage = ({user}) => {
     <div>
       <div className="item-container">
         <img className='item-page-image'
-  src={itemDetails.image || itemImage} // First try to load the item image
-  alt={itemDetails.title}
-  onError={(e) => { 
-    e.target.onerror = null; // Prevents future triggers of the onError handler
-    e.target.src = itemImage; // Fallback to the placeholder image if there's an error
-  }}
-/>
+          src={itemDetails.image || itemImage} // First try to load the item image
+          alt={itemDetails.title}
+          onError={(e) => { 
+            e.target.onerror = null; // Prevents future triggers of the onError handler
+            e.target.src = itemImage; // Fallback to the placeholder image if there's an error
+          }}
+        />
         <h1>{itemDetails.title}</h1>
         {itemDetails.type === 'Price' ? (
           <p>Price: ${itemDetails.price}</p>

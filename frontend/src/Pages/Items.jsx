@@ -238,7 +238,7 @@ function Items({user}) {
         <button type="button" className="btn btn-secondary dropdown-toggle"
                 aria-expanded={sortDropdownOpen}
                 onClick={toggleSortDropdown}>
-          {selectedSortItem || "Sort options"}
+          {selectedSortItem || "Select a Sorting Method"}
         </button>
         <ul className={`dropdown-menu${sortDropdownOpen ? ' show' : ''}`}>
         <li><a className="dropdown-item" href="#" onClick={() => handleSortChange('Select Sorting')}>Select Sorting</a></li>
