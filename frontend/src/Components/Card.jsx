@@ -23,7 +23,8 @@ function Card({ title, price, location, imageUrl, type, onClick, user, item }) {
         .then(response => {
           console.log('Item deleted:', response.data);
           alert('Item deleted succesfully, redirecting to homepage!');
-          window.location.href = '/';
+          // Refresh the page
+          window.location.reload();
         })
         .catch(error => {
           console.error('There was an error deleting the item:', error);
