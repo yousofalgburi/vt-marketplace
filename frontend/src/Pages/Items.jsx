@@ -5,6 +5,7 @@ import PriceModal from '../Components/PriceModal';
 import Card from '../Components/Card';
 import DropdownMenu from '../Components/CategoryDropdownMenu';
 import axios from 'axios';
+import '../css/Items.css';
 
 function Items({user}) {
 
@@ -315,7 +316,8 @@ function Items({user}) {
         ))}
         <button onClick={goToNextPage} disabled={currentPage === numberOfPages}>Next</button>
       </div>
-    </div>
+  </div>
+
   );
 }
 
