@@ -51,7 +51,7 @@ const UserPage = () => {
       <h2>Seller email: {user.email}</h2>
       <br />
 
-      <h3>Items for Sale</h3>
+      <h3 className="items-for-sale">Items for Sale</h3>
       <div className="container my-4">
         <div className="row g-4"> {/* 'g-4' adds a gap between cards */}
           {items.map((item, index) => (
