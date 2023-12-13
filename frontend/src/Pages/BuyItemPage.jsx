@@ -3,6 +3,8 @@ import itemImage from '../assets/placeholderImage.png'; // Replace with the actu
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../css/BuyItemPage.css';
+import { Link } from 'react-router-dom';
+
 
 
 const BuyItemPage = ({user}) => {
@@ -94,7 +96,7 @@ const BuyItemPage = ({user}) => {
         )}
         <p>Description: {itemDetails.description}</p>
         <p>Category: {itemDetails.tag}</p>
-        <p>Seller: {itemDetails.creator}</p>
+        <p>Seller: <Link to={`/profile/${itemDetails.creator}`}>{itemDetails.creator}</Link></p>
         <button onClick={toggleEmailVisibility}>
           {emailVisible ? `${sellerEmail}` : "Show Seller's Email"}
         </button>

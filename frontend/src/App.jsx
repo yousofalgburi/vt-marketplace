@@ -34,6 +34,7 @@ import UserPage from './Pages/UserPage.jsx'
 import UserSettings from './Pages/UserSettings.jsx';
 import UpdateItem from './Pages/UpdateItem.jsx';
 import Loading from './Pages/Loading.jsx';
+import SellerPage from './Pages/SellerPage.jsx';
 
 function App() {
   const [openLogin, setOpenLogin] = useState(false);
@@ -111,6 +112,7 @@ function App() {
             <Route path="/user_page" element={<UserPage user={user} />} />
             <Route path="/user_settings" element={<UserSettings user={user} />} />
             <Route path="/update_item" element={<UpdateItem/>} />
+            <Route path="/profile/:id" element={<SellerPage />} />
           </Routes>
           <br></br> <br></br> <br></br>
           
