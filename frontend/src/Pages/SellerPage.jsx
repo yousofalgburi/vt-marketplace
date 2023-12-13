@@ -47,7 +47,7 @@ const UserPage = () => {
 
   return (
     <div className="profile-container">
-      <h1>{user.fname} {user.lname}'s Profile</h1>
+      <h1>{user.fname} {user.lname}</h1>
       <h2>Seller email: {user.email}</h2>
       <br />
 
