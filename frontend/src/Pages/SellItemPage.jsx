@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../App.css';
-import TopNav from '../Components/TopNav';
-import Footer from '../Components/Footer';
 import CategoryDropdownMenu from '../Components/CategoryDropdownMenu';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,13 +9,12 @@ const SellItemPage = ({user}) => {
         console.log("CLICKED USER:", user)
         if(!user){
             console.log(user)
-          alert("LogIn/SingUP First")
           navigate("/")
         }
       });
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('Select Category');
+  const [selectedCategory, setSelectedCategory] = useState('Please Select a Category');
   const [image, setImage] = useState(null);
   const [item, setItem] = useState({
     title: '',
@@ -93,7 +90,6 @@ const handleSubmit = async (e) => {
 
   return (
     <div>
-      {/* <TopNav /> */}
       <div className="sell-item-form-container">
         <form onSubmit={handleSubmit}>
           <h1>List an Item for Sale</h1>
@@ -133,46 +129,8 @@ const handleSubmit = async (e) => {
           <button type="submit">List Item</button>
         </form>
       </div>
-      {/* <Footer /> */}
     </div>
   );
-
-  /*return (
-    <div>
-      <TopNav />
-      <div className="sell-item-form-container">
-        <form onSubmit={handleSubmit}>
-          <h1>List an Item for Sale</h1>
-          <div className="form-group">
-            <label>Title:</label>
-            <input type="text" name="title" value={item.title} onChange={handleChange} required />
-          </div>
-          <div className="form-group">
-            <label>Description:</label>
-            <textarea name="description" value={item.description} onChange={handleChange} required />
-          </div>
-          <div className="form-group">
-            <label>Image:</label>
-            <input type="file" onChange={handleImageUpload} />
-        {item.image && <img src={item.image} alt="Uploaded" />}
-          </div>
-          <div className="form-group">
-            <label>Price:</label>
-            <input type="number" name="price" value={item.price} onChange={handleChange} required />
-          </div>
-          <div className="form-group">
-            <label>Type:</label>
-            <select name="type" value={item.type} onChange={handleChange} required>
-              <option value="Price">Price</option>
-              <option value="Auction">Auction</option>
-            </select>
-          </div>
-          <button type="submit">List Item</button>
-        </form>
-      </div>
-      <Footer />
-    </div>
-  );*/
 };
 
 export default SellItemPage;

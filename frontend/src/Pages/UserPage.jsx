@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Card from '../Components/Card';
 
-const WelcomePage = ({ user }) => {
+const UserPage = ({ user }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!user) {
-      alert("LogIn/SignUp First");
       navigate("/");
     } else {
         getItems()
@@ -19,16 +18,18 @@ const WelcomePage = ({ user }) => {
     navigate('/user_settings');
   };
   const [items, setItems] = useState([]);
-  const getItems = async (page) => {
+  const getItems = async () => {
     try {
       const response = await axios.get(`/user/posts/${user._id}`);
       console.log(response.data);
       setItems(response.data); // Update items state
-      setCurrentPage(response.data.currentPage); // Update current page state
-      setNumberOfPages(response.data.numberOfPages); // Update total pages state
     } catch (error) {
       console.error('Error fetching items:', error);
     }
+  };
+  const handleCardClick = (item) => {
+    console.log('Item clicked:', item);
+    navigate(`/item_page/${item}`);
   };
 
   return (
@@ -48,6 +49,8 @@ const WelcomePage = ({ user }) => {
           location={item.location}
           imageUrl={item.image}
           onClick={() => handleCardClick(item._id)}
+          user = {user}
+          item = {item}
         />
       </div>
     ))}
@@ -57,4 +60,4 @@ const WelcomePage = ({ user }) => {
   );
 };
 
-export default WelcomePage;
+export default UserPage;

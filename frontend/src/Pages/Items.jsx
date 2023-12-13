@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../Components/Footer';
 import PriceModal from '../Components/PriceModal';
 import Card from '../Components/Card';
 import DropdownMenu from '../Components/CategoryDropdownMenu';
 import axios from 'axios';
+import '../css/Items.css';
 
-function Items() {
+function Items({user}) {
 
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const [numberOfPages, setNumberOfPages] = useState(0);
   const [selectedItem, setSelectedItem] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [showDialog, setShowDialog] = useState(false);
+  // const [showDialog, setShowDialog] = useState(false);
   const [items, setItems] = useState([]);
   const [currentCategory, setCurrentCategory] = useState(null);
   const [sortBy, setSortBy] = useState(null);
@@ -42,7 +42,7 @@ function Items() {
 
   const handleItemClick = (category) => {
     setSelectedItem(category);
-    setShowDialog(true);
+    // setShowDialog(true);
     setIsDropdownOpen(false);
     setCurrentPage(1); // Reset to page 1 when a category is selected
     setCurrentCategory(category); // Set the current category
@@ -52,7 +52,7 @@ function Items() {
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
     if (isDropdownOpen && !selectedItem) {
-      setShowDialog(false); // Close dialog if no item is selected and dropdown is closing
+      // setShowDialog(false); // Close dialog if no item is selected and dropdown is closing
     }
   };
   const [lowerPrice, setLowerPrice] = useState(0);
@@ -88,13 +88,10 @@ function Items() {
   };
   const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
   const [selectedSortItem, setSelectedSortItem] = useState('');
-  const [showSortDialog, setShowSortDialog] = useState(false);
 
   const toggleSortDropdown = () => {
     setSortDropdownOpen(!sortDropdownOpen);
-    if (sortDropdownOpen && !selectedSortItem) {
-      setShowSortDialog(false); // Close dialog if no item is selected and dropdown is closing
-    }
+
   };
 
 
@@ -126,8 +123,8 @@ function Items() {
   };
 
 
-  const getItemsByFilter = async (category, page) => {
-    if(category === 'Select Category'){
+  const getItemsByFilter = async (category) => {
+    if(category === 'Please Select a Category'){
       setFilterBy(null);
       setCurrentPage(1);
       return;
@@ -141,7 +138,7 @@ function Items() {
  const goToPage = (page) => {
   setCurrentPage(page);
   if (currentCategory) {
-    getItemsByFilter(currentCategory, page);
+    getItemsByFilter(currentCategory);
   } else {
     getItems(page);
   }
@@ -221,7 +218,6 @@ function Items() {
       setSortBy(null);
     }
     setSelectedSortItem(sortType);
-    setShowSortDialog(true); // Show dialog when item is clicked
     setSortDropdownOpen(false); // Close dropdown
     
     
@@ -234,7 +230,7 @@ function Items() {
         <button type="button" className="btn btn-secondary dropdown-toggle" 
                 aria-expanded={isDropdownOpen}
                 onClick={toggleDropdown}>
-          {selectedItem || "Select an option"}
+          {selectedItem || "Please Select a Category"}
         </button>
         <DropdownMenu isDropdownOpen={isDropdownOpen} handleItemClick={handleItemClick} />
       </div>
@@ -243,7 +239,7 @@ function Items() {
         <button type="button" className="btn btn-secondary dropdown-toggle"
                 aria-expanded={sortDropdownOpen}
                 onClick={toggleSortDropdown}>
-          {selectedSortItem || "Sort options"}
+          {selectedSortItem || "Select a Sorting Method"}
         </button>
         <ul className={`dropdown-menu${sortDropdownOpen ? ' show' : ''}`}>
         <li><a className="dropdown-item" href="#" onClick={() => handleSortChange('Select Sorting')}>Select Sorting</a></li>
@@ -299,6 +295,8 @@ function Items() {
             location={item.location}
             imageUrl={item.image}
             onClick={() => handleCardClick(item._id)}
+            user = {user}
+            item = {item}
           />
         </div>
       ))}
@@ -318,9 +316,8 @@ function Items() {
         ))}
         <button onClick={goToNextPage} disabled={currentPage === numberOfPages}>Next</button>
       </div>
+  </div>
 
-      {/* <Footer /> */}
-    </div>
   );
 }
 
