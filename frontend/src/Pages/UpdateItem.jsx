@@ -14,6 +14,9 @@ const UpdateItem = () => {
         description: '',
         image: '',
         tag: '',
+        price: null,
+        bid: null,
+        type: '',
     });
     
     const [selectedCategory, setSelectedCategory] = useState('Please Select a Category');
@@ -78,6 +81,9 @@ const UpdateItem = () => {
             description: item.description || '',
             image: item.image || '',
             tag: item.tag || 'Please Select a Category',
+            price: item.price || null,
+            bid: item.bid || null,
+            type: item.type || '',
         });
         setSelectedCategory(item.tag || 'Please Select a Category');
         // ... rest of your useEffect that depends on item and user
@@ -146,6 +152,23 @@ const UpdateItem = () => {
           <label>Description:</label>
           <textarea name="description" value={updatedItem.description} onChange={handleChange} required />
         </div>
+        {item.type === 'Price' ?
+          <>
+            <div className="form-group">
+              <label>Price:</label>
+              <input type="number" name="price" value={updatedItem.price} onChange={handleChange} required />
+            </div>
+          </>
+          :
+          <>
+            {item.bidCount === 0 &&
+              <div className="form-group">
+                <label>Starting Bid:</label>
+                <input type="number" name="bid" value={updatedItem.bid} onChange={handleChange} required />
+              </div>
+            }
+          </>
+        }
         <div className="form-group">
           <label>Current Image:</label>
           <input type="file" onChange={handleImageChange} />
