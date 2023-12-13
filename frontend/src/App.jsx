@@ -39,6 +39,22 @@ import SellerPage from './Pages/SellerPage.jsx';
 function App() {
   const [openLogin, setOpenLogin] = useState(false);
   const [signedIn, signIn] = useState(false);
+
+  const handleSignOut = () => {
+    setSignedIn(false);
+    // Perform additional sign-out tasks, e.g., clearing tokens
+  };
+
+  const handleSignIn = (username, password) => {
+    // For now, let's assume if both fields are filled, it's a successful login.
+    if (username && password) {
+      setSignedIn(true);
+      setOpenLogin(false);
+    } else {
+      alert('Please enter both username and password');
+    }
+  };
+
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null)
   axios.defaults.headers.common['Authorization'] =localStorage.getItem('jwtToken')?localStorage.getItem('jwtToken'):'';
