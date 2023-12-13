@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react';
 import itemImage from '../assets/placeholderImage.png'; // Replace with the actual image from the itemDetails
-import vtLogo from '../assets/vtNew.png';
 import '../App.css';
-import TopNav from '../Components/TopNav';
-import Footer from '../Components/Footer';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+
 
 const BuyItemPage = ({user}) => {
   // let { itemId } = useParams();
@@ -19,7 +16,6 @@ const BuyItemPage = ({user}) => {
 
   useEffect(() => {
     if(!user){
-      alert("LogIn/SingUP First")
       navigate("/")
     }
     // Get the item id from the url
@@ -68,15 +64,9 @@ const BuyItemPage = ({user}) => {
     }
   }
 
-  const goToItemsPage = () => {
-    navigate('/items');
-  };
-
   return (
     <div>
-      {/* <TopNav vtLogo={vtLogo} goToItemsPage={goToItemsPage} /> */}
       <div className="item-container">
-        {/* <img src={itemDetails.image} alt={itemDetails.title} /> */}
         <img className='item-page-image'
   src={itemDetails.image || itemImage} // First try to load the item image
   alt={itemDetails.title}
@@ -106,10 +96,9 @@ const BuyItemPage = ({user}) => {
         <p>Category: {itemDetails.tag}</p>
         <p>Seller: {itemDetails.creator}</p>
         <button onClick={toggleEmailVisibility}>
-          {emailVisible ? `${sellerEmail}` : "Show Seller's Email"} {/* Replace with actual email logic */}
+          {emailVisible ? `${sellerEmail}` : "Show Seller's Email"}
         </button>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };

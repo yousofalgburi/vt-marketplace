@@ -2,7 +2,7 @@ import React from 'react';
 
 const CategoryDropdownMenu = ({ isDropdownOpen, handleItemClick }) => {
   const menuItems = [
-    'Select Category',
+    'Please Select a Category',
     'Textbooks and Study Materials',
     'Electronics and Tech Gadgets',
     'Furniture and Home Decor',

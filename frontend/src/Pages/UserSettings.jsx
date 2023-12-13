@@ -8,7 +8,6 @@ const UserSettings = ({user}) => {
   const navigate = useNavigate();
   useEffect(() => {
     if (!user) {
-      alert("LogIn/SignUp First");
       navigate("/");
     }
   }, [user, navigate]);
