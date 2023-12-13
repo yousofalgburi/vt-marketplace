@@ -23,7 +23,7 @@ function Usability() {
                     <h3>It is a Marketplace app for serving the Hokie community.</h3>
                 </div> <br></br>
                 
-                <h2>To access Facebook Marketplace, you must:</h2>
+                <h2>To access VT Marketplace, you must:</h2>
                 <ul>
                     <li>Be at least 18 years old.</li>
                     <li>Reside in Blacksburg and/or be associated with Virgina Tech.</li>

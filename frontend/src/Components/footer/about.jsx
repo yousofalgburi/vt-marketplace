@@ -22,7 +22,7 @@ function About() {
                     <li><NavLink to="/ratings_info">How ratings work on VT Marketplace.</NavLink></li>
                     <li><NavLink to="/tips">Tips for shopping safely and avoiding scams on VT Marketplace.</NavLink></li>
                 </ul> <br></br>
-                <p><b>Keep in mind that items on Marketplace must follow our <a href="/commerce">Commerce Policies</a>.</b></p> <br></br>
+                <p style={{textAlign: 'center'}}><b>Keep in mind that items on Marketplace must follow our <a href="/commerce">Commerce Policies</a>.</b></p> <br></br>
             </div>
 
             <div className="about-footer">

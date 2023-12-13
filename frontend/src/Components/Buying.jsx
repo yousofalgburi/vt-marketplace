@@ -23,7 +23,7 @@ function Buying() {
         <div className="buying-container">
             <div className="buying-hero">
                 <h2>Buying on Marketplace</h2>
-                <p>Learn more about buying things on Hokie Marketplace, where you can find thousands of items for sale by people near you.</p>
+                <p style={{color: 'white', textAlign: 'center'}}>Learn more about buying things on Hokie Marketplace, where you can find thousands of items for sale by people near you.</p>
                 <button onClick={goToMarketplace}>Marketplace</button>
             </div> <br></br> <br></br> <br></br>
 
