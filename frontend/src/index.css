@@ -103,6 +103,17 @@ button:focus-visible {
 	border-radius: 4px; /* Match the border-radius of the active class */
 }
 
+.App button {
+	background-color: maroon;
+	color: orange;
+}
+
+.App button:hover {
+	background-color: #ffffff;
+	color: maroon;
+	text-decoration: underline;
+}
+
 .active {
 	background-color: #0044cc;
 	color: white;
@@ -786,6 +797,11 @@ button:focus-visible {
 	display: block;
 }
 
+.btn-group button{
+	background-color: maroon;
+}
+
+
 .dropdown-divider {
 	border-top: 1px solid #e9ecef;
 }
@@ -866,8 +882,8 @@ h2.resources {
     padding: 3px 20px;
     width: 100%;
     box-sizing: border-box;
-    background-color: #4267b2;
-    color: white;
+    background-color: maroon;
+    color: orange;
     font-size: 0.9em;
     border-top: 1px solid #365899;
     bottom: 0;
@@ -878,7 +894,7 @@ h2.resources {
 
 
 .footer-nav a {
-	color: white;
+	color: orange;
 	padding: 10px 16px;
 	text-decoration: none;
 	font-size: 14px;
@@ -887,8 +903,8 @@ h2.resources {
 
 .footer-nav a:hover,
 .footer-nav a:focus {
-	background-color: #1a1a1a;
-	color: white;
+	background-color: white;
+	color: maroon;
 }
 
 .footer-links {
@@ -1942,9 +1958,17 @@ h1.about-header {
 	line-height: 1.6;
 }
 
+.terms-container button{
+	background-color: maroon;
+}
+
 .terms-header {
 	padding: 20px;
 	text-align: center;
+}
+
+.terms-header h1 {
+	color: maroon;
 }
 
 .terms-content {
@@ -1962,7 +1986,8 @@ h1.about-header {
 }
 
 #top-button {
-	background-color: #003399;
+	background-color: maroon;
+	color: orange;
 }
 
 nav a {
@@ -2245,6 +2270,12 @@ body {
 	padding: 10px; /* Add space inside the header boundaries */
 }
 
+.pagination button {
+	text-align: center;
+	background-color: maroon;
+	margin: auto;
+}
+
 /* privacy.jsx */
 .privacy-container {
 	font-family: Arial, sans-serif;
@@ -2255,7 +2286,7 @@ body {
 }
 
 .privacy-bottom-section button {
-	color: white;
+	color: orange;
 	background-color: maroon;
 	font-size: 20px;
 	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
@@ -2420,3 +2451,33 @@ body {
   }
   
   
+/*UserPage.jsx*/
+.welcome-page-container h1{
+	color: maroon;
+}
+
+.welcome-page-container button {
+	background-color: maroon;
+}
+
+/*UserSettings.jsx*/
+
+.personal-info-section, 
+.password-section,
+.delete-account-section, h3 {
+	color: black;
+	text-decoration: underline;
+}
+
+.personal-info-section button, 
+.password-section button,
+.delete-account-section button {
+	background-color: maroon;
+	color: orange;
+}
+
+.personal-info-section input,
+.password-section input {
+	background-color: white;
+}
+
