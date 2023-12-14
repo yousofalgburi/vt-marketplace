@@ -30,7 +30,7 @@ import Footer from './Components/Footer.jsx';
 import Finding from './Components/finding_things.jsx';
 import SellingLocal from './Components/selling_locally.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Ratings from './Components/ratings.jsx';
+import Ratings from './Components/ratings.jsx'
 import Tips from './Components/tips_safety.jsx';
 
 import UserPage from './Pages/UserPage.jsx'
@@ -132,6 +132,8 @@ function App() {
             <Route path="/user_settings" element={<UserSettings user={user} />} />
             <Route path="/update_item" element={<UpdateItem/>} />
             <Route path="/profile/:id" element={<SellerPage />} />
+            <Route path="/ratings" element={<Ratings />} />
+            <Route path="/tips_safety" element={<Tips />} />
           </Routes>
           <br></br> <br></br> <br></br>
           

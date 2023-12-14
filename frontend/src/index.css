@@ -753,6 +753,10 @@ button:focus-visible {
 	margin-bottom: 30px;
 }
 
+.sell-item-form-container button {
+	background-color: maroon;
+}
+
 .form-group {
 	margin-bottom: 15px;
 }
@@ -2281,8 +2285,13 @@ a:hover {
 	font-family: Arial, sans-serif;
 }
 
+.privacy-container h1 {
+	color: maroon;
+}
+
 .privacy-container p {
 	text-align: left;
+	font-size: 25px;
 }
 
 .privacy-bottom-section button {
@@ -2481,3 +2490,8 @@ a:hover {
 	background-color: white;
 }
 
+/*just to add small space between the buttons and the headers*/
+.delete-account-section h3,
+.password-section h3 {
+	margin-top: 15px;
+}
