@@ -51,13 +51,11 @@ const TopNav = ({ user }) => {
 					<NavLink to='/securitas' activeClassName='active'>
 						Trust & Safety
 					</NavLink>
-					{user && (
-						<>
-							<NavLink to='/items' activeClassName='active'>
-								Marketplace
-							</NavLink>
-						</>
-					)}
+
+					<NavLink to='/items' activeClassName='active'>
+						Marketplace
+					</NavLink>
+
 				</div>
 
 				<div className='auth'>
