@@ -20,7 +20,6 @@ export const getPosts = async (req, res) => {
 	try {
 		const LIMIT = 12
 		const startIndex = (Number(page) - 1) * LIMIT
-		const total = await Post.countDocuments({})
 
 		//parseing sortBy query string
         const sortParams = sortBy ? { [sortBy.split(':')[0]]: sortBy.split(':')[1] === 'desc' ? -1 : 1 } : { createdAt: -1 };
@@ -39,9 +38,12 @@ export const getPosts = async (req, res) => {
             // filterParams.price = { $gte: minPrice, $lte: maxPrice };
 			filterParams[`${priceRangeKey}`] = { $gte: minPrice, $lte: maxPrice };
 		}
-
-
+		const total = await Post.countDocuments(filterParams)
+		console.log(filterParams)
+		console.log(sortParams)
+		console.log(startIndex)
 		const posts = await Post.find(filterParams).sort(sortParams).limit(LIMIT).skip(startIndex)
+		console.log(posts)
 		res.status(200).json({
 			data: posts,
 			currentPage: Number(page),
