@@ -22,7 +22,7 @@ function Card({ title, price, location, imageUrl, type, onClick, user, item }) {
       axios.delete(`/posts/${item._id}`)
         .then(response => {
           console.log('Item deleted:', response.data);
-          alert('Item deleted succesfully, redirecting to homepage!');
+          alert('Item deleted succesfully!');
           // Refresh the page
           window.location.reload();
         })
