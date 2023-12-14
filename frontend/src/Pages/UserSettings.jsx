@@ -52,6 +52,7 @@ const UserSettings = ({user}) => {
           // Handle success
           console.log('Personal information updated:', response.data);
           alert('Your personal information has been updated successfully.');
+          window.location.reload();
         })
         .catch(error => {
           // Handle error
