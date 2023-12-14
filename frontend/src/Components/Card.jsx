@@ -35,7 +35,7 @@ function Card({ title, price, location, imageUrl, type, onClick, user, item }) {
     event.stopPropagation();
     // Confirm with the user
     if (window.confirm('Are you sure you want to edit this item?')) {
-      navigate('/update_item', { state: { item: item, user: user } });
+      navigate(`/update_item/${item._id}` );
   }};
 
   return (

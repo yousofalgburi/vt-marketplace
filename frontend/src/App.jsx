@@ -111,7 +111,7 @@ function App() {
             <Route path="/sell_page" element={<SellItemPage user={user} />} />
             <Route path="/user_page" element={<UserPage user={user} />} />
             <Route path="/user_settings" element={<UserSettings user={user} />} />
-            <Route path="/update_item" element={<UpdateItem/>} />
+            <Route path="/update_item/:id" element={<UpdateItem/>} />
             <Route path="/profile/:id" element={<SellerPage />} />
           </Routes>
           <br></br> <br></br> <br></br>
