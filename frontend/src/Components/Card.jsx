@@ -14,7 +14,8 @@ function Card({ title, price, location, imageUrl, type, onClick, user, item }) {
       setType('Bid');
     }
   }, []);
-  const isCreator = user._id === item.creator;
+  
+  const isCreator = user ? user._id === item.creator : false;
   const handleDelete = () => {
     event.stopPropagation();
     // Confirm with the user
