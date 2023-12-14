@@ -65,10 +65,10 @@ function Terms() {
                                     <li>Provide for your account the same name that you use in everyday life.</li>
                                     <li>Provide accurate information about yourself.</li>
                                     <li>Create only one account (your own) and use it for personal purposes.</li>
-                                    <li>Not share your password, give access to your Facebook account to others, or transfer your account to anyone else (without our permission).</li>
+                                    <li>Not share your password, give access to your VT Marketplace account to others, or transfer your account to anyone else (without our permission).</li>
                                 </ul> <br></br>
                                     
-                                We try to make Facebook broadly available to everyone, but you cannot use Facebook if:
+                                We try to make VT Marketplace broadly available to everyone, but you cannot use VT Marketplace if:
                                 <ul>
                                     <li>You are under 13 years old.</li>
                                     <li>You are a convicted sex offender.</li>
@@ -135,7 +135,7 @@ function Terms() {
                             <b>Account suspension or termination</b>
                             <p>We want VT Marketplace to be a place where people feel welcome and safe to express themselves and share their thoughts and ideas.If we determine, in our discretion,
                                 that you have clearly, seriously or repeatedly breached our Terms or Policies, including in particular the Community Standards, we may suspend or permanently disable
-                                your access to Meta Company Products, and we may permanently disable or delete your account. We may also disable or delete your account if you repeatedly infringe other
+                                your access to VT Marketplace Company Products, and we may permanently disable or delete your account. We may also disable or delete your account if you repeatedly infringe other
                                 people’s intellectual property rights or where we are required to do so for legal reasons.</p>
                             <p>We may disable or delete your account if after registration your account is not confirmed, your account is unused and remains inactive for an extended period of time,
                                 or if we detect someone may have used it without your permission and we are unable to confirm your ownership of the account. Where we take such action we’ll let you know

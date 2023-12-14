@@ -39,7 +39,7 @@ function Cookies() {
                         browser that, amongst other things, helps us protect you from fraud. For example, it helps us identify trusted browsers where you have
                         logged in before.</p>
 
-                    <p>We also use cookies to combat activity that violates our policies or otherwise degrades our ability to provide the Meta Products. For example:
+                    <p>We also use cookies to combat activity that violates our policies or otherwise degrades our ability to provide the VT Marketplace Products. For example:
                         Cookies help us fight spam and phishing attacks by enabling us to identify computers that are used to create large numbers of fake Marketplace
                         accounts. We also use cookies to detect computers infected with malware and to take steps to prevent them from causing further harm. Our "csrf"
                         cookie, for example, helps us prevent cross-site request forgery attacks. The “datr” cookie also helps us to identify the browsers used by
@@ -58,12 +58,12 @@ function Cookies() {
                         across different browsers and devices used by the same person. For example: We can use cookies to prevent you from seeing the same ad over and over
                         again across the different devices that you use. Cookies also allow us to provide insights about the people who use Marketplace Products, as well as
                         the people who interact with the ads, websites and apps of our advertisers and the businesses that use Marketplace Products. We also use cookies,
-                        such as our "oo" cookie, which has a lifespan of 400 days, to help you opt out of seeing ads from Meta based on your activity on third-party websites
-                        about the information we receive, how we decide which ads to show you on and off the Meta Products and the controls that are available to you.</p>
+                        such as our "oo" cookie, which has a lifespan of 400 days, to help you opt out of seeing ads from VT Marketplace based on your activity on third-party websites
+                        about the information we receive, how we decide which ads to show you on and off the VT Marketplace Products and the controls that are available to you.</p>
 
                     <li><b>Site features and services</b></li>
-                        <p>We use cookies to enable the functionality that helps us provide the Meta Products. For example: Cookies help us store preferences, know when you’ve
-                            seen or interacted with Meta Products’ content and provide you with customised content and experiences. For instance, cookies allow us to make
+                        <p>We use cookies to enable the functionality that helps us provide the VT Marketplace Products. For example: Cookies help us store preferences, know when you’ve
+                            seen or interacted with VT Marketplace Products’ content and provide you with customised content and experiences. For instance, cookies allow us to make
                             suggestions to you and others, and to customise content on third-party sites that integrate our social plugins. We use cookies such as the
                             session-based "presence" cookie to support your use of messaging chat windows. We also use cookies to help provide you with content relevant to your
                             locale. For example: We store information in a cookie that is placed on your browser or device so that you will see the site in your preferred language.</p>
@@ -78,7 +78,7 @@ function Cookies() {
 
                     <li>
                         <b>Analytics and Research</b>
-                        <p>We use cookies to better understand how people use the Meta Products so that we can improve them. For example: Cookies can help us understand how people
+                        <p>We use cookies to better understand how people use the VT Marketplace Products so that we can improve them. For example: Cookies can help us understand how people
                             use the Marketplace service, analyse which parts of our Products people find most useful and engaging, and identify features that could be improved.</p>
                     </li>
                 </ol>

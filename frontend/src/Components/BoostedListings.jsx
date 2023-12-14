@@ -20,7 +20,7 @@ function BoostedListings() {
         <div className="boosted-listings-container">
             <div className="boosted-header">
                 <h1>Boosted Listings</h1> <br></br>
-                <p>Reach more potential buyers across Facebook and make your Marketplace items stand out by converting listings to Facebook ads.</p> <br></br>
+                <p>Reach more potential buyers across VT Marketplace and make your Marketplace items stand out by converting listings to VT Marketplace ads.</p> <br></br>
                 <button onClick={getStarted}>Get started</button>
             </div> <br></br> <br></br> <br></br>
 
@@ -89,7 +89,7 @@ function BoostedListings() {
                         <span className={activeIndex === 0 ? "icon minus" : "icon plus"}></span>
                     </button>
                     <div className={`faq-answer ${activeIndex === 0 ? "show" : ""}`}>
-                        They appear in online News Feed like Facebook and Instagram, Marketplace Search, Marketplace Product Detail Pages, Marketplace Browse and Marketplace Category pages.
+                        They appear in online News Feed like VT Marketplace and Instagram, Marketplace Search, Marketplace Product Detail Pages, Marketplace Browse and Marketplace Category pages.
                     </div>
                 </div>
 

@@ -5,12 +5,12 @@ function AvoidingScams() {
         <div className="avoid-scams-container">
             <h1>Avoiding Scams</h1>
             <div className="warning-box">
-                <p>If you see something you think is a scam, you should stop communicating with the buyer or seller and <a href="/report">report the suspected scam</a> to Facebook.</p>
+                <p>If you see something you think is a scam, you should stop communicating with the buyer or seller and <a href="/report">report the suspected scam</a> to VT Marketplace.</p>
             </div> <br></br>
 
             <h2>When talking to buyers and sellers, you should avoid</h2>
             <ul>
-                <li>Communicating with buyers or sellers privately outside of Facebook and Messenger. This may look like:
+                <li>Communicating with buyers or sellers privately outside of VT Marketplace and Messenger. This may look like:
                     <ul>
                         <li>Requests to contact other individuals (example: relatives of the seller) that are not the true owner of the Marketplace account.</li>
                         <li>Users contacting you about a Marketplace listing outside of Marketplace.</li>
