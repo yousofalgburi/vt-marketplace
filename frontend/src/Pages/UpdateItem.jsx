@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import DropdownMenu from '../Components/CategoryDropdownMenu';
 
 const UpdateItem = () => {
     const navigate = useNavigate();
-    const { state } = useLocation();
-    const { item, user } = state || {}; // Default to an empty object if state is undefined
+
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
     const [updatedItem, setUpdatedItem] = useState({
         title: '',
         description: '',
@@ -22,78 +20,36 @@ const UpdateItem = () => {
     const [selectedCategory, setSelectedCategory] = useState('Please Select a Category');
     const handleCategorySelect = (category) => {
         setSelectedCategory(category);
+        setIsDropdownOpen(false);
         setUpdatedItem(prevItem => ({ ...prevItem, tag: category }));
     };
-    useEffect(() => {
-        async function getCurrentUser() {
-            try {
-                // Assuming 'https://localhost:5000/user/currentUser' returns the user data if logged in
-                const response = await axios.get('https://localhost:5000/user/currentUser');
-                if (response.data) {
-                    // User is logged in, we have the user data
-                    setIsLoading(false);
-                } else {
-                    // User is not logged in or session expired
-                    navigate("/login");
-                }
-            } catch (error) {
-                console.error('Error fetching user data: ', error);
-                navigate("/login");
-            }
-        }
-    
-        getCurrentUser();
-    }, [navigate]);
-    async function getCurrentUser() {
-        try {
-            // Assuming 'https://localhost:5000/user/currentUser' returns the user data if logged in
-            const response = await axios.get('https://localhost:5000/user/currentUser');
-            if (response.data) {
-                // User is logged in, we have the user data
-                setIsLoading(false);
-            } else {
-                // User is not logged in or session expired
-                navigate("/login");
-            }
-        } catch (error) {
-            console.error('Error fetching user data: ', error);
-            navigate("/login");
-        }
-    }
 
     useEffect(() => {
-        if (isLoading) return; // Don't do anything while loading
+      const itemID = window.location.pathname.split('/').pop();
+      if (!itemID) {
+        navigate('/');
+      }
+      getItemDetails(itemID);
+    }, []);
 
-        if (!user) {
-            // alert("Please log in to update the item.");
-            // navigate("/login");
-            getCurrentUser();
-            return; // Exit early
-        }
-
-        if (!item) {
-            alert("Error getting item data.");
-            navigate("/");
-            return; // Exit early
-        }
-        setUpdatedItem({
-            title: item.title || '',
-            description: item.description || '',
-            image: item.image || '',
-            tag: item.tag || 'Please Select a Category',
-            price: item.price || null,
-            bid: item.bid || null,
-            type: item.type || '',
-        });
-        setSelectedCategory(item.tag || 'Please Select a Category');
-        // ... rest of your useEffect that depends on item and user
-    }, [user, item, navigate, isLoading]);
-
+  async function getItemDetails(itemID) {
+    await axios.get(`/home/${itemID}`)
+    .then((res) => {
+      if(res.status === 200){
+        return res.data;
+      }
+    })
+    .then((data) => {
+      if(data){
+        setUpdatedItem(data);
+        setSelectedCategory(data.tag);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
   const [imageFile, setImageFile] = useState(null);
-  if (isLoading) {
-    return <div>Loading...</div>; // Or any other loading indicator like a spinner
-}
-
 
   const handleImageChange = (e) => {
     setImageFile(e.target.files[0]);
@@ -120,7 +76,7 @@ const UpdateItem = () => {
       }
 
       try {
-        const response = await axios.patch(`/posts/${item._id}`, {
+        const response = await axios.patch(`/posts/${updatedItem._id}`, {
           ...updatedItem,
           image: imageUrl,
         });
@@ -152,7 +108,7 @@ const UpdateItem = () => {
           <label>Description:</label>
           <textarea name="description" value={updatedItem.description} onChange={handleChange} required />
         </div>
-        {item.type === 'Price' ?
+        {updatedItem.type === 'Price' ?
           <>
             <div className="form-group">
               <label>Price:</label>
@@ -161,7 +117,7 @@ const UpdateItem = () => {
           </>
           :
           <>
-            {item.bidCount === 0 &&
+            {updatedItem.bidCount === 0 &&
               <div className="form-group">
                 <label>Starting Bid:</label>
                 <input type="number" name="bid" value={updatedItem.bid} onChange={handleChange} required />
