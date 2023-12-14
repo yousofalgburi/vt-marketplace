@@ -150,7 +150,7 @@ function Securitas() {
 
                 <div className="faq-item">
                     <button className="faq-question" onClick={() => toggleFAQ(2)}>
-                    How does Purchase Protection work on Facebook?
+                    How does Purchase Protection work on VT Marketplace?
                     <span className="faq-toggle">{activeIndex === 2 ? '−' : '+'}</span>
                     </button>
                     <div className={`faq-answer ${activeIndex === 2 ? 'show' : ''}`}>

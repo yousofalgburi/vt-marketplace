@@ -69,7 +69,7 @@ function MarketplaceHelp() {
                         <p>When you block someone's profile on Hokie Marketplace, that person will no longer be able to chat with you through the Hokie Messaging service. Profiles also won't be notified when you block them.</p>
                         <ol>
                             <li>Switch to the profile that you want to use.</li>
-                            <li>Click your profile picture in the top right of Facebook.</li>
+                            <li>Click your profile picture in the top right of VT Marketplace.</li>
                             <li>Select <b>Settings & privacy</b>, then click <b>Settings</b>.</li>
                             <li>Click <b>Blocking</b> in the left menu.</li>
                             <li>In the <b>Block users</b> section, enter the name of the profile you want to block, then click <b>Block</b>.</li>
@@ -78,7 +78,7 @@ function MarketplaceHelp() {
 
                         <h3>Unblock a profile</h3>
                         <ol>
-                            <li>Click your profile picture in the top right of Facebook.</li>
+                            <li>Click your profile picture in the top right of VT Marketplace.</li>
                             <li>Select <b>Settings & privacy</b>, then click <b>Settings</b>.</li>
                             <li>In the right column, click <b>Privacy</b>.</li>
                             <li>Click <b>Blocking</b>.</li>
