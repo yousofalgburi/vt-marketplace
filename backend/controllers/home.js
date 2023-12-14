@@ -39,11 +39,7 @@ export const getPosts = async (req, res) => {
 			filterParams[`${priceRangeKey}`] = { $gte: minPrice, $lte: maxPrice };
 		}
 		const total = await Post.countDocuments(filterParams)
-		console.log(filterParams)
-		console.log(sortParams)
-		console.log(startIndex)
 		const posts = await Post.find(filterParams).sort(sortParams).limit(LIMIT).skip(startIndex)
-		console.log(posts)
 		res.status(200).json({
 			data: posts,
 			currentPage: Number(page),
